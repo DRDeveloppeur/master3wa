@@ -1,0 +1,51 @@
+<mjml>
+    <mj-head>
+        <mj-title>R&eacute;initialisation de votre mot de passe</mj-title>
+        <mj-attributes>
+            <mj-all font-family="Arial" />
+            <mj-section background-color="white" border-left="1px solid #e7e7e7" border-right="1px solid #e7e7e7" />
+            <mj-class name="red" color="#ed1c24" />
+            <mj-text align="justify" />
+        </mj-attributes>
+    </mj-head>
+    <mj-body background-color="#fafafa">
+        <mj-section padding-top="10px" padding-bottom="0" background-color="#0e0e0e" border-bottom="1px solid #e7e7e7"  border-top="1px solid #e7e7e7">
+            <mj-column width="55%" padding="0" vertical-align="middle">
+                <mj-image src="http://costes.devlcv.fr/COSTES_WEB/photos/ImgMenu/images/common/carre-de-la-mode-logo-mail.png" alt="Carr&eacute; de la mode" />
+            </mj-column>
+            <mj-column width="45%" padding="0 5px" vertical-align="middle">
+                <mj-text color="#fff" line-height="18px" font-weight="bold" align="center" font-size="15px">
+                    R&eacute;initialisation de votre mot de passe
+                </mj-text>
+            </mj-column>
+        </mj-section>
+        
+        <mj-section>
+            <mj-column width="100%">
+                <mj-text>
+                   Bonjour,
+                </mj-text>
+                <mj-text>
+                    Suite &agrave; votre demande sur le site <strong>Carr&eacute; de la mode</strong>, vous trouverez ci-dessous le lien de r&eacute;initialisation de votre mot de passe.
+                </mj-text>
+                <mj-text>
+                    <a href="{{ url('app_reset_password', {token: resetToken.token}) }}" style="color: #ff5733; text-decoration: underline;">{{ url('app_reset_password', {token: resetToken.token}) }}</a>
+                </mj-text>
+                <mj-text>
+                    <p>Ce lien expirera dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.</p>
+                </mj-text>
+                <mj-text>
+                    Pour toute question suppl&eacute;mentaire ou probl&egrave;me technique, n'h&eacute;sitez pas &agrave; nous contacter &agrave; l'adresse : <a href="mailto:contact@carredelamode.com" style="color: #ff5733;">contact@carredelamode.com</a>
+                </mj-text>
+            </mj-column>
+        </mj-section>
+        
+        <mj-section padding="40px 0 20px 0" border-bottom="1px solid #e7e7e7">
+            <mj-column width="100%">
+                <mj-text font-size="10px" align="center" color="#999999">
+                    SARL COSTES CHAUSSURES au Capital de : 300 600&euro; - Si&egrave;ge social : 1 Rue Beaus&eacute;jour 12450 LA PRIMAUBE - T&eacute;l. 05 65 69 79 11<br>SIREN : 313 609 216 - N&deg; TVA : FR 22 313 609 216
+                </mj-text>
+            </mj-column>
+        </mj-section>
+    </mj-body>
+</mjml>

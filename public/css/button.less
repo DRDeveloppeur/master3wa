@@ -1,0 +1,78 @@
+@import "main_variables.less";
+
+.btn {
+    background-color: @w;
+    color: @grey20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: @btn-height;
+    padding: 0 30px;
+    cursor: pointer;
+    transition: all ease-in-out .2s;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: none;
+    border-radius: @btn-radius;
+
+    &.md {
+        width: 100%;
+        max-width: 160px;
+    }
+
+    &.primary {
+        background-color: @color-primary;
+        color: @w;
+
+        &:hover {
+            background-color: lighten(@color-primary, 10);
+        }
+    }
+    &.o-primary {
+        border: 1px solid @color-primary;
+        color: @color-primary;
+
+        &:hover {
+            background-color: @color-primary;
+            color: @w;
+        }
+    }
+    &.white {
+        color: @grey20;
+
+        &:hover {
+            background-color: darken(@w, 10);
+        }
+    }
+    &.o-white {
+        border: 1px solid @grey20;
+        color: @grey20;
+
+        &:hover {
+            background-color: @grey20;
+            color: @w;
+        }
+    }
+    &.black {
+        background-color: @grey20;
+        color: @w;
+
+        &:hover {
+            background-color: lighten(@grey20, 10);
+        }
+    }
+    &.o-black {
+        background-color: @grey20;
+        border: 1px solid @w;
+        color: @w;
+
+        &:hover {
+            background-color: @w;
+            color: @grey20;
+        }
+    }
+    &.dashed {
+        border-style: dashed;
+    }
+}

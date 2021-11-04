@@ -1,0 +1,217 @@
+header {
+  background-color: #0e0e0e;
+}
+header .top-header {
+  background-color: #FFFFFF;
+}
+header .top-header .container a {
+  padding: 10px 0!important;
+  text-decoration: none;
+  text-align: center;
+  transition: color ease-in-out 0.2s;
+  font-size: 12px;
+  font-weight: 400;
+  color: #808080;
+}
+header .top-header .container a:first-child {
+  text-align: start;
+}
+header .top-header .container a:last-child {
+  text-align: end;
+}
+header .top-header .container a:hover {
+  color: #ff5733;
+}
+@media screen and (min-width: 721px) {
+  header .toggle-nav-ctnr {
+    display: none;
+  }
+}
+header .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+}
+header .search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header .search-bar div {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #FFFFFF;
+}
+header .search-bar div input {
+  flex: 1 1 0;
+  border: none;
+  height: 46px;
+  background-color: inherit;
+  color: #999999;
+  font-size: 14px;
+  outline: none;
+}
+header .search-bar div button {
+  background: none;
+  flex: 0 0 46px;
+  height: 46px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header .search-bar div button i {
+  font-size: 19px;
+  color: #FFFFFF;
+}
+header .main-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+}
+header .main-menu div {
+  flex: 1 1 0;
+}
+header .main-menu div a,
+header .main-menu div button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 5px 0;
+  background: none;
+  border: none;
+  transition: all ease-in-out 0.2s;
+  font-size: 14px;
+  font-weight: 600;
+  color: #FFFFFF;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+header .main-menu div a i,
+header .main-menu div button i {
+  transition: all ease-in-out 0.2s;
+  color: #FFFFFF;
+  margin-bottom: 15px;
+  position: relative;
+  font-size: 17px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 41.01px;
+  height: 41.01px;
+}
+header .main-menu div a i::after,
+header .main-menu div button i::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #FFFFFF;
+  transform: rotate(45deg);
+  pointer-events: none;
+  transition: all ease-in-out 0.2s;
+}
+header .main-menu div .details {
+  display: none;
+  opacity: 0;
+  background: #FFFFFF;
+  color: #0d0d0d;
+  border: 1px solid #e5e5e5;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  padding: 15px;
+  width: 300px;
+  z-index: 900;
+  overflow: hidden;
+}
+header .main-menu div:hover a,
+header .main-menu div:hover button {
+  color: #ff5733;
+}
+header .main-menu div:hover a i::after,
+header .main-menu div:hover button i::after {
+  border-color: #ff5733;
+}
+header .main-menu div:hover .details {
+  display: block;
+  opacity: 1;
+}
+nav .nav-block {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav .nav-block .nav-item {
+  cursor: pointer;
+  flex: 1 1 0;
+  padding: 15px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all ease-in-out 0.2s;
+}
+nav .nav-block .nav-item .nav-title {
+  text-transform: uppercase;
+  font-size: 16px;
+  color: #333333;
+  font-weight: 700;
+  transition: color ease-in-out 0.2s;
+}
+nav .nav-block .nav-item .sub-nav {
+  cursor: auto;
+  padding: 15px;
+  z-index: 2;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid red;
+  background-color: #FFFFFF;
+  box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.15);
+}
+nav .nav-block .nav-item .sub-nav .inner {
+  padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
+}
+nav .nav-block .nav-item .sub-nav .inner .group {
+  flex: 0 0 25%;
+}
+nav .nav-block .nav-item .sub-nav .inner .group .title {
+  font-weight: 700;
+}
+nav .nav-block .nav-item .sub-nav .inner .group ul {
+  list-style: none;
+  padding: 0;
+}
+nav .nav-block .nav-item .sub-nav .inner .group ul li a {
+  display: block;
+  color: #333333;
+  width: 100%;
+  padding: 10px 0;
+  transition: color ease-in-out 0.2s;
+}
+nav .nav-block .nav-item .sub-nav .inner .group ul li a:hover {
+  color: #ff5733;
+}
+nav .nav-block .nav-item:hover {
+  background-color: #ff5733;
+}
+nav .nav-block .nav-item:hover .nav-title {
+  color: #FFFFFF;
+}
+nav .nav-block .nav-item:hover .sub-nav {
+  display: block;
+}

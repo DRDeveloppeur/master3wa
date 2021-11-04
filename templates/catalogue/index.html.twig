@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Le Carrée de la mode | Catalogue{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/catalogue.css') }}" />
+{% endblock %}
+
+{% block body %}
+<main id="catalogue">
+    <div class="top-catalogue">
+        {% if imgBanner %}
+            <img src="{{ asset('uploads/category/'+{imgBanner}) }}" alt="{{category.name}}">
+        {% else %}
+            <img src="{{ asset('uploads/top-catalogue-default.jpg') }}" alt="{{category.name}}">
+        {% endif %}
+
+        <div class="inner">
+            <h2>{{ category.name ?? "Touts" }}</h2>
+            <p>{{ category.description }}</p>
+        </div>
+    </div>
+
+    <div class="filters">
+        <div class="history">
+            <p>
+                
+            </p>
+
+            <div class="filter {{ imgBanner ? "shhow" : "hidden"}}">
+
+            </div>
+        </div>
+        <div class="filter-block">
+            <button type="button" class="title" data-collapse="collapseMarques">
+                <p>Marques</p>
+                <i class="far fa-chevron-down"></i>
+            </button>           
+
+            <ul class="list" id="collapseMarques">
+                <li class="ACEBOS" id="ACEBOS" title="ACEBOS">
+                    <a href="">ACEBOS</a>
+                </li>
+                {{ dump(app.request.cookies) }}
+            </ul>      
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="top-content">
+
+        </div>
+
+        <div class="items">
+            {% for product in products %}
+                <div class="item">
+                    <div class="top-item">
+
+                    </div>
+
+                    <a href="{{ path('product_ref', {category: category|lower, ref: product.ref|lower}) }}">
+    
+                        <img src="{{ asset('uploads/product/' ~ product.pictures[0].name) }}" alt="{{ product.name }}">
+    
+                        <p class="label">{{ product.name }}</p>
+                        <p class="ref">{{ product.ref }}</p>
+                        <p class="marque">{{ product.couleur }}</p>
+                        <p class="price">
+                            <span class="old"></span>
+                            <span class="current">{{ product.price|format_currency('EUR') }}</span>
+                        </p>
+    
+                        <div class="sizes">
+                            <p>Disponible en :</p>
+                            <ul>
+                                {% for stock in product.stocks %}
+                                    <li>{{ stock.size }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</main>
+{% endblock %}

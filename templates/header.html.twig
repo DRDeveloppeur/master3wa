@@ -1,0 +1,303 @@
+<header>
+    <div class="top-header">
+        <div class="container">
+            <div class="grid-3-middle-noGutter-spaceBetween">
+                <a href="#" class="col">
+                    <i class="far fa-tshirt"></i>
+                    <i class="far fa-boot"></i>
+                    <span>Prêt-à-porter et chaussures pour toute la famille</span>
+                </a>
+
+                <a href="#" class="col">
+                    <i class="far fa-truck"></i>
+                    <span>Livraison gratuite à partir de XX €</span>
+                </a>
+
+                <a href="#" class="col">
+                    <i class="far fa-shield-check"></i>
+                    <span>Paiement sécurisé</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="grid-4-middle-noGutters-noBottom-spaceBetween">
+            <div class="col-lg-0_md-1_sm-2 toggle-nav-ctnr">
+                <button type="button" class="toggle-nav" title="Menu"><i class="fas fa-bars"></i></button>
+            </div>
+
+            <div class="col-3_sm-4" data-push-right="off-2_md-0">
+                <a class="logo" href="{{ path('home') }}" title="Le carré de la mode">
+                    <img src="/images/common/carre-de-la-mode-logo.jpg" alt="Le carré de la mode">
+                </a>
+            </div>
+
+            <div class="col-2_md-hidden search-ctnr" data-push-right="off-1_md-0">
+                <div class="search-bar">
+                    <form action="{{ path('catalogue', {'query': 'q'}) }}" method="get">
+                        <div>
+                            <input type="text" title="Recherche" name="q" placeholder="Bottines, sneakers...">
+                            <button type="submit" title="Recherche">
+                                <i class="far fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-4_md-6">
+                <div class="main-menu">
+                    <div class="stores">
+                        <a href="#" title="Magasin">
+                            <i class="far fa-map-marker-alt"></i>
+                            <p>Magasins</p>
+                        </a>
+                    </div>
+
+                    <div class="favoris">
+                        <a href="#" title="Favoris">
+                            <i class="far fa-heart"></i>
+                            <p>Favoris</p>
+                        </a>
+                    </div>
+
+                    {% if app.user %}
+                        <div class="account" id="header_connexion">
+                            <a href="{{ path('app_login') }}" title="Admin">
+                                <i class="far fa-user"></i>
+                                {{ app.user.firstname }}
+                            </a>
+                        </div>
+                    {% endif %}
+                    {% if not app.user %}
+                        <div class="account" id="header_connexion">
+                            <a href="{{ path('app_login') }}" title="Connexion">
+                                <i class="far fa-user"></i>
+                                <p>Connexion</p>
+                            </a>
+                        </div>
+                    {% endif %}
+
+                    <div class="cart" id="header_panier">
+                        <a>
+                            <i class="far fa-shopping-bag"></i>
+                            <p>Panier</p>
+                        </a>
+
+                        <div class="details">
+                            <p class="empty">Votre panier est vide</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <div class="container">
+        <div class="nav-header below-LG">
+            <button type="button" class="">
+                Férmer
+            </button>
+        </div>
+        <div class="nav-block">
+            <div class="nav-item">
+                <div class="nav-title">
+                    <a href="{{ path('catalogue', {'q': 'Femme'}) }}">
+                        Femme
+                    </a>
+                </div>
+
+                <div class="sub-nav hover">
+                    <div class="inner">
+                        <div class="group">
+                            <p class="title">Chaussures</p>
+                            <ul>
+                                <li><a href="#">Boots</a></li>
+                                <li><a href="#">Montante</a></li>
+                                <li><a href="#">sandales</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="group">
+                            <p class="title">Vêtements</p>
+                            <ul>
+                                <li><a href="#">Blouson</a></li>
+                                <li><a href="#">Tee-shirt</a></li>
+                                <li><a href="#">Shirt</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="group">
+                            <p class="title">Accèsoires</p>
+                            <ul>
+                                <li><a href="#">Ceinture</a></li>
+                                <li><a href="#">Casquette</a></li>
+                                <li><a href="#">Chaussette</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <div class="nav-title">
+                    <a href="{{ path('catalogue', {'q': 'Homme'}) }}">
+                        Homme
+                    </a>
+                </div>
+
+                <div class="sub-nav hover">
+                    <div class="inner">
+                        <div class="group">
+                            <p class="title">Chaussures</p>
+                            <ul>
+                                <li><a href="#">Boots</a></li>
+                                <li><a href="#">Montante</a></li>
+                                <li><a href="#">sandales</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="group">
+                            <p class="title">Vêtements</p>
+                            <ul>
+                                <li><a href="#">Blouson</a></li>
+                                <li><a href="#">Tee-shirt</a></li>
+                                <li><a href="#">Shirt</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="group">
+                            <p class="title">Accèsoires</p>
+                            <ul>
+                                <li><a href="#">Ceinture</a></li>
+                                <li><a href="#">Casquette</a></li>
+                                <li><a href="#">Chaussette</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-item">
+                <div class="nav-title">
+                    Enfant
+                </div>
+
+                <div class="sub-nav hover">
+                    <div class="inner">
+                        <div class="group">
+                            <p class="title">Chaussures</p>
+                            <ul>
+                                <li><a href="#">Boots</a></li>
+                                <li><a href="#">Montante</a></li>
+                                <li><a href="#">sandales</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="group">
+                            <p class="title">Vêtements</p>
+                            <ul>
+                                <li><a href="#">Blouson</a></li>
+                                <li><a href="#">Tee-shirt</a></li>
+                                <li><a href="#">Shirt</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="group">
+                            <p class="title">Accèsoires</p>
+                            <ul>
+                                <li><a href="#">Ceinture</a></li>
+                                <li><a href="#">Casquette</a></li>
+                                <li><a href="#">Chaussette</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <div class="nav-title">
+                    Marques
+                </div>
+
+                <div class="sub-nav hover">
+                    <div class="inner">
+                        <div class="group">
+                            <p class="title">Chaussures</p>
+                            <ul>
+                                <li><a href="#">Boots</a></li>
+                                <li><a href="#">Montante</a></li>
+                                <li><a href="#">sandales</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="group">
+                            <p class="title">Vêtements</p>
+                            <ul>
+                                <li><a href="#">Blouson</a></li>
+                                <li><a href="#">Tee-shirt</a></li>
+                                <li><a href="#">Shirt</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="group">
+                            <p class="title">Accèsoires</p>
+                            <ul>
+                                <li><a href="#">Ceinture</a></li>
+                                <li><a href="#">Casquette</a></li>
+                                <li><a href="#">Chaussette</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <div class="nav-title">
+                    <a href="{{ path('catalogue', {'promo': 1}) }}">
+                        Promotions
+                    </a>
+                </div>
+
+                <div class="sub-nav hover">
+                    <div class="inner">
+                        <div class="group">
+                            <p class="title">Chaussures</p>
+                            <ul>
+                                <li><a href="#">Boots</a></li>
+                                <li><a href="#">Montante</a></li>
+                                <li><a href="#">sandales</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="group">
+                            <p class="title">Vêtements</p>
+                            <ul>
+                                <li><a href="#">Blouson</a></li>
+                                <li><a href="#">Tee-shirt</a></li>
+                                <li><a href="#">Shirt</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="group">
+                            <p class="title">Accèsoires</p>
+                            <ul>
+                                <li><a href="#">Ceinture</a></li>
+                                <li><a href="#">Casquette</a></li>
+                                <li><a href="#">Chaussette</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+{% for key, flashArray in app.flashes %}
+    {% for message in flashArray %}
+        <div class="alert">
+            <div class="{{key}}" role="alert">{{ message }}</div>
+        </div>
+    {% endfor %}
+{% endfor %}

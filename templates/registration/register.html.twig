@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Le Carrée de la mode | Inscription{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/informations.css') }}" />
+{% endblock %}
+
+{% block body %}
+    <main id="informations" class="log">
+        <div class="container">
+            {% for flashError in app.flashes('verify_email_error') %}
+                <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+            {% endfor %}
+        
+            <h1 class="title-primary">Inscription</h1>
+        
+            {{ form_start(registrationForm) }}
+                <div class="grid-center">
+                    <div class="col-3_sm-12" data-push-left="off-3_sm-0" data-push-right="off-6_sm-0">
+                        <div class="field">
+                            {{ form_row(registrationForm.civility, { label: 'Civilité' }) }}
+                        </div>
+                    </div>
+    
+                    <div class="col-3_sm-12" data-push-left="off-3_sm-0">
+                        <div class="field">
+                            {{ form_row(registrationForm.firstname, { label: 'Nom' }) }}
+                        </div>
+                    </div>
+    
+                    <div class="col-3_sm-12" data-push-right="off-3_sm-0">
+                        <div class="field">
+                            {{ form_row(registrationForm.lastname, { label: 'Prénom' }) }}
+                        </div>
+                    </div>
+    
+                    <div class="col-3_sm-12" data-push-left="off-3_sm-0">
+                        <div class="field">
+                            {{ form_row(registrationForm.address, { label: 'Adresse postale' }) }}
+                        </div>
+                    </div>
+    
+                    <div class="col-3_sm-12" data-push-right="off-3_sm-0">
+                        <div class="field">
+                            {{ form_row(registrationForm.aditional_address, { label: 'Complément d\'asress' }) }}
+                        </div>
+                    </div>
+    
+                    <div class="col-4_sm-12" data-push-left="off-3_sm-0">
+                        <div class="field">
+                            {{ form_row(registrationForm.city, { label: 'Ville' }) }}
+                        </div>
+                    </div>
+    
+                    <div class="col-2_sm-12" data-push-right="off-3_sm-0">
+                        <div class="field">
+                            {{ form_row(registrationForm.zip_code, { label: 'Code postal' }) }}
+                        </div>
+                    </div>
+    
+                    <div class="col-3_sm-12" data-push-left="off-3_sm-0" data-push-right="off-6_sm-0">
+                        <div class="field">
+                            {{ form_row(registrationForm.country, { label: 'Pays' }) }}
+                        </div>
+                    </div>
+    
+                    <div class="col-3_sm-12" data-push-left="off-3_sm-0">
+                        <div class="field">
+                            {{ form_row(registrationForm.phone, { label: 'Téléphone portable' }) }}
+                        </div>
+                    </div>
+    
+                    <div class="col-3_sm-12" data-push-right="off-3_sm-0">
+                        <div class="field">
+                            {{ form_row(registrationForm.home_phone, { label: 'Téléphone fix' }) }}
+                        </div>
+                    </div>
+    
+                    <div class="col-3_sm-12" data-push-left="off-3_sm-0" data-push-right="off-6_sm-0">
+                        <div class="field birth">
+                            {{ form_row(registrationForm.birth, { label: 'Date de naissance' }) }}
+                        </div>
+                    </div>
+
+                    <div class="col-3_sm-12" data-push-left="off-3_sm-0">
+                        <div class="field">
+                            {{ form_row(registrationForm.email) }}
+                        </div>
+                    </div>
+    
+                    <div class="col-3_sm-12" data-push-right="off-3_sm-0">
+                        <div class="field">
+                            {{ form_row(registrationForm.plainPassword) }}
+                        </div>
+                    </div>
+    
+                    <div class="col-center">
+                        {{ form_row(registrationForm.agreeTerms, { label: 'J\'accepte les conditions générales du site' }) }}
+                    </div>
+                    <div class="col-12"></div>
+
+                    <div class="col-12"></div>
+                    <div class="col-center">
+                        <button type="submit" class="btn primary">Register</button>
+                    </div>
+                </div>
+        
+            {{ form_end(registrationForm) }}
+        </div>
+    </main>
+{% endblock %}

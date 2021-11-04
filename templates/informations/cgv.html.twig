@@ -1,0 +1,519 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Le Carrée de la mode | CGV{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/informations.css') }}" />
+{% endblock %}
+
+{% block javascripts %}
+<script type="text/javascript">
+    function scrollToId(id) {
+        document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+    }
+</script>
+{% endblock %}
+
+{% block body %}
+<main id="informations" class="cgv">
+    <div class="container">
+        <h1 class="title-primary">Conditions Générales de Ventes</h1>
+       
+        <div class="grid-2_sm-1">
+            <div class="col-3_sm-hidden">
+                <div class="content">
+                    <h3>Table des matières</h3>
+    
+                    <ul class="sommaire">
+                        <li onclick="scrollToId('identiteDeLentreprise')">Identité de l’entreprise</li>
+                        <li onclick="scrollToId('champDapplication')">Champ d'application</li>
+                        <li onclick="scrollToId('produits')">Produits</li>
+                        <li onclick="scrollToId('commandes')">Commandes</li>
+                        <li onclick="scrollToId('tarifs')">Tarifs</li>
+                        <li onclick="scrollToId('conditionsDePaiement')">Conditions de paiement</li>
+                        <li onclick="scrollToId('securiteDesPaiements')">Sécurité des paiements</li>
+                        <li onclick="scrollToId('retractationEtRetours')">Droit de rétractation et retours</li>
+                        <li onclick="scrollToId('conformiteDuProduit')">Conformité du produit</li>
+                        <li onclick="scrollToId('fraisDePort')">Frais de port en France Métropolitaine et livraison</li>
+                        <li onclick="scrollToId('transport')">Transfert des risques – Transport</li>
+                        <li onclick="scrollToId('utilisation')">Utilisation du site, propriété intellectuelle et responsabilité</li>
+                        <li onclick="scrollToId('garanties')">Garanties légales de conformité et de défaut de la chose vendue</li>
+                        <li onclick="scrollToId('protection')">Protection des données</li>
+                        <li onclick="scrollToId('droit')">Droit applicable et juridiction</li>
+                        <li onclick="scrollToId('execution')">Exécution des présentes</li>
+                        <li onclick="scrollToId('acceptation')">Acceptation du Client</li>
+                        <li onclick="scrollToId('serviceClientele')">Service Clientèle</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-9_sm-12">
+                <h2 id="identiteDeLentreprise">I. Identité de l’entreprise</h2>
+                
+                <p><b>Dénomination sociale :</b> SARL COSTES CHAUSSURES</p>
+                <p>
+                    <b>Siège social : </b>
+                    </p><ul>
+                        <li>1 Rue Beauséjour - 12450 LA PRIMAUBE</li>
+                        <li>N°SIREN : 313 609 216</li>
+                    </ul>
+                <p></p>
+                <p><b>Dirigeant de la société :</b> M. COSTES François</p>
+                <p>
+                    <b>Contact : </b>
+                    </p><ul>
+                        <li>Téléphone : <a href="tel:05 65 69 79 11">05 65 69 79 11</a></li>
+                        <li>Courriel : <a href="mailto:contact@carredelamode.com">contact@carredelamode.com</a></li>
+                    </ul>
+                <p></p>
+
+                <h2 id="champDapplication">II. Champ d’application</h2>
+
+                <p>
+                    Les présentes Conditions Générales de Vente s'appliquent, sans restriction ni réserve à l'ensemble des ventes conclues par la Société COSTES CHAUSSURES auprès d'acheteurs non professionnels, désirant acquérir les produits proposés à la vente par la Société COSTES CHAUSSURES sur son site Internet <a href="https://www.carredelamode.com">www.carredelamode.com</a>. La Société COSTES CHAUSSURES est dénommée ci-après « Carré de la mode » ou la « SARL COSTES CHAUSSURES ». Le « Client » désigne tout acheteur non professionnel souhaitant acquérir un produit proposé à la vente par le Carré de la mode sur son site Internet <a href="https://www.carredelamode.com">www.carredelamode.com</a>.
+                </p>
+                <p>
+                    Ces conditions s'appliquent à l'exclusion de toutes autres conditions, et notamment celles applicables pour les ventes en magasin ou au moyen d'autres circuits de distribution et de commercialisation. Ces Conditions Générales de Vente sont accessibles à tout moment sur ce site Internet et prévaudront, le cas échéant, sur toute autre version ou tout autre document contradictoire. Aucune condition particulière ne peut sauf acceptation formelle préalable et écrite du Carré de la mode, prévaloir contre les présentes Conditions Générales de Vente. Toute condition contraire opposée par le Client, sera donc, à défaut d’acceptation expresse, inopposable au Carré de la mode, quel que soit le moment où elle aurait pu être portée à sa connaissance. Les ratures, griffes, corrections et toute clause supplémentaire, manuscrite ou non, figurant sur les Conditions Générales de Vente du Carré de la mode, ne pourront de ce fait être opposées par le Client.
+                </p>
+                <p>
+                    Les modifications de ces Conditions Générales de Vente sont opposables aux utilisateurs du site Internet <a href="https://www.carredelamode.com">www.carredelamode.com</a>. 
+                </p>
+                <p>La validation de la commande par le Client vaut acceptation sans réserve des présentes Conditions Générales de Vente.</p>
+                <p>Les données enregistrées par le Carré de la mode constituent la preuve de l'ensemble des transactions.</p>
+
+                <h2 id="produits">III. Produits</h2>
+
+                <p>
+                    Les caractéristiques essentielles des produits proposés à la vente sont présentées sur le site <a href="https://www.carredelamode.com">www.carredelamode.com</a>.
+                </p>
+                <p>
+                    Nous apportons tout notre soin à la prise de vue et au rendu chromatique des produits photographiés. Néanmoins le rendu des couleurs pouvant varier d'un écran à un autre, les photos présentées ne sont pas contractuelles.
+                </p>
+
+                <h2 id="commandes">IV. Commandes</h2>
+
+                <p>
+                    Il appartient au Client de sélectionner sur le site Internet <a href="https://www.carredelamode.com">www.carredelamode.com</a> les produits qu'il désire commander, selon les modalités suivantes :
+                </p>
+                <ul>
+                    <li><b>Etape 1 :</b> Choix des articles et ajouts au panier.</li>
+                    <li><b>Etape 2 :</b> Identification sur le site</li>
+                </ul>
+                <p>
+                    Le Client remplira, selon les indications qui lui sont fournies en ligne, un formulaire nécessaire à son identification dans lequel il saisira nom, prénom, numéro de téléphone, adresse postale et électronique et adresse de facturation et de livraison. A cette occasion le Client crée son mot de passe.
+                </p>
+                <p>
+                    Le Client ayant déjà effectué un achat sur le site <a href="https://www.carredelamode.com">www.carredelamode.com</a> peut choisir un mot de passe lui permettant, lors de commandes ultérieures, de ne pas avoir à remplir une nouvelle fois les formulaires, préalables à la passation de la commande.
+                </p>
+                <p>
+                    Le Client déjà inscrit est reconnu sur le site comme étant un Client de <a href="https://www.carredelamode.com">www.carredelamode.com</a>. Le mot de passe dont bénéficie le Client de <a href="https://www.carredelamode.com">www.carredelamode.com</a> est strictement confidentiel et personnel. En aucun cas, il ne doit être divulgué ou communiqué à quiconque.
+                </p>
+                <p>
+                    Dans le cas où le Client de <a href="https://www.carredelamode.com">www.carredelamode.com</a> venait à perdre ou oublier son mot de passe, il peut lancer une procédure de récupération de mot de passe : un mail de réinitialisation est envoyé à son adresse mail avec un lien. En cliquant sur ce lien, le Client peut créer un nouveau mot de passe.
+                </p>
+                <p>
+                    Afin de faciliter l’identification du Client par la fourniture simultanée de l’adresse e-mail et du mot de passe, le Client autorise expressément <a href="https://www.carredelamode.com">www.carredelamode.com</a> à déposer sur le disque dur du Client un fichier dit « cookie » ayant pour unique vocation à faciliter ladite identification. La commande ne peut être enregistrée sur le site que si l’utilisateur s’est clairement identifié.
+                </p>
+                <p>
+                    Si le Client bénéficie d'une offre spéciale, il doit, préalablement saisir un code qui lui aura été attribué dans le champ prévu à cet effet « code promo ».
+                </p>
+                <ul>
+                    <li><b>Etape 3 :</b> Lecture et validation des conditions générales de vente</li>
+                    <li><b>Etape 4 :</b> Choix du mode de livraison</li>
+                    <li><b>Etape 5 :</b> Choix du paiement</li>
+                    <li><b>Etape 6 :</b> Confirmation de la commande et de son paiement</li>
+                </ul>
+                <p>
+                    Le Client valide finalement sa commande en cliquant sur le bouton « Commander ».
+                </p>
+                <p>
+                    La vente ne sera considérée comme définitive qu'après l'envoi au Client de la confirmation de l'acceptation de la commande par le Carré de la mode par courrier électronique et après encaissement par celui-ci de l'intégralité du prix.
+                </p>
+                <p>
+                    Les offres de produits s'entendent dans la limite des stocks disponibles. Les indications sur la disponibilité des produits sont fournies à titre informatif au moment de la passation de la commande. Toutefois, si, exceptionnellement, le produit devient indisponible après validation de la commande, le Client en sera informé par courrier électronique.
+                </p>
+
+                <h2 id="fraisDePort">V. Livraison &amp; frais de port</h2>
+
+                <p>
+                    Une fois la confirmation de commande envoyée, le Client recevra un courrier électronique pour l’avertir que sa commande a été expédiée, ou disponible en retrait dans le magasin choisi.
+                </p>
+                <h3>Livraison uniquement en France métropolitaine.</h3>
+                <p>
+                    Les frais de port varient en fonction du poids de la commande. Ils comprennent les frais d'emballage, de préparation et d'envoi de votre commande. Toute commande passée sur notre site web bénéficie des conditions suivantes :
+                </p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <b>COLISSIMO avec suivi contre signature</b> <br>
+                                Délai moyen de livraison : 48h.
+                            </td>
+                            <td>
+                                <b>MONDIAL RELAY</b> <br>
+                                Délai moyen de livraison : 3j ouvrés
+                            </td>
+                            <td>
+                                RETRAIT EN MAGASIN
+                            </td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">FRAIS DE PORT</td>
+                            <td>De 0 à 59,99€ : 6,90€ TTC /commande. Hors prix soldés, remisés et codes promo.</td>
+                            <td>De 0 à 49,99€ : 4,90 euros TTC / commande. Hors prix soldés, remisés et codes promo.</td>
+                            <td rowspan="2">Gratuit</td>
+                        </tr>
+                        <tr>
+                            <td>Gratuit dès 60€</td>
+                            <td>Gratuit dès 50€</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>LA POSTE – COLISSIMO</h3>
+                <div class="border">
+                    <p>
+                        Les délais de livraison indiqués par COSTES CHAUSSURES s’entendent à partir de la confirmation de commande émise par ses services.
+                    </p>
+                    <p>
+                        Vous devez vérifier la conformité de la marchandise livrée au moment de la livraison et avant de signer le bon de livraison du transporteur.
+                    </p>
+                    <p>
+                        Si au moment de la livraison, l’emballage d’origine est abîmé, déchiré, ouvert, vous devez alors vérifier l’état des articles. S’ils sont endommagés, vous devez impérativement refuser le colis et noter une réserve sur le bordereau de livraison (colis refusé car ouvert ou endommagé).
+                    </p>
+                    <p>
+                        En cas de colis perdu, le délai de traitement d’une enquête par les services postaux est d’environ 4 à 8 semaines. Durant cette enquête, aucune démarche ne pourra être effectuée tant que celle-ci n'est pas clôturée. Dans le cas où le colis est déclaré perdu, alors nous procéderons au remboursement.
+                    </p>
+                    <p>
+                        Ces délais ne sont donnés qu’à titre indicatif et leur dépassement ne peut entraîner, ni annulation de la commande, ni indemnité.
+                    </p>
+                    <p>
+                        Le délai moyen de livraison est de 48h*. *Délai indicatif en jours ouvrables pour les envois en France métropolitaine à partir de l’expédition de la commande.
+                    </p>
+                </div>
+                <h3>MONDIAL RELAY</h3>
+                <div class="border">
+                    <p>
+                        Le client a la possibilité de retirer sa commande dans l’un des 3.800 points de vente MONDIAL RELAY situés en France métropolitaine, Corse comprise. En choisissant le mode de livraison en relais, le client déclare avoir pris connaissance et adhérer sans réserves aux conditions générales de vente de MONDIAL RELAY. Le délai moyen de livraison en relais est de 3 jours ouvrés.
+                    </p>
+                    <p>
+                        Les délais de livraison ne sont donnés qu'à titre indicatif. Un retard éventuel ne donne pas droit à l’acheteur de refuser la marchandise, de demander l’annulation ni de demander une réduction ou encore des dommages et intérêts.
+                    </p>
+                    <p>
+                        Le client est informé par courrier électronique de l’arrivée de son colis en relais. Il dispose d’un délai de 10 jours ouvrés à compter de la date d’envoi du courrier électronique pour venir retirer sa commande, sur présentation d’une pièce d’identité en vigueur. Si le Client ne récupère pas son colis dans le délai imparti alors ce dernier sera retourné dans le Point Relais de départ.
+                    </p>
+                </div>
+
+                <h2 id="tarifs">VI. Tarifs</h2>
+
+                <p>
+                    Les produits sont fournis aux tarifs en vigueur figurant sur le site Internet <a href="https://www.carredelamode.com">www.carredelamode.com</a>, lors de l'enregistrement de la commande par la SARL COSTES CHAUSSURES. Les prix sont exprimés en Euros, TTC. Ces tarifs sont fermes et non révisables pendant leur période de validité, telle qu'indiquée sur le site Internet <a href="https://www.carredelamode.com">www.carredelamode.com</a>.
+                </p>
+                <p>
+                    Ils ne comprennent pas les frais de traitement, d'expédition, de transport et de livraison, qui sont facturés en supplément.
+                </p>
+                <p>
+                    Une facture est établie par COSTES CHAUSSURES et remise au Client lors de la livraison des produits commandés.
+                </p>
+
+                <h2 id="conditionsDePaiement">VII. Conditions de paiement</h2>
+
+                <p>
+                    Le prix est payable comptant, en totalité au jour de la passation de la commande par le Client, par carte bancaire seulement.
+                </p>
+                <p>
+                    Sont acceptées les cartes bancaires Carte Bleue, Visa et MasterCard) directement sur le site, dans le formulaire de paiement proposé lors du processus de commande (saisie sécurisée par cryptage SSL), en renseignant le type de la carte, le numéro de la carte sans espace entre les chiffres, le numéro de contrôle (situé au dos de votre carte) ainsi que la date de validité.
+                </p>
+                <p>
+                    La SARL COSTES CHAUSSURES ne sera pas tenue de procéder à la délivrance des produits commandés par le Client si celui-ci ne lui en paye pas le prix en totalité dans les conditions ci-dessus indiquées.
+                </p>
+
+                <h2 id="securiteDesPaiements">VIII. Sécurité des paiements</h2>
+
+                <p>
+                    Les transactions effectuées sur ce site sont sécurisées par le système de paiement de la Banque Populaire : Systempay. Sont utilisables les cartes présentant le sigle &lt;&lt; CB &gt;&gt; et/ ou portant la marque VISA, EUROCARD ou MASTERCARD acceptées en France et les e-cartes bancaires. Pour le règlement par carte bancaire, le site <a href="https://www.carredelamode.com" target="_blank" rel="noopener noreferrer">www.carredelamode.com</a> vous garantit une parfaite sécurité de paiement grâce à Systempay de la BPOC.
+                </p>
+                <p>
+                    L’ensemble des phases de paiement à réaliser entre l’acheteur et Systempay est entièrement crypté et protégé. Les données relatives à votre numéro de carte bancaire sont cryptées à partir de votre ordinateur et sont transmises ainsi cryptées directement à l’opérateur bancaire, qui les décryptent et gère les autorisations de prélèvements.
+                </p>
+                <p>
+                    Le protocole utilisé est SSL couplé à de la monétique bancaire. Cela signifie que les informations liées à la commande ne circulent pas en clair sur internet.
+                </p>
+                <p>
+                    Pour renforcer la sécurité des transactions, la SARL COSTES CHAUSSURES a mis en place le programme 3D Secure. Il s’agit d’un programme créé par les émetteurs internationaux Visa (verified by visa) et Mastercard (Mastercard Secure Code) afin de renforcer la sécurité des paiements en ligne. En complément des données bancaires, l’acheteur est invité à saisir une donnée personnelle permettant à sa banque de vérifier et de valider l’opération.
+                </p>
+                <p>Les méthodes d’authentification sont propres à chaque banque.</p>
+
+                <h2 id="retractationEtRetours">IX. Droit de rétractation</h2>
+
+                <p>
+                    Conformément aux dispositions de l’article L.221-18 du Code de la consommation, concernant les produits commercialisés sur le site internet <a href="https://www.carredelamode.com">www.carredelamode.com</a>, le CLIENT bénéficie d’un droit de se rétracter sans donner de motif et de renvoyer le(s) produit(s) pendant quatorze (14) jours à compter du jour où vous-même, ou un tiers autre que le transporteur et désigné par vous, prend physiquement possession du bien.
+                </p>
+                <p>
+                    Dans le cas d'une commande portant sur plusieurs biens livrés séparément ou dans le cas d'une commande d'un bien composé de lots ou de pièces multiples dont la livraison est échelonnée sur une période définie, le délai de 14 jours court à compter du jour où vous même ou un tiers autre que le transporteur désigné par vous, prend physiquement possession du dernier bien ou lot ou de la dernière pièce.
+                </p>
+                <p>
+                    En vertu de l’article L.221-28 du Code de la consommation, certains produits sont exclus du droit de rétractation, à savoir : les produits qui ont été descellés par le Client et qui ne peuvent être renvoyés pour des raisons d’hygiène ou de protection de la santé. Sont donc exclus : les produits de protection et de confort (semelles, anti-glissoirs, talonnettes, etc.).
+                </p>
+                <p>
+                    En cas de rétractation, le Client est tenu de retourner le ou les Produits s'il les a reçus physiquement. Les frais de retours restent à la charge du client sauf accord préalable de nos services (Article L.221-23).
+                </p>
+                <p>
+                    Le Client est remboursé des sommes versées du ou des produits retournés uniquement et ce, au plus tard dans les 14 jours à compter de la date à laquelle il a informé la SARL COSTES CHAUSSURES de sa décision de rétractation.
+                </p>
+                <p>
+                    Le remboursement sera réalisé en utilisant le même moyen de paiement que celui utilisé par le Client pour la transaction initiale, à savoir par transaction bancaire uniquement.
+                </p>
+                <p>
+                    Pour notifier à la SARL COSTES CHAUSSURES de votre décision de rétractation du présent contrat, vous devez le faire au moyen d’une déclaration dénuée d’ambiguïté, par exemple par la Poste (1 Rue Beauséjour – 12450 La Primaube) ou courriel (contact@carredelamode.com). Vous pouvez utiliser le modèle de formulaire de rétractation ci-dessous :
+                </p>
+                <p style="text-align: end;">
+                    A l'attention de la SARL COSTES CHAUSSURES,
+                </p>
+                <p style="text-align: end;">
+                    1 Rue Beauséjour – 12450 La Primaube
+                </p>
+                <p>
+                    Madame, Monsieur,
+                </p>
+                <p>
+                    Le <i>(date)</i>, je vous ai passé une commande par Internet et j’en ai pris livraison le <i>(date)</i>.
+                </p>
+                <p>
+                    Conformément à l’article L. 221-18 du code de la consommation, je vous informe que je souhaite exercer mon droit de rétractation concernant cette commande et je vous la retournerai dans les quatorze jours à venir.
+                </p>
+                <p>
+                    Je vous prie de bien vouloir me rembourser la somme de (…) euros que je vous ai réglée par carte bancaire.
+                </p>
+                <p>
+                    Vous en remerciant, je vous prie d’agréer, Madame, Monsieur, l’expression de mes salutations distinguées.
+                </p>
+                <p><i>(Signature)</i></p>
+
+                <h2 id="transport">X. Retours du (des) produit(s)</h2>
+
+                <p>
+                    Si vous souhaitez retourner un article, vous disposez d'un délai de 14 jours court. Ce délai de 14 jours court à compter du jour où vous-même ou un tiers autre que le transporteur désigné par vous, prend physiquement possession du dernier bien ou lot ou de la dernière pièce.
+                </p>
+                <p>
+                    Il est vivement conseillé au Client, afin de faciliter la gestion des retours et des remboursements, de suivre l’une des procédures suivantes :
+                </p>
+                <ul>
+                    <li>
+                        <b><u>Option 1 : Retour via le site internet :</u></b>
+                        <ul>
+                            <li>Faire une demande de retour en se connectant sur son compte dans l’onglet « Suivi de commande ».</li>
+                            <li>Contacter la SARL COSTES CHAUSSURES via le formulaire de contact en lui fournissant les informations de la commande.</li>
+                        </ul>
+                    </li>
+                    <p>Lorsque la demande de retour a été effectuée, vous pouvez renvoyer le(s) produit(s) par :</p>
+                    <ul>
+                        <li>La Poste : SARL COSTES CHAUSSURES – 1 Rue Beauséjour – 12450 La Primaube</li>
+                        <li>Le point relais : MAISON DE LA PRESSE BOULOC – 25, Av. de Toulouse – 12450 La Primaube</li>
+                    </ul>
+                    <p>
+                        <b>Les frais de retour pour une demande de remboursement ou pour un échange d'article(s) sont à la charge du Client.</b>
+                    </p>
+                    <li>
+                        <b><u>Option 2 : Retour en magasin</u></b>
+                    </li>
+                </ul>
+                <p>
+                    Vous pouvez, si vous le souhaitez, venir directement en magasin pour nous restituer le(s) produit(s) commandé(s) sur notre site.
+                </p>
+                <div class="border">
+                    <p>
+                        Les Produits retournés doivent être neufs et non utilisés, ils sont à restituer dans leur(s) emballage(s) d’origine et complets (étiquettes, emballages, accessoires éventuels, etc.). Les boîtes à chaussures ne doivent comporter ni scotch ni aucune inscription.
+                    </p>
+                    <p>
+                        Tout Produit porté, dégradé, sans sa boîte d’origine ou dont l’étiquette aura été arrachée, ne pourra en aucun cas faire l’objet d’un remboursement. Si les produits retournés ont été visiblement utilisés ou endommagés par le Client et que cette utilisation ou ces dommages les rendent impropres à la vente, la SARL COSTES CHAUSSURES pourra exercer toutes actions de recouvrement correspondantes auprès du Client ou vous renverra le(s) produit(s) à votre domicile et annulera votre demande de remboursement ou d'échange.
+                    </p>
+                </div>
+
+                <h2>XI. Échanges du (des) produit(s)</h2>
+
+                <p>En cas d’échange d’un produit :</p>
+                <ul>
+                    <li><b><u>Option 1 : via le site internet :</u></b></li>
+                </ul>
+                <p>
+                    Pour effectuer un retour pour échange via notre site internet, le Client devra retourner sa commande (Voir procédure « Retour du (des) produit(s) ») puis devra recommander le(s) produit(s) souhaité(s).
+                </p>
+                <ul>
+                    <li><b><u>Option 2 : Echange en magasin</u></b></li>
+                </ul>
+                <p>
+                    Pour effectuer un retour pour échange en magasin, le Client doit se présenter en caisse de l’un de nos magasins avec le ou les articles accompagné(s) de la facture d’achat correspondante jointe dans le colis.
+                </p>
+                <p>
+                    Après vérification de la marchandise, il pourra soit échanger l’article contre le même d’une autre taille (sans majoration ni coût supplémentaire), ou s'il le souhaite, par tout autre Produit du magasin en fonction des stocks disponibles.
+                </p>
+                <p>
+                    Le Client dispose d’un délai de 30 jours, à compter de la réception de sa commande, pour échanger le(s) produit(s) dans un de nos magasins.
+                </p>
+
+                <h2>XII. Remboursement</h2>
+
+                <p>
+                    <b>Tous les remboursements seront reversés sur le compte bancaire duquel le virement a été effectué.</b>
+                </p>
+                <p>En cas d’échanges par tout autre article en magasin :</p>
+                <ul>
+                    <li>Si le prix est identique, le Client n’aura donc rien à payer ;</li>
+                    <li>Si le prix est supérieur, il devra payer la différence entre le Produit retourné et le nouveau Produit ;</li>
+                    <li>Si le prix est inférieur, le Client sera remboursé de la différence sous forme d’un avoir valable uniquement en magasins.</li>
+                </ul>
+
+                <h2 id="conformiteDuProduit">XIII. Conformité du produit</h2>
+
+                <p>
+                    Les renseignements mentionnés sur chaque fiche de produits vendus sur le site <a href="https://www.carredelamode.com">www.carredelamode.com</a> sont ceux communiqués par les fournisseurs de <a href="https://www.carredelamode.com">www.carredelamode.com</a>.
+                </p>
+                <p>
+                    Nous apportons tout notre soin à la prise de vue et au rendu chromatique des produits photographiés. Néanmoins le rendu des couleurs peut varier d'un écran à un autre.
+                </p>
+                <p>En cas de non-conformité du produit livré au Client, celui-ci pourra demander :</p>
+                <ul>
+                    <li>Le remplacement du produit identique à celui commandé, dans la limite des stocks disponibles,</li>
+                    <li>Le remboursement du prix du produit dans un délai de 30 jours suivant la demande du Client.</li>
+                </ul>
+                <p>
+                    Pour l’une ou l’autre de ces opérations, les conditions d'exécution sont les mêmes que pour les paragraphes <b style="font-size: 18px;">« X. Retour du (des) produit(s) | XI. Échanges du (des) produit(s) &amp; XII. Remboursement »</b>
+                </p>
+
+                <h2 id="utilisation">XIV. Utilisation du site, propriété intellectuelle et responsabilité</h2>
+
+                <p>
+                    Le Site et son Contenu sont destinés aux Clients de <a href="https://www.carredelamode.com">www.carredelamode.com</a>.
+                </p>
+                <p>
+                    Vous n'êtes pas autorisé à utiliser ce Site ou son Contenu autrement que dans le cadre de l’achat de produits avec <a href="https://www.carredelamode.com">www.carredelamode.com</a>. Toute utilisation non autorisée par les présentes de ce Site, de son Contenu ou de ses fonctionnalités peut entraîner l'annulation immédiate de tout nom d'utilisateur, mot de passe ou autre autorisation accordés par la SARL COSTES CHAUSSURES pour l'utilisation dudit Site.
+                </p>
+                <p>
+                    Tous les éléments du site <a href="https://www.carredelamode.com">www.carredelamode.com</a>, qu'ils soient visuels ou sonores, y compris la technologie sous-jacente, sont protégés par le droit d'auteur, des marques ou des brevets. Ils sont la propriété exclusive de la SARL COSTES CHAUSSURES.
+                </p>
+                <p>
+                    Dans tous les cas, tout lien, même tacitement autorisé, devra être retiré sur simple demande de la SARL COSTES CHAUSSURES.
+                </p>
+                <p>
+                    Tous les textes, commentaires, ouvrages, illustrations et images reproduits sur <a href="https://www.carredelamode.com">www.carredelamode.com</a> sont réservés au titre du droit d'auteur ainsi qu'au titre de la propriété intellectuelle et pour le monde entier. A ce titre et conformément aux dispositions du code de la propriété intellectuelle, seule est autorisée l'utilisation pour un usage privé, sous réserve de dispositions différentes, voire plus restrictives du code de la propriété intellectuelle. Toute reproduction totale ou partielle du site de <a href="https://www.carredelamode.com">www.carredelamode.com</a> est strictement interdite sauf accord préalable.
+                </p>
+                <p>
+                    La société COSTES CHAUSSURES n'a, pour toutes les étapes d'accès au site, du processus de commande, de livraison, de service Client ou des services postérieurs, qu'une obligation de moyen. La responsabilité de la SARL COSTES CHAUSSURES ne saurait être engagée pour tous les inconvénients ou dommages inhérents à l'utilisation du réseau internet, notamment une rupture du service, une intrusion extérieure ou la présence de virus informatiques, ou de tout fait qualifié de force majeure, conformément à la jurisprudence.
+                </p>
+                <p>
+                    En conséquence, la responsabilité de la SARL COSTES CHAUSSURES ne saurait être engagée pour tous les inconvénients ou dommages inhérents à l'utilisation du réseau Internet et totalement extérieurs aux diligences et précautions prises par la SARL COSTES CHAUSSURES.
+                </p>
+
+                <h2 id="garanties">XV. Garanties légales de conformité et de défaut de la chose vendue</h2>
+
+                <p>
+                    Le vendeur <a href="https://www.carredelamode.com">www.carredelamode.com</a> est tenu des défauts de conformité du bien au contrat dans les conditions de l’article L.217-4 et suivants du Code de la Consommation et des défauts cachés de la chose vendue dans les conditions prévues aux articles 1641 et suivants du Code Civil.
+                </p>
+                <p>
+                    Toute demande formulée au titre des garanties légales prévues aux articles L.217-4 du Code de la Consommation et 1641 et suivants du Code Civil doit être adressée à :
+                </p>
+                <p>
+                    SARL COSTES CHAUSSURES - 1 Rue Beauséjour - 12450 La Primaube | Courriel à : <a href="mailto:contact@carredelamode.com">contact@carredelamode.com</a>
+                </p>
+                <p>Lorsqu’il agit en garantie légale de conformité, le consommateur :</p>
+                <ul>
+                    <li>Bénéficie d’un délai de deux ans à compter de la délivrance du bien pour agir ;</li>
+                    <li>
+                        Peut choisir entre la réparation ou le remplacement du bien, sous réserve des conditions de coût prévues par l’article L.217-9 du code de la consommation ;
+                    </li>
+                    <li>
+                        Est dispensé de rapporter la preuve de l’existence du défaut de conformité du bien durant les six mois suivant la délivrance du bien. Ce délai est porté à vingt-quatre mois à compter du 18 mars 2016, sauf pour les biens d’occasion.
+                    </li>
+                </ul>
+                <p>
+                    La garantie légale de conformité s’applique indépendamment de la garantie commerciale éventuellement consentie. Le consommateur peut décider de mettre en œuvre la garantie contre les défauts cachés de la chose vendue au sens de l’article 1641 du Code Civil et que dans cette hypothèse, il peut choisir entre la résolution de la vente ou une réduction du prix de vente conformément à l’article 1644 du Code Civil.
+                </p>
+                <p><i>Article L.217-4 du Code de la Consommation :</i></p>
+                <p>
+                    <i>« Le vendeur livre un bien conforme au contrat et répond des défauts de conformité existant lors de la délivrance. Il répond également des défauts de conformité résultant de l'emballage, des instructions de montage ou de l'installation lorsque celle-ci a été mise à sa charge par le contrat ou a été réalisée sous sa responsabilité »</i>
+                </p>
+                <p><i>Article L.217-5 du Code de la Consommation :</i></p>
+                <p>
+                    <i>« Le bien est conforme au contrat :</i>
+                </p>
+                <p><i> 1° S'il est propre à l'usage habituellement attendu d'un bien semblable et, le cas échéant :</i></p>
+                <ul>
+                    <li>
+                        <i>S'il correspond à la description donnée par le vendeur et possède les qualités que celui-ci a présentées à l'acheteur sous forme d'échantillon ou de modèle ;</i>
+                    </li>
+                    <li>
+                        <i>S'il présente les qualités qu'un acheteur peut légitimement attendre eu égard aux déclarations publiques faites par le vendeur, par le producteur ou par son représentant, notamment dans la publicité ou l'étiquetage ;</i>
+                    </li>
+                </ul>
+                <p>
+                    <i>2° Ou s'il présente les caractéristiques définies d'un commun accord par les parties ou est propre à tout usage spécial recherché par l'acheteur, porté à la connaissance du vendeur et que ce dernier a accepté ».</i>
+                </p>
+                <p><i>Article L.217-7 du Code de la Consommation :</i></p>
+                <p>
+                    <i>« Les défauts de conformité qui apparaissent dans un délai de vingt-quatre mois à partir de la délivrance du bien sont présumés exister au moment de la délivrance, sauf preuve contraire. <br>
+                    Pour les biens vendus d'occasion, ce délai est fixé à six mois. Le vendeur peut combattre cette présomption si celle-ci n'est pas compatible avec la nature du bien ou le défaut de conformité invoqué ».</i>
+                </p>
+                <p><i>Article 1641 du Code Civil :</i></p>
+                <p>
+                    <i>« Le vendeur est tenu de la garantie à raison des défauts cachés de la chose vendue qui la rendent impropre à l'usage auquel on la destine, ou qui diminuent tellement cet usage que l'acheteur ne l'aurait pas acquise, ou n'en aurait donné qu'un moindre prix, s'il les avait connus ».</i>
+                </p>
+                <p><i>Article 1642 du Code Civil :</i></p>
+                <p>
+                    <i>« Le vendeur n'est pas tenu des vices apparents et dont l'acheteur a pu se convaincre lui-même ».</i>
+                </p>
+                <p><i>Article 1648 du Code Civil :</i></p>
+                <p>
+                    <i>« L'action résultant des vices rédhibitoires (Vices Cachés article 1641) doit être intentée par l'acquéreur dans un délai de deux ans à compter de la découverte du vice ».</i>
+                </p>
+
+                <h2 id="protection">XVI. Protection des données</h2>
+
+                <p>
+                    Dans le cadre du traitement de vos données personnelles, la SARL COSTES CHAUSSURES se conforme à la loi française sur la protection des données et au Règlement général de l’Union européenne sur la protection des données.
+                </p>
+                <p>
+                    En naviguant sur notre site, vous acceptez l’utilisation de cookies. COSTES CHAUSSURES insère ce que l’on appelle des cookies sur ses pages Internet. Il s’agit de petits fichiers qui sont enregistrés sur votre ordinateur ou votre terminal mobile lorsque vous consultez ou utilisez une de nos pages Internet. En visitant notre site Web, vous acceptez l’utilisation de cookies. Les cookies enregistrent certains réglages de votre navigateur et des données concernant l’échange entre votre navigateur et la page Internet. Lors de l’activation d’un cookie, un numéro d’identification (identifiant de cookie) lui est attribué. Il permet d’identifier votre navigateur et d’utiliser les informations contenues dans le cookie.
+                </p>
+                <p>
+                    Conformément à la loi Informatique et Libertés du 6 janvier 1978 le Client ou Prospect dispose d'un droit d'accès, de rectification, d'opposition et de portabilité de l’ensemble des données personnelles le concernant. Le Client peut également faire valoir son droit à l’effacement ou droit à l’oubli de ses données.
+                </p>
+                <p>
+                    Pour toute demande, le Client devra contacter COSTES CHAUSSURES à l’adresse suivante : <a href="mailto:contact@carredelamode.com">contact@carredelamode.com</a> ou par courrier :  1 Rue Beauséjour – 12450 La Primaube.
+                </p>
+                <p>
+                    COSTES CHAUSSURES garantit que les données personnelles transmises lors de l'utilisation de son site ne seront pas communiquées ni cédées à des tiers à l'exception des données indispensables pour la bonne exécution de votre commande (par ex. lors de la transmission des données au personnel des magasins).
+                </p>
+                <p>
+                    COSTES CHAUSSURES ne saurait être responsable de toutes pertes de données, fichiers. Il appartient au Client de procéder à toutes les sauvegardes nécessaires. Le site <a href="https://www.carredelamode.com">www.carredelamode.com</a> contient également des informations provenant de tierces personnes, et des liens vers d’autres sites Internet. La SARL COSTES CHAUSSURES ne pourra en aucun cas être tenue pour responsable des dommages résultant de l’utilisation, de l’accès à, ou de l’incapacité à utiliser ces informations tierces, ni au contenu des autres sites Internet.
+                </p>
+
+                <h2 id="droit">XVII. Droit applicable et juridiction</h2>
+
+                <p>
+                    Toute question relative aux présentes Conditions Générales de Vente ainsi qu’aux ventes qu’elles régissent, qui ne serait pas traitée par les présentes stipulations contractuelles, sera régie par la loi française à l’exclusion de tout autre droit. L’élection de domicile est faite par la SARL COSTES CHAUSSURES, à son siège social. En cas de litige, les tribunaux français seront seuls compétents.
+                </p>
+
+                <h2 id="acceptation">XVIII. Acceptation du Client</h2>
+
+                <p>
+                    Le fait pour une personne de commander sur le site Internet <a href="https://www.carredelamode.com">www.carredelamode.com</a> emporte adhésion et acceptation pleine et entière des présentes Conditions Générales de Vente, ce qui est expressément reconnu par le Client, qui renonce, notamment, à se prévaloir de tout document contradictoire, qui serait inopposable à la SARL COSTES CHAUSSURES.
+                </p>
+
+                <h2 id="serviceClientele">XIX. Service Clientèle</h2>
+
+                <p>
+                    Pour toute information, question, réclamation relative au Site et aux Produits, le Client peut s’adresser au service Client de la Société par l'un des moyens suivants :
+                </p>
+
+                <ul>
+                    <li>Par téléphone <a href="tel:+33 (0) 5 65 69 79 11">+33 (0) 5 65 69 79 11</a>.</li>
+                    <li>Par courriel postal : COSTES CHAUSSURES – 1 Rue Beauséjour – 12450 LA PRIMAUBE</li>
+                    <li>Par email : <a href="mailto:contact@carredelamode.com">contact@carredelamode.com</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</main>
+{% endblock %}

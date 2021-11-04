@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello InformationsController!{% endblock %}
+
+{% block body %}
+<main id="informations cgv">
+    <div class="container">
+        <form action="{{ path('informations_send_email') }}">
+            <div class="field">
+                <label for="email">Email*</label>
+                <input type="text" id="email" name="email">
+            </div>
+
+            <div class="field">
+                <label for="objet">Objet du message*</label>
+                <input type="text" id="objet" name="objet">
+            </div>
+
+            <div class="field">
+                <label for="mess">Message*</label>
+                <textarea name="mess" id="mess" cols="30" rows="10"></textarea>
+            </div>
+
+            <div class="field">
+                <button type="submit" class="btn primary">Envoyer</button>
+            </div>
+        </form>
+    </div>
+</main>
+{% endblock %}
