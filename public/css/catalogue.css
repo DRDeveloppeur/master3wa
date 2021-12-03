@@ -33,6 +33,42 @@ main#catalogue .filters {
   border-right: 1px solid #f2f2f2;
   overflow: hidden;
 }
+main#catalogue .filters .filtre-active {
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+}
+main#catalogue .filters .filtre-active .title {
+  padding-bottom: 15px;
+  text-align: center;
+  font-weight: 700;
+  color: #333333;
+  font-size: 16px;
+  width: 100%;
+}
+main#catalogue .filters .filtre-active span {
+  font-weight: 700;
+  color: #333333;
+  font-size: 14px;
+}
+main#catalogue .filters .filtre-active span:not(:last-child) {
+  margin-right: 15px;
+}
+main#catalogue .filters .filtre-active span + main#catalogue .filters .filtre-active span::before {
+  content: " - ";
+}
+main#catalogue .filters .filtre-active a {
+  padding-top: 15px;
+}
+main#catalogue .filters .filtre-active a span {
+  transition: color ease-in-out 0.2s;
+}
+main#catalogue .filters .filtre-active a span::before {
+  content: "X ";
+}
+main#catalogue .filters .filtre-active a span:hover {
+  color: #ff5733;
+}
 main#catalogue .filters .filter-block {
   padding: 0 30px;
 }
@@ -50,6 +86,12 @@ main#catalogue .filters .filter-block .title {
   align-items: center;
   justify-content: space-between;
   color: #999999;
+}
+main#catalogue .filters .filter-block .title i {
+  transition: all ease-in-out 0.2s;
+}
+main#catalogue .filters .filter-block .title i.far.fa-chevron-up.active {
+  transform: rotate(180deg);
 }
 main#catalogue .filters .filter-block ul {
   max-height: 300px;
@@ -111,6 +153,52 @@ main#catalogue .filters .filter-block ul #sizes label:hover {
 main#catalogue .content {
   flex: 1 1 0;
 }
+main#catalogue .content .top-content .tri {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+main#catalogue .content .top-content .tri .field .icon::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  margin-left: 10px;
+}
+main#catalogue .content .top-content .tri .field a {
+  padding: 5px 10px;
+  font-weight: 700;
+  transition: all ease-in-out 0.2s;
+}
+main#catalogue .content .top-content .tri .field a::after {
+  transition: all ease-in-out 0.2s;
+  margin-left: 10px;
+}
+main#catalogue .content .top-content .tri .field a.sortable::after {
+  font-family: "Font Awesome 5 Pro";
+  content: "\f0dc";
+}
+main#catalogue .content .top-content .tri .field a.asc::after {
+  font-family: "Font Awesome 5 Pro";
+  content: "\f0de";
+}
+main#catalogue .content .top-content .tri .field a.asc:hover::after {
+  font-family: "Font Awesome 5 Pro";
+  content: "\f0dd";
+  color: #cccccc;
+  opacity: 0.5;
+}
+main#catalogue .content .top-content .tri .field a.desc::after {
+  font-family: "Font Awesome 5 Pro";
+  content: "\f0dd";
+}
+main#catalogue .content .top-content .tri .field a.desc:hover::after {
+  font-family: "Font Awesome 5 Pro";
+  content: "\f0de";
+  color: #cccccc;
+  opacity: 0.5;
+}
 main#catalogue .content .items {
   display: flex;
   flex-wrap: wrap;
@@ -128,12 +216,41 @@ main#catalogue .content .items .item {
   overflow: hidden;
 }
 main#catalogue .content .items .item .top-item {
-  position: absolute;
-  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   padding: 15px;
+}
+main#catalogue .content .items .item .top-item .tag p {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #ff5733;
+}
+main#catalogue .content .items .item .top-item .fav {
+  margin-left: auto;
+  cursor: pointer;
+}
+main#catalogue .content .items .item .top-item .fav i {
+  transition: all ease-in-out 0.2s;
+  color: #999999;
+  font-size: 18px;
+}
+main#catalogue .content .items .item .top-item .fav i:hover {
+  color: #ef5350;
+}
+main#catalogue .content .items .item .top-item .fav .fas {
+  display: none;
+  color: #ef5350;
+}
+main#catalogue .content .items .item .top-item .fav.active .far {
+  display: none;
+}
+main#catalogue .content .items .item .top-item .fav.active .fas {
+  display: block;
 }
 main#catalogue .content .items .item img {
   max-width: 227px;
@@ -219,4 +336,33 @@ main#catalogue .content .items .item .sizes ul li:not(:last-child)::after {
 }
 main#catalogue .content .items .item:hover .sizes {
   opacity: 1;
+}
+main#catalogue .pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 30px 0 60px 0;
+}
+main#catalogue .pagination span {
+  margin: 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  font-size: 16px;
+  color: #333333;
+  line-height: 29px;
+  width: 35px;
+  height: 35px;
+  transition: all ease-in-out 0.2s;
+  border: 1px solid #FFFFFF;
+}
+main#catalogue .pagination span:hover {
+  border: 1px solid #808080;
+}
+main#catalogue .pagination span.current {
+  color: #FFFFFF;
+  border: 1px solid #808080;
+  background-color: #808080;
 }

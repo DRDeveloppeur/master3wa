@@ -1,0 +1,207 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Le Carrée de la mode | {{ product.model }}{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/jquery.fancybox.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/itemPage.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/modal.css') }}" />
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('js/flexslider-min.js') }}"></script>
+    <script src="{{ asset('js/jquery.fancybox.min.js') }}"></script>
+    <script src="{{ asset('js/itemPage.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+<main id="item-page">
+    {% include 'product/_modal-mag.html.twig' with {product} only %}
+
+    <div class="arian-fid col-sm-hidden">
+		<div class="container">
+            <ul class="breadcrumbs">
+                <li><a href="{{ path('home') }}">Accueil</a></li>
+                <li><a href="{{ path('catalogue', {'q': product.ray}) }}">{{ product.ray }}</a></li>
+                <li><a href="{{ path('catalogue', {'q': product.markId.name}) }}">{{ product.markId.name }}</a></li>
+                <li><a href="{{ path('catalogue', {'q': product.categorieId.name}) }}">{{ product.categorieId.name }}</a></li>
+                <li><a href="{{ path('catalogue', {'q': product.subCategorieId.name}) }}">{{ product.subCategorieId.name }}</a></li>
+                <li class="active">{{ product.model }}</li>
+            </ul>
+        </div>
+	</div>
+
+    <div class="container">
+        <div class="grid">
+            <div class="col-7_md-6_sm-12">
+                <div class="carousel-item">
+					<div class="top-item">
+						<div class="tag">
+                            <p>{{ product.tag }}</p>
+                        </div>
+
+                        {% set my_fav = "" %}
+                        {% set fav_order = [] %}
+                        {% set active = false %}
+                        {% if app.user %}
+                            {% for basket in app.user.baskets %}
+                                {% if basket.name is same as "Favoris" %}
+                                    {% set my_fav = basket %}
+                                {% endif %}
+                            {% endfor %}
+                            {% for order in my_fav.orders %}
+                                {% set fav_order = fav_order|merge([order]) %}
+                            {% endfor %}
+                            {% for fav in fav_order %}
+                                {% if fav.productId.ref is same as product.ref %}
+                                    {% set active = true %}
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                        <div class="fav{{ active ? " active" }}">
+                            <a href="{{ path('favorite', {'product_id': product.id}) }}" class="far">
+                                <span>
+									<p>Ajouter aux favoris</p>
+									<i class="far fa-heart"></i>
+								</span>
+                            </a>
+
+                            <a href="{{ path('favorite', {'product_id': product.id}) }}" class="fas">
+								<span>
+									<p>Enlever des favoris</p>
+									<i class="fas fa-heart"></i>
+								</span>
+                            </a>
+                        </div>
+					</div>
+
+					<ul class="slides">
+                        {% for picture in product.images %}
+                            <li data-thumb="{{ asset('uploads/products/' ~ picture.path) }}">
+								<a href="{{ asset('uploads/products/' ~ picture.path) }}" class="thumb" data-fancybox="gallery">
+									<img src="{{ asset('uploads/products/' ~ picture.path) }}" alt="{{product.model}}" itemprop="image" />
+								</a>
+							</li>
+                        {% endfor %}
+					</ul>
+				</div>
+            </div>
+
+            <div class="col-4_md-6_sm-12">
+                <div class="item-infos">
+					<h1 class="label" itemprop="name">{{ product.model }}</h1>
+
+					<div class="price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                        {% include 'product/_price.html.twig' with {product, stk} only %}
+					</div>
+
+                    {% if stk %}
+                        <div class="variants">
+                            <div class="grid-5_md-4_sm-3-middle-center">
+                                <div class="col-12">
+                                    <p class="title">Autres Prix</p>
+                                </div>
+
+                                <ul>
+                                    {% set prxs = [] %}
+                                    {% for stock in product.stocks %}
+                                        {% set prxs = prxs|merge([stock.price]) %}
+                                    {% endfor %}
+
+                                    {% for stock in product.stocks %}
+                                        {% if min(prxs) is not same as max(prxs) or stock.discount %}
+                                            {% if stk and stk.size is not same as stock.size %}
+                                                <li>{{ stock.size }} : {{ stock.price|format_currency('EUR') }} {{ stock.discount ? " - " ~ stock.discount ~ "%" }}</li>
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                                {% set colors = [] %}
+                                {% for stock in product.stocks %}
+                                    {% if stock.color not in colors %}
+                                        {% set colors = colors|merge([stock.color]) %}
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+
+					<div class="field">
+						<p class="title">Pointures disponibles</p>
+
+						<ul>
+                            {% set sizes = [] %}
+                            {% for stock in product.stocks %}
+                                {% if stock.size not in sizes %}
+                                    <li>
+                                        <a href="{{ path('product', {'model': product.model, 'ref': product.ref, 'stock_id': stock.id}) }}">
+                                            {% if stk and stk.size == stock.size %}
+                                                <input type="radio" value="{{stock.size}}" name="seltaille" id="size-{{stock.size}}" class="active">
+                                            {% else %}
+                                                <input type="radio" value="{{stock.size}}" name="seltaille" id="size-{{stock.size}}">
+                                            {% endif %}
+                                            <label for="{{stock.size}}" data-value="{{stock.size}}">{{stock.size}}</label>
+                                        </a>
+                                    </li>
+                                    {% set sizes = sizes|merge([stock.size]) %}
+                                {% endif %}
+                            {% endfor %}
+						</ul>
+						<input type="text" class="input" style="display: none;" id="sel_taille">
+					</div>
+
+					<div class="info-contact">
+						<a href="{{ path('informations_contact') }}">
+							<i class="far fa-info-circle"></i>
+							Si la taille que vous souhaitez n’est pas disponible, n'hésitez pas à nous contacter.
+						</a>
+					</div>
+
+                    {% if stk %}
+					    <a href="{{ path('basket', {'stock_id': stk.id, 'product_id': product.id}) }}" class="btn primary fw">
+                    {% else %}
+                        <a type="button" data-toggle="modal" data-target="modal-add-basket-error" class="btn primary fw">
+                    {% endif %}
+						<i class="far fa-shopping-bag"></i> Ajouter au panier
+                    </a>
+
+					<button type="button" data-toggle="modal" data-target="modal-mag-stock" class="btn o-white fw">
+						<i class="far fa-store"></i>Voir la disponibilité en boutique
+					</button>
+
+				</div>
+            </div>
+
+            <div class="col-12">
+				<div class="item-details">
+					<div class="grid-spaceBetween">
+						<div class="col-6_md-12">
+							<h2>Description</h2>
+							<p itemprop="description">
+								{{ product.description }}
+							</p>
+						</div>
+						<div class="col-5_md-12">
+							<h2>Caractéristiques</h2>
+							<ul>
+                                <li><span>Référence : </span> {{ product.ref }}</li>
+                                <li><span>Catégorie : </span> {{ product.categorieId.name }}</li>
+                                <li><span>Famille : </span> {{ product.subCategorieId.name }}</li>
+                                <li><span>Marque : </span> {{ product.markId.name }}</li>
+                                {% if product.ray %}
+                                    <li><span>Rayon : </span> {{ product.ray }}</li>
+                                {% endif %}
+                                {% if product.stocks[0].color %}
+                                    <li><span>Couleur : </span> {{ product.stocks[0].color }}</li>
+                                {% endif %}
+                                {% if product.stocks[0].matter %}
+                                    <li><span>Couleur : </span> {{ product.stocks[0].matter }}</li>
+                                {% endif %}
+                            </ul>
+						</div>
+					</div>
+				</div>
+			</div>
+        </div>
+    </div>
+</main>
+{% endblock %}

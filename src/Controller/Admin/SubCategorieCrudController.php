@@ -24,7 +24,7 @@ class SubCategorieCrudController extends AbstractCrudController
             ->setEntityLabelInPlural('Sous-categories')
             ->setPaginatorPageSize(10)
             ->setSearchFields(['name', 'categorie_id'])
-            ->setDefaultSort(['id' => 'DESC']);
+            ->setDefaultSort(['name' => 'ASC']);
         ;
     }
 

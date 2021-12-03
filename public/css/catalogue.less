@@ -37,6 +37,45 @@ main#catalogue {
         border-right: 1px solid @grey95;
         overflow: hidden;
 
+        .filtre-active {
+            padding: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            .title {
+                padding-bottom: 15px;
+                text-align: center;
+                font-weight: 700;
+                color: @grey20;
+                font-size: 16px;
+                width: 100%;
+            }
+
+            span {
+                font-weight: 700;
+                color: @grey20;
+                font-size: 14px;
+                
+                &:not(:last-child) {
+                    margin-right: 15px;
+                }
+                & + &::before {
+                    content: " - ";
+                }
+            }
+            a {
+                padding-top: 15px;
+                span {
+                    transition: color ease-in-out .2s;
+    
+                    &::before {
+                        content: "X ";
+                    }
+                    &:hover {
+                        color: @color-primary;
+                    }
+                }
+            }
+        }
         .filter-block {
             padding: 0 30px;
 
@@ -54,6 +93,13 @@ main#catalogue {
                 align-items: center;
                 justify-content: space-between;
                 color: @grey60;
+
+                i {
+                    transition: all ease-in-out .2s;
+                }
+                i.far.fa-chevron-up.active {
+                    transform: rotate(180deg);
+                }
             }
             ul {
                 max-height: 300px;
@@ -122,6 +168,76 @@ main#catalogue {
     }
     .content {
         flex: 1 1 0;
+
+        .top-content {
+            .tri {
+                display: flex;
+                justify-content: end;
+                align-items: center;
+
+                .field {
+                    .icon::before {
+                        display: inline-block;
+                        font-style: normal;
+                        font-variant: normal;
+                        text-rendering: auto;
+                        -webkit-font-smoothing: antialiased;
+                        margin-left: 10px;
+                    }
+                    a {
+                        padding: 5px 10px;
+                        font-weight: 700;
+                        transition: all ease-in-out .2s;
+                        
+                        &::after {
+                            transition: all ease-in-out .2s;
+                            margin-left: 10px;
+                        }
+                        &.sortable {
+                            &::after {
+                                // font-family: "Font Awesome 5 Free";
+                                // font-family: "Font Awesome 5 Brands"; 
+                                // font-family: "Font Awesome 5 Duotone";
+                                font-family: "Font Awesome 5 Pro";
+                                content: "\f0dc";
+                            }
+                        }
+                        &.asc {
+                            &::after {
+                                // font-family: "Font Awesome 5 Free";
+                                // font-family: "Font Awesome 5 Brands"; 
+                                font-family: "Font Awesome 5 Pro";
+                                content: "\f0de";
+                            }
+                            &:hover {
+                                &::after {
+                                    font-family: "Font Awesome 5 Pro";
+                                    content: "\f0dd";
+                                    color: @grey80;
+                                    opacity: .5;
+                                }
+                            }
+                        }
+                        &.desc {
+                            &::after {
+                                // font-family: "Font Awesome 5 Free";
+                                // font-family: "Font Awesome 5 Brands"; 
+                                font-family: "Font Awesome 5 Pro";
+                                content: "\f0dd";
+                            }
+                            &:hover {
+                                &::after {
+                                    font-family: "Font Awesome 5 Pro";
+                                    content: "\f0de";
+                                    color: @grey80;
+                                    opacity: .5;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
         .items {
             display: flex;
             flex-wrap: wrap;
@@ -139,12 +255,42 @@ main#catalogue {
                 overflow: hidden;
     
                 .top-item {
-                    position: absolute;
-                    top: 0;
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
+                    width: 100%;
                     padding: 15px;
+
+                    .tag {
+                        
+                        p {
+                            display: flex;
+                            align-items: center;
+                            font-size: 12px;
+                            font-weight: 800;
+                            text-transform: uppercase;
+                            color: @color-primary;
+                        }
+                    }
+                    .fav {
+                        margin-left: auto;
+                        cursor: pointer;
+
+                        i {
+                            transition: all ease-in-out .2s;
+                            color: @grey60;
+                            font-size: 18px;
+
+                            &:hover {
+                                color: @red;
+                            }
+                        }
+                        .fas {display: none;color: @red;}
+                        &.active {
+                            .far {display: none;}
+                            .fas {display: block;}
+                        }
+                    }
                 }
                 img {
                     max-width: 227px;
@@ -234,6 +380,38 @@ main#catalogue {
                         opacity: 1;
                     }
                 }
+            }
+        }
+    }
+    .pagination {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        margin: 30px 0 60px 0;
+
+        span {
+            margin: 0 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            font-size: 16px;
+            color: @grey20;
+            line-height: 29px;
+            width: 35px;
+            height: 35px;
+            transition: all ease-in-out 0.2s;
+            border: 1px solid @w;
+
+            &:hover {
+                border: 1px solid @grey50;
+            }
+            
+            &.current {
+                color: @w;
+                border: 1px solid @grey50;
+                background-color: @grey50;
             }
         }
     }

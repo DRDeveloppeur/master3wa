@@ -54,6 +54,11 @@ class Stock
      */
     private $store_id;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $discount;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -139,6 +144,24 @@ class Stock
     public function setStoreId(?Store $store_id): self
     {
         $this->store_id = $store_id;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        // return $this->amount.' | '.$this->getProductId().' | taille : '.$this->size;
+        return $this->size;
+    }
+
+    public function getDiscount(): ?int
+    {
+        return $this->discount;
+    }
+
+    public function setDiscount(?int $discount): self
+    {
+        $this->discount = $discount;
 
         return $this;
     }

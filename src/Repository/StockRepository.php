@@ -47,4 +47,11 @@ class StockRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function createAlphabeticalQueryBuilder()
+    {
+        $query = $this->createQueryBuilder('s', 's.size')
+            ->orderBy('s.size + 0', 'ASC')
+        ;
+        return $query;
+    }
 }

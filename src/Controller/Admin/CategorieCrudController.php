@@ -21,8 +21,9 @@ class CategorieCrudController extends AbstractCrudController
         return $crud
             ->setEntityLabelInSingular('Categorie')
             ->setEntityLabelInPlural('Categories')
+            ->setPaginatorPageSize(15)
             ->setSearchFields(['name'])
-            ->setDefaultSort(['name' => 'DESC']);
+            ->setDefaultSort(['name' => 'ASC']);
         ;
     }
 

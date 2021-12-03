@@ -13,6 +13,8 @@
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.10",
         "easycorp/easyadmin-bundle": "^3",
+        "fzaninotto/faker": "^1.9",
+        "knplabs/knp-paginator-bundle": "^5.7",
         "phpdocumentor/reflection-docblock": "^5.3",
         "sensio/framework-extra-bundle": "^6.1",
         "symfony/asset": "5.3.*",
@@ -45,9 +47,11 @@
         "symfonycasts/reset-password-bundle": "^1.9",
         "symfonycasts/verify-email-bundle": "^1.5",
         "twig/extra-bundle": "^2.12|^3.0",
+        "twig/intl-extra": "^3.3",
         "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.4",
         "phpunit/phpunit": "^9.5",
         "symfony/browser-kit": "5.3.*",
         "symfony/css-selector": "5.3.*",

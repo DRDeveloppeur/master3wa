@@ -23,8 +23,8 @@ class MarkCrudController extends AbstractCrudController
             ->setEntityLabelInSingular('Marque')
             ->setEntityLabelInPlural('Marques')
             ->setPaginatorPageSize(10)
-            ->setSearchFields(['name', 'description'])
-            ->setDefaultSort(['id' => 'DESC']);
+            ->setSearchFields(['name'])
+            ->setDefaultSort(['name' => 'ASC']);
         ;
     }
 
@@ -37,10 +37,11 @@ class MarkCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        yield TextField::new('name', 'Nom');
+        yield TextField::new('name', 'Nom')->setColumns(3);
         yield ImageField::new('logo', 'Logo')
-            ->setBasePath('uploads/marque/')
-            ->setUploadDir('public/uploads/marque')
+            ->setBasePath('uploads/brands/')
+            ->setUploadDir('public/uploads/brands')
+            ->setColumns(3)
             ->hideWhenUpdating();
         // yield FormField::addPanel('Contact information')
         //     ->setIcon('phone')->addCssClass('optional')

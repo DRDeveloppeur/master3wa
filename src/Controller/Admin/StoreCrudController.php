@@ -23,8 +23,8 @@ class StoreCrudController extends AbstractCrudController
             ->setEntityLabelInSingular('Magasin')
             ->setEntityLabelInPlural('Magasins')
             ->setPaginatorPageSize(10)
-            ->setSearchFields(['nom', 'address', 'zip_code', 'city', 'phone'])
-            ->setDefaultSort(['id' => 'DESC']);
+            ->setSearchFields(['name', 'address', 'zip_code', 'city', 'phone'])
+            ->setDefaultSort(['name' => 'ASC']);
         ;
     }
 
@@ -32,6 +32,9 @@ class StoreCrudController extends AbstractCrudController
     {
         return $filters
             ->add('name')
+            ->add('address')
+            ->add('zip_code')
+            ->add('city')
             ->add('country')
             // ->add(EntityFilter::new('Categorie'))
         ;

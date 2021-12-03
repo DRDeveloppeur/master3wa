@@ -46,15 +46,17 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToRoute('Back to site', 'fas fa-globe-europe', 'home');
         yield MenuItem::section('BDD');
-        yield MenuItem::linkToCrud('Catégorie', 'fas fa-list', Categorie::class);
-        yield MenuItem::linkToCrud('Mode de livraison', 'fas fa-list', Delivery::class);
-        yield MenuItem::linkToCrud('Images produit', 'fas fa-list', Image::class);
-        yield MenuItem::linkToCrud('Factures', 'fas fa-list', Invoice::class); // à voir si on garde
-        yield MenuItem::linkToCrud('Marque', 'fas fa-list', Mark::class);
-        yield MenuItem::linkToCrud('Produit', 'fas fa-list', Product::class);
-        yield MenuItem::linkToCrud('Stock', 'fas fa-list', Stock::class);
-        yield MenuItem::linkToCrud('Magasins', 'fas fa-list', Store::class);
-        yield MenuItem::linkToCrud('Sous-Catégorie', 'fas fa-list', SubCategorie::class);
-        // yield MenuItem::linkToCrud('Utilisateur', 'fas fa-list', User::class);
+        yield MenuItem::linkToCrud('Marque', 'fab fa-markdown', Mark::class);
+        yield MenuItem::linkToCrud('Catégorie', 'fas fa-tag', Categorie::class);
+        yield MenuItem::linkToCrud('Sous-Catégorie', 'fas fa-tags', SubCategorie::class);
+        yield MenuItem::linkToCrud('Magasins', 'fas fa-store', Store::class);
+        yield MenuItem::linkToCrud('Mode de livraison', 'fas fa-truck', Delivery::class);
+        yield MenuItem::linkToCrud('Factures', 'fas fa-file-invoice-dollar', Invoice::class); // à voir si on garde
+        yield MenuItem::section('Produit');
+        yield MenuItem::linkToCrud('Modèle', 'fas fa-list', Product::class);
+        yield MenuItem::linkToCrud('Stock', 'fas fa-cubes', Stock::class);
+        yield MenuItem::linkToCrud('Images produit', 'fas fa-images', Image::class);
+        yield MenuItem::section('Utilisateur');
+        yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-users', User::class);
     }
 }

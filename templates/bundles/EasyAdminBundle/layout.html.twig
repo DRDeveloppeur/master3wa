@@ -286,3 +286,11 @@
     </body>
 {% endblock body %}
 </html>
+
+{% block stylesheets %}
+<style>
+    #content-resizer-handler {
+        min-height: calc(100vh - 57px)!important;
+    }
+</style>
+{% endblock %}

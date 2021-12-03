@@ -18,6 +18,10 @@
   width: 100%;
   max-width: 160px;
 }
+.btn.fw {
+  width: 100%;
+  max-width: 100%;
+}
 .btn.primary {
   background-color: #ff5733;
   color: #FFFFFF;
@@ -26,7 +30,7 @@
   background-color: #ff8166;
 }
 .btn.o-primary {
-  border: 1px solid #ff5733;
+  border: 2px solid #ff5733;
   color: #ff5733;
 }
 .btn.o-primary:hover {
@@ -40,7 +44,7 @@
   background-color: #e6e6e6;
 }
 .btn.o-white {
-  border: 1px solid #333333;
+  border: 2px solid #333333;
   color: #333333;
 }
 .btn.o-white:hover {
@@ -56,7 +60,7 @@
 }
 .btn.o-black {
   background-color: #333333;
-  border: 1px solid #FFFFFF;
+  border: 2px solid #FFFFFF;
   color: #FFFFFF;
 }
 .btn.o-black:hover {

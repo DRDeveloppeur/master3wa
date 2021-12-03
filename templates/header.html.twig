@@ -56,19 +56,29 @@
                     </div>
 
                     <div class="favoris">
-                        <a href="#" title="Favoris">
+                        <a href="{{ path('catalogue', {favorite: true}) }}" title="Favoris">
                             <i class="far fa-heart"></i>
                             <p>Favoris</p>
                         </a>
                     </div>
 
                     {% if app.user %}
-                        <div class="account" id="header_connexion">
-                            <a href="{{ path('app_login') }}" title="Admin">
-                                <i class="far fa-user"></i>
-                                {{ app.user.firstname }}
-                            </a>
-                        </div>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <div class="account" id="header_connexion">
+                                <a href="{{ path('admin') }}" title="Admin">
+                                    <i class="far fa-user"></i>
+                                    {{ app.user.firstname }}
+                                </a>
+                            </div>
+                        {% endif %}
+                        {% if not is_granted('ROLE_ADMIN') %}
+                            <div class="account" id="header_connexion">
+                                <a href="{{ path('app_login') }}" title="Admin">
+                                    <i class="far fa-user"></i>
+                                    {{ app.user.firstname }}
+                                </a>
+                            </div>
+                        {% endif %}
                     {% endif %}
                     {% if not app.user %}
                         <div class="account" id="header_connexion">
@@ -82,11 +92,41 @@
                     <div class="cart" id="header_panier">
                         <a>
                             <i class="far fa-shopping-bag"></i>
-                            <p>Panier</p>
+                            {% if app.user.basket %}
+                                {% set somme = 0 %}
+                                {% set nbrArticle = 0 %}
+                                {% for order in app.user.basket.orders %}
+                                    {% set somme = somme + (order.stockId.price * order.amount) %}
+                                    {% set nbrArticle = nbrArticle + order.amount %}
+                                {% endfor %}
+                                <p>Panier ({{nbrArticle}})</p>
+                            {% else %}
+                                <p>Panier</p>                                
+                            {% endif %}
                         </a>
 
                         <div class="details">
+                            {% if app.user.basket %}
+                            <div class="detail_cart">
+                                <div class="top_detail_cart">
+                                    {{ nbrArticle }} {{ (nbrArticle < 2) ? "article" : "articles" }} : <b>{{ somme|format_currency('EUR') }}</b>
+                                </div>
+                                {% for order in app.user.basket.orders %}
+                                <a href="{{ path('product', {'model': order.productId.model, 'ref': order.productId.ref, 'stock_id': order.stockId.id}) }}">
+                                    <div class="item">
+                                        <img src="{{ asset('uploads/products/' ~ order.productId.images[0].path) }}" alt="">
+                                        <div class="infos">
+                                            <p>{{ order.productId.model }}</p>
+                                            <p>taille : {{ order.stockId.size }} X {{ order.amount }}</p>
+                                            <p>{{ order.stockId.price|format_currency('EUR') }}</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                {% endfor %}
+                            </div>
+                            {% else %}
                             <p class="empty">Votre panier est vide</p>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

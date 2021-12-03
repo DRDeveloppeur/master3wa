@@ -241,6 +241,6 @@ class Product
 
     public function __toString()
     {
-        return $this->model;
+        return $this->ref." - ".$this->model;;
     }
 }

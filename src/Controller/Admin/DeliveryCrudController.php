@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class DeliveryCrudController extends AbstractCrudController
@@ -43,6 +44,6 @@ class DeliveryCrudController extends AbstractCrudController
         yield MoneyField::new('price_before', 'Prix de la livraison avant le seuil')->setColumns(3)->setCurrency('EUR');
         yield MoneyField::new('price_after', 'Prix de la livraison après le seuil')->setColumns(3)->setCurrency('EUR');
         yield FormField::addPanel();
-        yield TextareaField::new('description')->hideOnIndex();
+        yield TextEditorField::new('description');
     }
 }
