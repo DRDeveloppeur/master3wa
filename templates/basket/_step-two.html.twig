@@ -1,0 +1,54 @@
+<div class="header" {{ basket ? 'onclick="toStep(2)"' }}>
+    <span>2</span>
+    <h3>Livraison</h3>
+    <i class="fas fa-check"></i>
+</div>
+<div class="content">
+    <div class="delivery">
+        <div class="lists">
+            {% if basket %}
+                {% for delivery in deliveries %}
+                    <a href="{{ path('basket_choice_delivery', {basket_id: basket.id, delivery_id: delivery.id}) }}">
+                        <label for="port_{{delivery.id}}" class="{{ basket.deliveryId is same as delivery ? "active" }}">
+                            <img src="{{ asset('images/common/' ~ delivery.name ~ '.png') }}" alt="{{delivery.name}}">
+                            {% if delivery.threshold is not same as 0.0 %}
+                                <span>
+                                    <b>{{ delivery.name }}</b>
+                                    <br>
+                                    {{ (delivery.priceAfter is same as 0.0) ? "Gratuit" : delivery.priceAfter|format_currency('EUR') }} pour toute commande supérieure à {{ delivery.threshold|format_currency('EUR') }}, sinon {{ delivery.priceBefore|format_currency('EUR') }}
+                                </span>
+                            {% else %}
+                                <span>
+                                    <b>{{ delivery.name }}</b>
+                                    <br>
+                                    <b>Gratuit</b>
+                                </span>
+                            {% endif %}
+                        </label>
+                    </a>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <h4>Adresse de livraison</h4>
+        <div class="grid-spaceBetween-noBottom">
+            <div class="col-6_md-12">
+                <div class="infos">
+                    {% if app.user %}
+                        <p>{{ app.user.civility }} {{ app.user.firstname }} {{ app.user.lastname }}</p>
+                        <p>{{ app.user.address }}</p>
+                        <br>
+                        <p>{{ app.user.zipCode }} {{ app.user.city }}</p>
+                        <p>{{ app.user.country }}</p>
+                    {% else %}
+                        <p>Veuillez vous connecter pour récupérer votre adresse de livraison.</p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-6_md-12">
+                <div class="next-step">
+                    <button class="btn primary" {{ (basket and basket.deliveryId) ? 'onclick="toStep(3)"' }}>Étape suivante <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

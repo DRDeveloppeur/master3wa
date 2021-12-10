@@ -193,6 +193,12 @@ header .main-menu .cart .details a .item:hover img {
 header .main-menu .cart .details a .item:hover p {
   color: #ff5733;
 }
+header .main-menu .cart .details .detail_cart .link {
+  padding: 15px;
+}
+header .main-menu .cart .details .detail_cart .link .btn {
+  color: #FFFFFF;
+}
 nav .nav-block {
   position: relative;
   display: flex;

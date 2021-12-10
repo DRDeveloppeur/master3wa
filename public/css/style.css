@@ -193,6 +193,12 @@ header .main-menu .cart .details a .item:hover img {
 header .main-menu .cart .details a .item:hover p {
   color: #ff5733;
 }
+header .main-menu .cart .details .detail_cart .link {
+  padding: 15px;
+}
+header .main-menu .cart .details .detail_cart .link .btn {
+  color: #FFFFFF;
+}
 nav .nav-block {
   position: relative;
   display: flex;
@@ -332,6 +338,37 @@ nav .nav-block .nav-item:hover .sub-nav {
 }
 .btn.dashed {
   border-style: dashed;
+}
+.btn.pay {
+  display: block;
+  text-align: center;
+  padding: 15px;
+  width: 100%;
+  height: 100%;
+}
+.btn.pay.dark {
+  background: #262626;
+  color: #FFFFFF;
+}
+.btn.pay.dark:hover {
+  background: #404040;
+}
+.btn.pay.white {
+  background: #FFFFFF;
+  color: #262626;
+}
+.btn.pay.white:hover {
+  background: #262626;
+  color: #FFFFFF;
+}
+.btn.pay p {
+  font-size: 16px;
+  margin-top: 5px;
+  line-height: 16px;
+}
+.btn.pay i {
+  font-size: 40px;
+  margin: 0 5px;
 }
 .modal {
   position: fixed;

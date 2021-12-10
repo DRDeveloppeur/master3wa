@@ -157,7 +157,7 @@
 					</div>
 
                     {% if stk %}
-					    <a href="{{ path('basket', {'stock_id': stk.id, 'product_id': product.id}) }}" class="btn primary fw">
+					    <a href="{{ path('basket_add', {'stock_id': stk.id, 'product_id': product.id}) }}" class="btn primary fw">
                     {% else %}
                         <a type="button" data-toggle="modal" data-target="modal-add-basket-error" class="btn primary fw">
                     {% endif %}

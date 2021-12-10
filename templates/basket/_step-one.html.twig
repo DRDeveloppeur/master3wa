@@ -1,0 +1,68 @@
+<div class="header" onclick="toStep(1)">
+    <span>1</span>
+    <h3>Identification</h3>
+    <i class="fas fa-check"></i>
+</div>
+<div class="content">
+    {% if not app.user %}
+        <div class="grid">
+            <div class="col-6_md-12">
+                <div class="login">
+                    <h4>Vous êtes déjà client</h4>
+                    <form method="POST" action="{{ path('app_login') }}">
+                        <div class="field">
+                            <label>E-mail</label>
+                            <input type="email" pattern="^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$" name="email" autocomplete="email" required autofocus>
+                        </div>
+                        <div class="field">
+                            <label>Mot de passe</label>
+                            <input type="password" id="logemail" autocomplete="current-password" required maxlength="130">
+                        </div>
+                        
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" required>
+
+                        <p class="link center">
+                            <a href="{{ path('app_forgot_password_request') }}">J'ai oublié mon mot de passe</a>
+                        </p>
+
+                        <div class="grid-center-noGutter" style="margin-top: 30px;">
+                            <div class="col-center">
+                                <button class="btn primary" type="submit">Se connecter</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-6_md-12">
+                <div class="sing-in">
+                    <h4>Nouveau client</h4>
+                    <p>
+                        En créant un compte, vous pourrez suivre votre commande, gérer vos adresses de livraison et vous inscrire à notre newsletter.
+                    </p>
+
+                    <a class="btn primary" href="{{ path('app_register') }}">Créer un compte</a>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="profil">
+            <h4>ADRESSE DE FACTURATION</h4>
+            <div class="grid-spaceBetween-noBottom">
+                <div class="col-6_md-12">
+                    <div class="infos">
+                        <p>{{ app.user.civility }} {{ app.user.firstname }} {{ app.user.lastname }}</p>
+                        <p>{{ app.user.address }}</p>
+                        <br>
+                        <p>{{ app.user.zipCode }} {{ app.user.city }}</p>
+                        <p>{{ app.user.country }}</p>
+                    </div>
+                </div>
+                <div class="col-6_md-12">
+                    <div class="next-step">
+                        <button class="btn primary" {{ basket ? 'onclick="toStep(2)"' }}>Étape suivante <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</div>

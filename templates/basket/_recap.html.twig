@@ -1,0 +1,77 @@
+<section class="recap">
+    <div class="box">
+        <div class="header">
+            <h3>RÉCAPITULATIF COMMANDE</h3>
+        </div>
+        <div class="content">
+            {% if not orders %}
+                <div>
+                    <p class="center">Vous n'avez aucun article dans votre panier.</p>
+                </div>
+            {% endif %}
+
+            {% if orders %}
+                <div class="items">
+                    <div class="head">
+                        <p>Article</p>
+                        <p>P.U.</p>
+                        <p>Total</p>
+                    </div>
+                    {% set total = 0 %}
+                    {% set basket = {deliveryId: null} %}
+                    {% for order in orders %}
+                        <div class="item">
+                            <a href="{{ path('product', {'model': order.productId.model, 'ref': order.productId.ref, 'stock_id': order.stockId.id}) }}">
+                                <img src="{{ asset('uploads/products/' ~ order.productId.images[0].path) }}" alt="{{ order.productId.model }}">
+                            </a>
+
+                            <div class="infos">                                    
+                                <p class="name">{{ order.productId.model }} <br> Taille : {{ order.stockId.size }}</p>
+                            
+                                <div class="settings">
+                                    <div class="field">
+                                        <p class="label">Quantité</p>
+                                        <a href="{{ path('basket_less', {order_id: order.id}) }}" title="Moins"><i class="fas fa-minus"></i></a>
+                                        <span class="input">{{ order.amount }}</span>
+                                        <a href="{{ path('basket_more', {order_id: order.id}) }}" title="Plus"><i class="fas fa-plus"></i></a>
+                                        <a href="{{ path('basket_delete', {order_id: order.id}) }}" title="Supprimer" class="delete"><i class="fas fa-trash-alt"></i></a>
+                                    </div>
+                    
+                                    <p class="price single">{{ order.stockId.price|format_currency('EUR') }}</p>
+                                    <p class="price total">{{ (order.stockId.price * order.amount)|format_currency('EUR') }}</p>
+                                </div>                                    
+                            </div>
+                        </div>
+                        {% set total = total + (order.stockId.price * order.amount) %}                        
+                        {% if order is not same as [] %}
+                            {% set basket = orders[0].basketId %}
+                        {% endif %}
+                    {% endfor %}                    
+                    
+                    {% if basket.deliveryId %}
+                        <div class="total-delivery">
+                            <div class="left ">
+                                <p>Frais de ports :</p>
+                                <div class="grid-middle">
+                                    <img src="{{ asset('images/common/' ~ basket.deliveryId.name ~ '.png') }}" alt="{{basket.deliveryId.name}}">
+                                    <b>{{ basket.deliveryId.name }}</b>
+                                </div>
+                            </div>
+                            <p class="right">
+                                {{ total < basket.deliveryId.threshold ? basket.deliveryId.priceBefore|format_currency('EUR') : basket.deliveryId.priceAfter|format_currency('EUR') }}
+                                {% if total < basket.deliveryId.threshold %}
+                                    {% set total = total + basket.deliveryId.priceBefore %}
+                                {% endif %}
+                            </p>
+                        </div>
+                    {% endif %}
+
+                    <div class="total-order">
+                        <p class="left">Total à régler</p>
+                        <p class="right">{{ total|format_currency('EUR') }}</p>
+                    </div> 
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,34 @@
+<div class="header" {{ (basket and basket.deliveryId) ? 'onclick="toStep(3)"' }}>
+    <span>3</span>
+    <h3>Paiement</h3>
+    <i class="fas fa-check"></i>
+</div>
+<div class="content">
+    <div class="payement">
+        <div class="grid-center" style="border:none;">
+            <div class="col-6_sm-12">
+                <button data-toggle="modal" data-target="modal-pay-cb" type="button" class="btn dark pay">
+                    <span><i class="fal fa-credit-card"></i></span>
+                    <p>Payer en<br>Carte bancaire</p>
+                </button>
+            </div>
+
+            <div class="col-6_sm-12">
+                <button data-toggle="modal" data-target="modal-pay-paypal" type="button" class="btn dark pay">
+                    <span><i class="fab fa-paypal"></i></span>
+                    <p>Payer via<br>PayPal</p> 
+                </button>
+            </div>
+        </div>
+        
+        <div class="grid-center-noBottom">
+            <div class="col-6_md-12-center">
+                <div class="field" style="margin: 0;">
+                    <label for="registration_form_agreeTerms" class="required center" style="margin: 0;">
+                        En achetant sur ce site, j'accepte automatiquement les conditions générales de vente
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

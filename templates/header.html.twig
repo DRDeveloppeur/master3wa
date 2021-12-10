@@ -90,15 +90,24 @@
                     {% endif %}
 
                     <div class="cart" id="header_panier">
-                        <a>
+                        <a href="{{ path('basket') }}">
                             <i class="far fa-shopping-bag"></i>
-                            {% if app.user.basket %}
+                            {% if app.user and app.user.baskets %}
+                                {% set basket = null %}
+                                {% for bsk in app.user.baskets %}
+                                    {% if bsk.name is same as "Panier" %}
+                                        {% set basket = bsk %}
+                                    {% endif %}
+                                {% endfor %}
+
                                 {% set somme = 0 %}
                                 {% set nbrArticle = 0 %}
-                                {% for order in app.user.basket.orders %}
-                                    {% set somme = somme + (order.stockId.price * order.amount) %}
-                                    {% set nbrArticle = nbrArticle + order.amount %}
-                                {% endfor %}
+                                {% if basket %}
+                                    {% for order in basket.orders %}
+                                        {% set somme = somme + (order.stockId.price * order.amount) %}
+                                        {% set nbrArticle = nbrArticle + order.amount %}
+                                    {% endfor %}
+                                {% endif %}
                                 <p>Panier ({{nbrArticle}})</p>
                             {% else %}
                                 <p>Panier</p>                                
@@ -106,26 +115,29 @@
                         </a>
 
                         <div class="details">
-                            {% if app.user.basket %}
-                            <div class="detail_cart">
-                                <div class="top_detail_cart">
-                                    {{ nbrArticle }} {{ (nbrArticle < 2) ? "article" : "articles" }} : <b>{{ somme|format_currency('EUR') }}</b>
-                                </div>
-                                {% for order in app.user.basket.orders %}
-                                <a href="{{ path('product', {'model': order.productId.model, 'ref': order.productId.ref, 'stock_id': order.stockId.id}) }}">
-                                    <div class="item">
-                                        <img src="{{ asset('uploads/products/' ~ order.productId.images[0].path) }}" alt="">
-                                        <div class="infos">
-                                            <p>{{ order.productId.model }}</p>
-                                            <p>taille : {{ order.stockId.size }} X {{ order.amount }}</p>
-                                            <p>{{ order.stockId.price|format_currency('EUR') }}</p>
-                                        </div>
+                            {% if app.user and app.user.baskets and basket %}
+                                <div class="detail_cart">
+                                    <div class="top_detail_cart">
+                                        {{ nbrArticle }} {{ (nbrArticle < 2) ? "article" : "articles" }} : <b>{{ somme|format_currency('EUR') }}</b>
                                     </div>
-                                </a>
-                                {% endfor %}
-                            </div>
+                                    {% for order in basket.orders %}
+                                    <a href="{{ path('product', {'model': order.productId.model, 'ref': order.productId.ref, 'stock_id': order.stockId.id}) }}">
+                                        <div class="item">
+                                            <img src="{{ asset('uploads/products/' ~ order.productId.images[0].path) }}" alt="">
+                                            <div class="infos">
+                                                <p>{{ order.productId.model }}</p>
+                                                <p>taille : {{ order.stockId.size }} X {{ order.amount }}</p>
+                                                <p>{{ order.stockId.price|format_currency('EUR') }}</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    {% endfor %}
+                                    <div class="link">
+                                        <a href="{{ path('basket') }}" class="btn primary fw">Panier</a>
+                                    </div>
+                                </div>
                             {% else %}
-                            <p class="empty">Votre panier est vide</p>
+                                <p class="empty">Votre panier est vide</p>
                             {% endif %}
                         </div>
                     </div>
