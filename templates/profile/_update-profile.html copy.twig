@@ -1,0 +1,114 @@
+<div class="modal fade show" id="modal-update-profile" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Inscription</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="close"></button>
+            </div>
+            <div class="modal-body">
+                {% for flashError in app.flashes('verify_email_error') %}
+                    <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+                {% endfor %}
+            
+            
+                {{ form_start(Form_update_profile) }}
+                    <div class="grid-center">
+                        <div class="col-6_sm-12" data-push-right="off-6_sm-0">
+                            <div class="field">
+                                {{ form_row(Form_update_profile.civility, { label: 'Civilité', value: app.user.civility }) }}
+                            </div>
+                        </div>
+        
+                        <div class="col-6_sm-12">
+                            <div class="field">
+                                {{ form_row(Form_update_profile.firstname, { label: 'Nom', value: app.user.firstname }) }}
+                            </div>
+                        </div>
+        
+                        <div class="col-6_sm-12">
+                            <div class="field">
+                                {{ form_row(Form_update_profile.lastname, { label: 'Prénom', value: app.user.lastname }) }}
+                            </div>
+                        </div>
+        
+                        <div class="col-6_sm-12">
+                            <div class="field">
+                                {{ form_row(Form_update_profile.address, { label: 'Adresse postale', value: app.user.address }) }}
+                            </div>
+                        </div>
+        
+                        <div class="col-6_sm-12">
+                            <div class="field">
+                                {{ form_row(Form_update_profile.aditional_address, { label: 'Complément d\'asress', value: app.user.aditionaladdress }) }}
+                            </div>
+                        </div>
+        
+                        <div class="col-6_sm-12">
+                            <div class="field">
+                                {{ form_row(Form_update_profile.city, { label: 'Ville', value: app.user.city }) }}
+                            </div>
+                        </div>
+        
+                        <div class="col-6_sm-12">
+                            <div class="field">
+                                {{ form_row(Form_update_profile.zip_code, { label: 'Code postal', value: app.user.zipcode }) }}
+                            </div>
+                        </div>
+        
+                        <div class="col-6_sm-12" data-push-right="off-6_sm-0">
+                            <div class="field">
+                                {{ form_row(Form_update_profile.country, { label: 'Pays', value: app.user.country }) }}
+                            </div>
+                        </div>
+        
+                        <div class="col-6_sm-12">
+                            <div class="field">
+                                {{ form_row(Form_update_profile.phone, { label: 'Téléphone portable', value: app.user.phone }) }}
+                            </div>
+                        </div>
+        
+                        <div class="col-6_sm-12">
+                            <div class="field">
+                                {{ form_row(Form_update_profile.home_phone, { label: 'Téléphone fix', value: app.user.homephone }) }}
+                            </div>
+                        </div>
+        
+                        <div class="col-12">
+                            <div class="field birth">
+                                {{ form_row(Form_update_profile.birth, { label: 'Date de naissance', value: app.user.birth }) }}
+                            </div>
+                        </div>
+
+                        <div class="col-6_sm-12">
+                            <div class="field">
+                                {{ form_row(Form_update_profile.email, {value: app.user.email}) }}
+                            </div>
+                        </div>
+        
+                        <div class="col-6_sm-12">
+                            <div class="field">
+                                {{ form_row(Form_update_profile.plainPassword) }}
+                            </div>
+                        </div>
+        
+                        <div class="col-center">
+                            {{ form_row(Form_update_profile.agreeTerms, { label: 'J\'accepte les conditions générales du site', required: none }) }}
+                        </div>
+                        <div class="col-12"></div>
+
+                        <div class="col-12"></div>
+                        <div class="col-center">
+                            <button type="submit" class="btn primary">Enregistrer</button>
+                        </div>
+                    </div>
+            
+                {{ form_end(Form_update_profile) }}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn o-white" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

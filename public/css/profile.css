@@ -1,0 +1,77 @@
+main#profile section.top {
+  display: block;
+  margin: 15px 0;
+  padding: 15px 0;
+}
+main#profile section.top .account-user-name {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #808080;
+  padding: 10px 0;
+}
+main#profile section.top .account-user-name span {
+  font-size: 18px;
+  color: #ff5733;
+  font-weight: 700;
+}
+main#profile section.content {
+  margin-bottom: 60px;
+}
+main#profile section.content .account-menu .panel-toggle {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: #f2f2f2;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  transition: all ease-in-out 0.2s;
+}
+main#profile section.content .account-menu .panel-toggle i {
+  flex: 0 0 24px;
+  height: 18px;
+  text-align: center;
+  margin-right: 10px;
+  font-size: 16px;
+}
+main#profile section.content .account-menu .panel-toggle:hover:not(.active) {
+  color: #ff5733;
+}
+main#profile section.content .account-menu .panel-toggle.active {
+  color: #FFFFFF;
+  background: #ff5733;
+}
+main#profile section.content .panel-content {
+  display: none;
+  background: #f2f2f2;
+  border-left: 3px solid #ff5733;
+  padding: 15px 30px;
+  min-height: 100%;
+}
+main#profile section.content .panel-content h3 {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  color: #1a1a1a;
+  text-align: center;
+}
+main#profile section.content .panel-content .billing-address {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+main#profile section.content .panel-content .billing-address #login_userinfo {
+  flex: 1 1 0;
+  font-size: 12px;
+  color: #1a1a1a;
+}
+main#profile section.content .panel-content .billing-address > div {
+  flex: 0 0 120px;
+}
+main#profile section.content .panel-content.active {
+  display: block;
+}

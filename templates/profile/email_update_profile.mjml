@@ -1,0 +1,55 @@
+<mjml>
+    <mj-head>
+        <mj-title>Confirmation de la cr&eacute;ation de votre compte</mj-title>
+        <mj-attributes>
+            <mj-all font-family="Arial" />
+            <mj-section background-color="white" border-left="1px solid #e7e7e7" border-right="1px solid #e7e7e7" />
+            <mj-class name="red" color="#ed1c24" />
+            <mj-text align="justify" />
+        </mj-attributes>
+    </mj-head>
+    <mj-body background-color="#fafafa">
+        <mj-section padding-top="10px" padding-bottom="0" background-color="#0e0e0e" border-bottom="1px solid #e7e7e7"  border-top="1px solid #e7e7e7">
+            <mj-column width="55%" padding="0" vertical-align="middle">
+                <mj-image src="http://costes.devlcv.fr/COSTES_WEB/photos/ImgMenu/images/common/carre-de-la-mode-logo-mail.png" alt="Carr&eacute; de la mode" />
+            </mj-column>
+            <mj-column width="45%" padding="0 5px" vertical-align="middle">
+                <mj-text color="#fff" line-height="18px" font-weight="bold" align="center" font-size="15px">
+                    Confirmation de la cr&eacute;ation de votre compte
+                </mj-text>
+            </mj-column>
+        </mj-section>
+        
+        <mj-section>
+            <mj-column width="100%">
+                <mj-text font-size="30px" font-weight="700" align="center">
+				   Bienvenue sur Carr&eacute; de la mode !
+                </mj-text>
+                <mj-text>
+                    <p style="background-color: #f1f1f1; padding: 15px; border:1px solid #cccccc;">
+                        Pour vous connecter sur notre site, il vous suffit de cliquer sur <b>"Compte"</b> en haut de chaque page, puis renseignez votre adresse e-mail et votre mot de passe.
+                    </p>
+                    <p>
+                        Veuillez confirmer votre adresse e-mail en cliquant sur le lien suivant : <a style="color:#ff5733;" href="{{ signedUrl }}">Confirmer mon e-mail</a>.
+                    </p>
+                    <p>
+                        Ce lien expirera dans {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
+                    </p>
+                    <p>
+                        Si vous avez des questions concernant votre compte, n&apos;h&eacute;sitez pas &agrave; nous contacter &agrave; l&apos;adresse suivante <a href="mailto:contact@carredelamode.com" style="color:#ff5733;">contact@carredelamode.com</a> ou bien par t&eacute;l&eacute;phone au <a href="tel:0000000000" style="color:#ff5733;">00 00 00 00 00</a>
+                    </p>
+                    <p style="font-size:16px; font-weight: 700; margin-top:30px;">Merci ! <br><span >L&apos;&eacute;quipe Carr&eacute; de la mode</span></p>
+                </mj-text>
+                
+            </mj-column>
+        </mj-section>
+        
+        <mj-section padding="40px 0 20px 0" border-bottom="1px solid #e7e7e7">
+            <mj-column width="100%">
+                <mj-text font-size="10px" align="center" color="#999999">
+                    SARL COSTES CHAUSSURES au Capital de : 300 600&euro; - Si&egrave;ge social : 1 Rue Beaus&eacute;jour 12450 LA PRIMAUBE - T&eacute;l. 05 65 69 79 11<br>SIREN : 313 609 216 - N&deg; TVA : FR 22 313 609 216
+                </mj-text>
+            </mj-column>
+        </mj-section>
+    </mj-body>
+</mjml>

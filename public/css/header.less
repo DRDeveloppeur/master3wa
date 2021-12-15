@@ -165,6 +165,62 @@ header {
                 }
             }
         }
+        .account {
+            .details {
+                padding: 0;
+
+                .name {
+                    padding: 7px;
+                    background: @grey95;
+                    text-align: center;
+                    font-size: 14px;
+                    font-weight: 700;
+                    margin-bottom: 10px;
+
+                    span {
+                        font-weight: 300;
+                        text-transform: uppercase;
+                        font-size: 12px;
+                        color: @grey40;
+                    }
+                }
+                .link {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 12px;
+                    padding: 7px 0;
+                    margin-bottom: 10px;
+                    transition: all ease 0.2s;
+                    color: @txt;
+                    flex-direction: row;
+                    padding: 0;
+
+                    i {
+                        color: @grey30;
+                        margin-right: 10px;
+                        font-size: 14px;
+                        margin: 0;
+                        padding: 0;
+                        width: 30px;
+                        height: 30px;
+
+                        &::after {display: none;}
+                        &::before {
+                            color: @grey30;
+                        }
+                    }
+                    &:hover {
+                        &, i::before {
+                            color: @color-primary;
+                        }
+                    }
+                }
+                hr {
+                    color: @grey95;
+                }
+            }
+        }
         .cart {
             .details {
                 padding: 0;

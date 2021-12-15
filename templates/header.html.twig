@@ -62,32 +62,32 @@
                         </a>
                     </div>
 
-                    {% if app.user %}
-                        {% if is_granted('ROLE_ADMIN') %}
-                            <div class="account" id="header_connexion">
-                                <a href="{{ path('admin') }}" title="Admin">
-                                    <i class="far fa-user"></i>
-                                    {{ app.user.firstname }}
-                                </a>
+                    <div class="account" id="header_connexion">
+                        {% if app.user %}
+                            <a href="{{ path('profile') }}" title="Profil">
+                                <i class="far fa-user"></i>
+                                {{ app.user.firstname }}
+                            </a>
+                            <div class="details">
+                                <p class="name"><span>Bienvenue</span><br>{{ app.user.firstname }} {{ app.user.firstname }}</p>
+                                <a href="{{ path('profile') }}" class="link"><i class="far fa-user"></i><span>Mon compte</span></a>
+                                <a href="{{ path('app_logout') }}" class="link"><i class="fas fa-sign-out-alt"></i><span>Déconnexion</span></a>
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <hr>
+                                    <a href="{{ path('admin') }}" class="link" title="Admin">
+                                        <i class="far fa-user"></i>
+                                        Adminnistation
+                                    </a>
+                                {% endif %}
                             </div>
                         {% endif %}
-                        {% if not is_granted('ROLE_ADMIN') %}
-                            <div class="account" id="header_connexion">
-                                <a href="{{ path('app_login') }}" title="Admin">
-                                    <i class="far fa-user"></i>
-                                    {{ app.user.firstname }}
-                                </a>
-                            </div>
-                        {% endif %}
-                    {% endif %}
-                    {% if not app.user %}
-                        <div class="account" id="header_connexion">
+                        {% if not app.user %}
                             <a href="{{ path('app_login') }}" title="Connexion">
                                 <i class="far fa-user"></i>
                                 <p>Connexion</p>
                             </a>
-                        </div>
-                    {% endif %}
+                        {% endif %}
+                    </div>
 
                     <div class="cart" id="header_panier">
                         <a href="{{ path('basket') }}">
