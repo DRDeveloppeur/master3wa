@@ -63,38 +63,19 @@
                         <h3>Mon identifiant</h3>
     
                         <div class="grid-center">
-                            <div class="col-4_md-6_xs-12">
+                            {{ form_start(Form_update_login) }}
+                            <div class="col-4_md-6_xs-12" data-push-right="off-1_md-0" data-push-left="off-1_md-0">
                                 <div class="field">
-                                    <label for="logmdp1">Ancien login</label>
-                                    <input type="mail" id="logmail1">
+                                    {{ form_row(Form_update_login.email) }}
                                 </div>
                             </div>
-    
-                            <div class="w-100"></div>
-    
-                            <div class="col-4_md-6_xs-12">
-                                <div class="field">
-                                    <label for="logmdp2">Nouveau login</label>
-                                    <input type="mail" id="logmail2">
-                                </div>
-                            </div>  
-    
-                            <div class="w-100"></div>                    
-    
-                            <div class="col-4_md-6_xs-12">
-                                <div class="field marginBottom30">
-                                    <label for="logmdp3">Confirmation du login</label>
-                                    <input type="mail" id="logmail3">
-                                </div>
-                            </div> 
-    
-                            <div class="w-100"></div>                      
     
                             <div class="grid-center">
                                 <div class="col">
-                                    <button type="button" class="btn black md w-200" onclick="OkMonCompte('PW')">Valider</button>
+                                    <button type="submit" class="btn black md w-200">Valider</button>
                                 </div>
                             </div>
+                            {{ form_end(Form_update_login) }}
                         </div>
                     </div>
     
@@ -102,40 +83,19 @@
                         <h3>Mon mot de passe</h3>
     
                         <div class="grid-center">
-                            <div class="col-4_md-6_xs-12">
-                                <div class="field on-bg">
-                                    <label for="logmdp1">Ancien mot de passe</label>
-                                    <input class="input password" type="password" id="logmdp1">
+                            {{ form_start(Form_update_password) }}
+                            <div class="col-4_md-6_xs-12" data-push-right="off-1_md-0" data-push-left="off-1_md-0">
+                                <div class="field">
+                                    {{ form_row(Form_update_password.plainPassword) }}
                                 </div>
                             </div>
-    
-                            <div class="w-100"></div>                  
-    
-                            <div class="col-4_md-6_xs-12">
-                                <div class="field on-bg">
-                                    <label for="logmdp2">Nouveau mot de passe</label>                                
-                                    <input type="password" id="logmdp2" class="pswd" minlength="6" maxlength="12">
-                                    <span id="pw-strenght"></span>
-                                    <span class="pw-tip">Votre mot de passe doit contenir entre 6 et 12 caractères, une majuscule, une minuscule et un chiffre.</span>  
-                                </div>
-                            </div>  
-    
-                            <div class="w-100"></div>                     
-    
-                            <div class="col-4_md-6_xs-12">
-                                <div class="field on-bg marginBottom30">
-                                    <label for="logmdp3">Confirmation du mot de passe</label>
-                                    <input class="input password" type="password" id="logmdp3" maxlength="12">
-                                </div>
-                            </div>
-    
-                            <div class="w-100"></div>                       
     
                             <div class="grid-center">
                                 <div class="col">
-                                    <button type="button" class="btn black md w-200" onclick="OkMonCompte('PW')">Valider
-                                </button></div>
+                                    <button type="submit" class="btn black md w-200">Valider</button>
+                                </div>
                             </div>
+                            {{ form_end(Form_update_password) }}
                         </div>
                     </div>
     

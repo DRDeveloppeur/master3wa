@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\UpdateLoginFormType;
+use App\Form\UpdatePasswordFormType;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -30,17 +32,11 @@ class ProfileController extends AbstractController
     {
         $user = $this->getUser();
         $form = $this->createForm(UpdateProfileFormType::class, $user);
+        $formLogin = $this->createForm(UpdateLoginFormType::class, $user);
+        $formPass = $this->createForm(UpdatePasswordFormType::class, $user);
+        
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
-            // encode the plain password
-            // $user->setPassword(
-            // $userPasswordHasherInterface->hashPassword(
-            //         $user,
-            //         $form->get('plainPassword')->getData()
-            //     )
-            // );
-
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
@@ -58,9 +54,55 @@ class ProfileController extends AbstractController
             $this->addFlash('success', 'Vos informations ont bien été modifiées. Vous recevrez bientôt un mail de confirmation.');
             return $this->redirectToRoute('profile');
         }
+        
+        $formLogin->handleRequest($request);
+        if ($formLogin->isSubmitted() && $formLogin->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
+                (new TemplatedEmail())
+                    ->from(new Address('raul3wa@gmail.com', 'Carrée de la mode'))
+                    ->to($user->getEmail())
+                    ->subject('Modifications des informations personnelles')
+                    ->htmlTemplate('profile/email_update_profile.html.twig')
+            );
+
+            $this->addFlash('success', 'Votre login as bien été modifiées. Vous recevrez bientôt un mail de confirmation.');
+            return $this->redirectToRoute('profile');
+        }
+        
+        $formPass->handleRequest($request);
+        if ($formPass->isSubmitted() && $formPass->isValid()) {
+            // encode the plain password
+            dd($form->get('plainPassword')->getData());
+            $user->setPassword(
+                $userPasswordHasherInterface->hashPassword(
+                    $user,
+                    $form->get('plainPassword')->getData()
+                )
+            );
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
+                (new TemplatedEmail())
+                    ->from(new Address('raul3wa@gmail.com', 'Carrée de la mode'))
+                    ->to($user->getEmail())
+                    ->subject('Modifications des informations personnelles')
+                    ->htmlTemplate('profile/email_update_profile.html.twig')
+            );
+
+            $this->addFlash('success', 'Votre mot de passe as bien été modifiées. Vous recevrez bientôt un mail de confirmation.');
+            return $this->redirectToRoute('profile');
+        }
 
         return $this->render('profile/index.html.twig', [
             'Form_update_profile' => $form->createView(),
+            'Form_update_login' => $formLogin->createView(),
+            'Form_update_password' => $formPass->createView(),
         ]);
     }
 
