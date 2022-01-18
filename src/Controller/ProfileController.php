@@ -131,14 +131,14 @@ class ProfileController extends AbstractController
             // generate a signed url and email it to the user
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
                 (new TemplatedEmail())
-                    ->from(new Address('raul3wa@gmail.com', 'Carr�e de la mode'))
+                    ->from(new Address('raul3wa@gmail.com', 'Carrée de la mode'))
                     ->to($user->getEmail())
                     ->subject('Modifications des informations personnelles')
                     ->htmlTemplate('profile/email_update_profile.html.twig')
             );
             // do anything else you need here, like send an email
 
-            $this->addFlash('success', 'Vos informations ont bien �t� modifi�es. Vous recevrez bient�t un mail de confirmation.');
+            $this->addFlash('success', 'Vos informations ont bien été modifiées. Vous recevrez bientôt un mail de confirmation.');
             return $this->redirectToRoute('profile');
         }
         

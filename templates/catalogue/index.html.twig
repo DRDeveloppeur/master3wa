@@ -66,9 +66,11 @@
                     {% set my_favs = basket %}
                 {% endif %}
             {% endfor %}
-            {% for order in my_favs.orders %}
-                {% set favs_order = favs_order|merge([order]) %}
-            {% endfor %}
+            {% if my_favs %}
+                {% for order in my_favs.orders %}
+                    {% set favs_order = favs_order|merge([order]) %}
+                {% endfor %}
+            {% endif %}
         {% endif %}
 
         <div class="items">

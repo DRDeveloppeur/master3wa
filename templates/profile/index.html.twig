@@ -141,7 +141,66 @@
                             <p class="details"></p>                           
                         </div>
     
-                        <ul class="order-list" id="liste_commandes"></ul>
+                        {% for basket in app.user.baskets %}
+                            {% if basket.name == "Facture" %}
+                                <ul class="order-list">
+                                    <li class="order">
+                                        <div class="summary">
+                                            {% set totalAmount = 0 %}
+                                            {% set totalPrice = 0 %}
+                                            {% for order in basket.orders %}
+                                                {% set totalAmount = totalAmount + order.amount %}
+                                                {% set totalPrice = totalPrice + (order.amount *  order.stockId.price) %}
+                                            {% endfor %}
+                                            {% if totalPrice < basket.deliveryId.threshold %}
+                                                {% set totalPrice = totalPrice + basket.deliveryId.priceBefore %}
+                                            {% endif %}
+                                            <p class="date"><span class="lgnd">Date<br></span>{{ basket.createdAt|date("d/m/Y") }}</p>
+                                            <p class="number"><span class="lgnd">N°<br></span>{{ basket.refOrder }}</p>
+                                            <p class="status"><span class="lgnd">Statut<br></span>{{ basket.isPayed ? "Payée" : "Commande en cours" }}</p>
+                                            <a href="" class="tracking" target="_blank"><span class="lgnd">Suivi<br></span></a>
+                                            <p class="quantity"><span class="lgnd">Qté<br></span>{{ totalAmount }} {{ totalAmount < 2 ? "article" : "articles" }}</p>
+                                            <p class="total"><span class="lgnd">Total<br></span><span>{{ totalPrice|format_currency('EUR') }}</span></p>
+                                            <button type="button" class="details">
+                                                <i class="far fa-eye"></i>
+                                                <i class="far fa-eye-slash"></i>
+                                            </button>
+                                        </div>
+                                        
+                                        <div class="items">
+                                            <ul>
+                                                {% for order in basket.orders %}
+                                                    <li>
+                                                        <a href="{{ path('product', {'model': order.productId.model, 'ref': order.productId.ref, 'stock_id': order.stockId.id}) }}">
+                                                            <img src="{{ asset('uploads/products/' ~ order.productId.images[0].path) }}" alt="{{ order.productId.model }}">
+                                                        </a>
+                                                        <div>
+                                                            <p class="name">{{ order.productId.model }}</p>
+                                                            <p class="quantity"><span class="lgnd">Quantité<br></span>{{ order.amount }}</p>
+                                                            <p class="total"><span class="lgnd">Total<br></span>{{ (order.amount * order.stockId.price)|format_currency('EUR') }}</p>
+                                                            <button type="button" class="btn sm aw g-secondary" style="display:none;">
+                                                                <i class="far fa-exchange-alt"></i>
+                                                                <span>Demande de retour</span>
+                                                            </button>
+                                                        </div>
+                                                    </li>
+                                                {% endfor %}
+                                                <li>
+                                                    <a href="">
+                                                        <img src="{{ asset('images/common/' ~ basket.deliveryId.name ~ '.png') }}" alt="{{ basket.deliveryId.name }}" style="width:50%;margin:auto;">
+                                                    </a>
+
+                                                    <div>
+                                                        <p class="name">{{ basket.deliveryId.name }}</p>
+                                                        <p class="total"><span class="lgnd">Total<br></span>{{ totalPrice < basket.deliveryId.threshold ? basket.deliveryId.priceBefore|format_currency('EUR') : basket.deliveryId.priceAfter|format_currency('EUR') }}</p>
+                                                    </div>                                            
+                                                </li>
+                                            </ul>            
+                                        </div>
+                                    </li>
+                                </ul>
+                            {% endif %}
+                        {% endfor %}
                     </div>
                 </div>
             </div>

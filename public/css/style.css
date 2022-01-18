@@ -140,6 +140,10 @@ header .main-menu div .details {
   z-index: 900;
   overflow: hidden;
 }
+header .main-menu div .details .empty {
+  padding: 15px;
+  font-weight: 700;
+}
 header .main-menu div:hover a,
 header .main-menu div:hover button {
   color: #ff5733;
@@ -259,10 +263,6 @@ nav .nav-block {
 nav .nav-block .nav-item {
   cursor: pointer;
   flex: 1 1 0;
-  padding: 15px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   transition: all ease-in-out 0.2s;
 }
 nav .nav-block .nav-item .nav-title {
@@ -271,6 +271,17 @@ nav .nav-block .nav-item .nav-title {
   color: #333333;
   font-weight: 700;
   transition: color ease-in-out 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+}
+nav .nav-block .nav-item .nav-title a {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
 }
 nav .nav-block .nav-item .sub-nav {
   cursor: auto;

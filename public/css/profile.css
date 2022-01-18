@@ -87,6 +87,27 @@ main#profile section.content .panel-content .order-list-legend {
 main#profile section.content .panel-content .order-list-legend p {
   margin-bottom: 0;
 }
+main#profile section.content .panel-content .order-list {
+  padding: 0;
+}
+main#profile section.content .panel-content .order-list .details i {
+  transition: all ease-in-out 0.2s;
+}
+main#profile section.content .panel-content .order-list .details i:last-child {
+  display: none;
+}
+main#profile section.content .panel-content .order-list .details i:first-child {
+  display: flex;
+}
+main#profile section.content .panel-content .order-list .items {
+  display: none;
+}
+main#profile section.content .panel-content .order-list.active .details i:last-child {
+  display: flex;
+}
+main#profile section.content .panel-content .order-list.active .details i:first-child {
+  display: none;
+}
 main#profile section.content .panel-content ul[class],
 main#profile section.content .panel-content ol[class] {
   list-style: none;
@@ -140,7 +161,7 @@ main#profile section.content .panel-content ul li .items ul li {
   background: #FFFFFF;
 }
 main#profile section.content .panel-content ul li .items ul li a {
-  flex: 0 1 30%;
+  flex: 0 1 20%;
   margin-right: 15px;
 }
 main#profile section.content .panel-content ul li .items ul li > div {
@@ -166,6 +187,8 @@ main#profile section.content .panel-content .date {
 }
 main#profile section.content .panel-content .number {
   flex: 1 1 15%;
+  overflow: hidden;
+  margin-right: 15px;
 }
 main#profile section.content .panel-content .status {
   flex: 1 1 20%;

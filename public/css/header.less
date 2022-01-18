@@ -145,6 +145,11 @@ header {
                 width: 300px;
                 z-index: 900;
                 overflow: hidden;
+
+                .empty {
+                    padding: 15px;
+                    font-weight: 700;
+                }
             }
             &:hover {
                 a, button {
@@ -290,10 +295,6 @@ nav {
         .nav-item {
             cursor: pointer;
             flex: 1 1 0;
-            padding: 15px 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             transition: all ease-in-out .2s;
             
             .nav-title {
@@ -302,6 +303,19 @@ nav {
                 color: @grey20;
                 font-weight: 700;
                 transition: color ease-in-out .2s;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 45px;
+                
+                a {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 45px;
+                }
             }
             .sub-nav {
                 cursor: auto;

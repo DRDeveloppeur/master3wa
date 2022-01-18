@@ -7,4 +7,11 @@ $(document).ready(function() {
 	  	var panelTarget = $(this).attr('data-to');
 	  	$(panelTarget).addClass('active');
 	});
+	$('button.details').click(function(e) {
+		e.preventDefault();
+		let orderList = $(this).parent().parent().parent()
+		let items =  orderList.children().children(".items")
+		orderList.toggleClass('active')
+		items.toggle("slow")
+	})
 });
