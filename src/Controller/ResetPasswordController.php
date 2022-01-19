@@ -66,6 +66,7 @@ class ResetPasswordController extends AbstractController
         if (null === ($resetToken = $this->getTokenObjectFromSession())) {
             $resetToken = $this->resetPasswordHelper->generateFakeResetToken();
         }
+        dd($resetToken);
 
         return $this->render('reset_password/check_email.html.twig', [
             'resetToken' => $resetToken,
@@ -95,7 +96,7 @@ class ResetPasswordController extends AbstractController
         try {
             $user = $this->resetPasswordHelper->validateTokenAndFetchUser($token);
         } catch (ResetPasswordExceptionInterface $e) {
-            $this->addFlash('reset_password_error', sprintf(
+            $this->addFlash('error', sprintf(
                 'Un problème est survenu lors de la validation de votre demande de réinitialisation - %s',
                 $e->getReason()
             ));
@@ -149,7 +150,7 @@ class ResetPasswordController extends AbstractController
             // the lines below and change the redirect to 'app_forgot_password_request'.
             // Caution: This may reveal if a user is registered or not.
             //
-            $this->addFlash('reset_password_error', sprintf(
+            $this->addFlash('error', sprintf(
                 'Un problème est survenu lors du traitement de votre demande de réinitialisation de mot de passe - %s',
                 $e->getReason()
             ));
@@ -172,7 +173,7 @@ class ResetPasswordController extends AbstractController
         // Store the token object in session for retrieval in check-email route.
         $this->setTokenObjectInSession($resetToken);
 
-        $this->addFlash('info', 'Un mail de réinitialisation de mot de passe vient d\'être envoyé sur l\'adresse : "'+$user->getEmail()+'" !');
+        $this->addFlash('info', 'Un mail de réinitialisation de mot de passe vient d\'être envoyé sur l\'adresse : "' + $user->getEmail() + '" !');
         
         return $this->redirectToRoute('app_check_email');
     }

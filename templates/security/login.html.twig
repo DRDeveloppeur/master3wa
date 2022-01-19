@@ -11,7 +11,11 @@
     <div class="container">
 
         {% if error %}
-            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            <div class="alert alert-danger">
+                <div class="error" role="alert">
+                    {{ error.messageKey|trans(error.messageData, 'security') }}
+                </div>
+            </div>
         {% endif %}
     
         {% if app.user %}

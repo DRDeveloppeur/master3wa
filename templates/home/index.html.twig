@@ -114,27 +114,41 @@
 
             <div class="swiper-selection">
                 <div class="swiper-wrapper">
-
-                    <div class="swiper-slide items">
-                        <div class="item">
-                            <div class="top-item">
-        
-                            </div>
-        
-                            <a href="#">
-                                <img src="/images/home/6572501_1.jpg" alt="">
+                    {% for product in products %}
+                        <div class="swiper-slide items">
+                            <div class="item">
+                                <div class="top-item"></div>
             
-                                <p class="label">Nike</p>
-                                <p class="ref">Airmax</p>
-                                <p class="marque">...</p>
-                                <p class="price">
-                                    <span class="old">160 €</span>
-                                    <span class="current">130 €</span>
-                                </p>
-                            </a>
-                        </div>
-                    </div>
+                                <a href="{{ path('product', {model: product.model|lower, ref: product.ref|lower}) }}">
+                                    <img src="{{ asset('uploads/products/' ~ product.images[0].path) }}" alt="{{ product.model }}" alt="{{ product.model }}">
+                
+                                    <p class="label">{{ product.model }}</p>
+                                    <p class="ref">{{ product.ref }}</p>
+                                    <p class="marque">{{ product.markId.name }}</p>
+                                    <p class="price">
+                                        {% set prices = [] %}
+                                        {% set prx = "" %}
+                                        {% for stock in product.stocks %}
+                                            {% set prices = prices|merge([stock.price]) %}
+                                            {% if stock.discount %}
+                                                {% set discount = "0."~stock.discount %}
+                                                {% set reduce = stock.price * discount %}
+                                                {% set prx = stock.price - reduce %}
+                                            {% else %}
+                                                {% set prx = min(prices) %}
+                                            {% endif %}
+                                        {% endfor %}
 
+                                        {% if min(prices) is same as(max(prices)) %}
+                                            <span class="current">{{ prx|format_currency('EUR') }}</span>
+                                        {% else %}
+                                            <span class="current">à partir de {{ prx|format_currency('EUR') }}</span>
+                                        {% endif %}
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -149,41 +163,13 @@
 
             <div class="swiper-mark">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <a href="#">
-                            <img src="/images/home/marques/home-marque-01.jpg" alt="Semerjan">
-                        </a>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <a href="#">
-                            <img src="/images/home/marques/home-marque-02.jpg" alt="Lacoste">
-                        </a>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <a href="#">
-                            <img src="/images/home/marques/home-marque-03.jpg" alt="New balance">
-                        </a>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <a href="#">
-                            <img src="/images/home/marques/home-marque-04.jpg" alt="Unisa">
-                        </a>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <a href="#">
-                            <img src="/images/home/marques/home-marque-05.jpg" alt="Little la suite">
-                        </a>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <a href="#">
-                            <img src="/images/home/marques/home-marque-06.jpg" alt="Faguo">
-                        </a>
-                    </div>
+                    {% for mark in brands %}
+                        <div class="swiper-slide">
+                            <a href="{{ path('catalogue', {'q': mark.name}) }}">
+                                <img src="{{ asset('uploads/brands/' ~ mark.logo) }}" alt="{{ mark.name }}">
+                            </a>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

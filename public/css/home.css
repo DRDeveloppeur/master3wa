@@ -185,6 +185,11 @@ main.home section#selection .items .item:hover .sizes {
 main.home section#marks .container {
   overflow: hidden;
 }
+main.home section#marks .swiper-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 main.home section#stores .block-items {
   display: flex;
   justify-content: space-between;

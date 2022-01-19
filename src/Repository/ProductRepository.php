@@ -128,4 +128,23 @@ class ProductRepository extends ServiceEntityRepository
         $res = ["filters" => $filters, "result" => $query->getQuery()->getResult()];
         return $res;
     }
+
+        /**
+     * Undocumented function
+     *
+     * @return Product[]
+     */
+    public function findLastAdded(): array
+    {
+        $query = $this
+            ->createQueryBuilder('p')
+            ->orderBy('p.id', 'DESC')
+            ->setMaxResults(5)
+            ->getQuery()
+            ->getResult()
+        ;
+        
+        $res = $query;
+        return $res;
+    }
 }

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos marques{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/informations.css') }}">
+{% endblock %}
+
+{% block body %}
+<main id="informations" class="we-brands">
+    <div class="container">
+        <h1 class="title-primary">Nos marques</h1>
+
+        <div class="grid-6_md-5_sm-4_xs-3">
+            {% for mark in brands %}
+                <div class="col">
+                    <a href="{{ path('catalogue', {'q': mark.name}) }}" class="brand-link" title="{{ mark.name }}">
+                        <div><img src="{{ asset('uploads/brands/' ~ mark.logo) }}" alt="{{ mark.name }}"></div>
+                        <p>{{ mark.name }}</p>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</main>
+{% endblock %}

@@ -98,22 +98,22 @@ class UserCrudController extends AbstractCrudController
         yield BooleanField::new('isVerified', 'Vérifier')->setColumns(3);
     }
 
-    public function persistEntity(EntityManagerInterface $entityManager, $entityInstance): void
-    {
-        $this->encodePassword($entityInstance);
-        parent::persistEntity($entityManager, $entityInstance);
-    }
+    // public function persistEntity(EntityManagerInterface $entityManager, $entityInstance): void
+    // {
+    //     $this->encodePassword($entityInstance);
+    //     parent::persistEntity($entityManager, $entityInstance);
+    // }
 
-    public function updateEntity(EntityManagerInterface $entityManager, $entityInstance): void
-    {
-        $this->encodePassword($entityInstance);
-        parent::updateEntity($entityManager, $entityInstance);
-    }
+    // public function updateEntity(EntityManagerInterface $entityManager, $entityInstance): void
+    // {
+    //     $this->encodePassword($entityInstance);
+    //     parent::updateEntity($entityManager, $entityInstance);
+    // }
 
-    private function encodePassword(User $user)
-    {
-        if ($user->getPassword() !== null) {
-            $user->setPassword($this->passwordEncoder->encodePassword($user, $user->getPassword()));
-        }
-    }
+    // private function encodePassword(User $user)
+    // {
+    //     if ($user->getPassword() !== null) {
+    //         $user->setPassword($this->passwordEncoder->encodePassword($user, $user->getPassword()));
+    //     }
+    // }
 }

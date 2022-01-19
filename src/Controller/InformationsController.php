@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Repository\MarkRepository;
+use App\Repository\StoreRepository;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -27,11 +29,27 @@ class InformationsController extends AbstractController
     }
 
     /**
-     * @Route("/nos-boutiques", name="informations_weMarkets")
+     * @Route("/nos-boutiques", name="informations_weStores")
      */
-    public function weMarkets(): Response
+    public function weStores(StoreRepository $storeRepository): Response
     {
-        return $this->render('informations/nos-boutiques.html.twig');
+        $stores = $storeRepository->findAll();
+
+        return $this->render('informations/nos-boutiques.html.twig', [
+            "stores" => $stores,
+        ]);
+    }
+
+    /**
+     * @Route("/nos-marques", name="informations_weMarkets")
+     */
+    public function weMarkets(MarkRepository $markRepository): Response
+    {
+        $brands = $markRepository->findAll();
+
+        return $this->render('informations/nos-marques.html.twig', [
+            "brands" => $brands,
+        ]);
     }
 
     /**
@@ -40,14 +58,6 @@ class InformationsController extends AbstractController
     public function weServices(): Response
     {
         return $this->render('informations/nos-services.html.twig');
-    }
-
-    /**
-     * @Route("/notre-blog", name="informations_ourBlog")
-     */
-    public function ourBlog(): Response
-    {
-        return $this->render('informations/notre-blog.html.twig');
     }
 
     /**
@@ -80,6 +90,14 @@ class InformationsController extends AbstractController
     public function sizeGuide(): Response
     {
         return $this->render('informations/guide-taille.html.twig');
+    }
+
+    /**
+     * @Route("/guide-taille-enfant", name="informations_sizeGuideChild")
+     */
+    public function sizeGuideChild(): Response
+    {
+        return $this->render('informations/guide-taille-enfant.html.twig');
     }
 
     /**
