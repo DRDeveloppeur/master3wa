@@ -1,0 +1,265 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos magasins{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="{{ asset('css/informations.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script>
+        $(document).ready(() => {
+            var swiper_stores = new Swiper('.swiper-stores', {
+                slidesPerView: 1,
+                spaceBetween: 10,
+                loop: true,
+                autoplay: {
+                    delay: 2000,
+                },
+                breakpoints: {
+                    480: {
+                        slidesPerView: 2,
+                        spaceBetween: 20
+                    },
+                    700: {
+                        slidesPerView: 4,
+                        spaceBetween: 30
+                    },
+                    1024: {
+                        slidesPerView: 5,
+                        spaceBetween: 60
+                    }
+                }
+            });
+        })
+    </script>
+{% endblock %}
+
+{% block body %}
+<main id="informations" class="we-stores">
+    <div class="container">
+        <h1 class="title-primary">Nos magasins</h1>
+
+        <p class="block">
+            Nous possédons 4 magasins dans le beau département de l’Aveyron: La Primaube, St-Affrique et Réquista. Nous proposons de grandes marques connues comme Kaporal, Levi’s, Le temps des cerises, Serge Blanco, Scotch&amp;Soda, Lacoste, Timberland, Superdry,
+            Only, Vila, Jack&amp;Jones, Tamaris, Marco Tozzi, Converse...Vous pourrez y retrouver également des marques moins connues mais tout aussi qualitatives avec des designs qui suivent les tendances mode : CL11 Sneakers, Please, The Korner, Redskins,
+            Colmar...Pour les enfants, nous proposons uniquement des marques expertes dans la chaussure pour enfants. Fantaisie, designs colorés, nos modèles ont pour seul but de proposer le meilleur maintien et le meilleur confort du pied de votre enfant
+            tout en proposant des designs colorés et pleins de fantaisie. Les marques présentes dans nos magasins sont : Acebos, Bellamy, Babybotte, Bopy, Geox, ShooPom...
+        </p>
+
+        <h2>Carré de la mode – La Primaube</h2>
+
+        <img src="{{ asset('images/stores/store_01.jpg') }}" alt="La Primaube">
+
+        <div class="block">
+            <div class="grid-3_md-2_sm-1-noGutter">
+                <div class="col-4_md-6_sm-12">
+                    <p>
+                        Découvrez notre magasin à La Primaube (12450) : <br> 
+                        vous y trouverez plus de 500m² d’articles de mode :
+                    </p>
+
+                    <ul>
+                        <li>Prêt-à-porter Homme et Femme</li>
+                        <li>Chaussures Homme, Femme et Enfant</li>
+                        <li>Maroquinerie</li>
+                        <li>Accessoires de mode</li>
+                    </ul>
+                </div>
+
+                <div class="col-4_md-6_sm-12">
+                    <p>
+                        <b>Adresse</b> <br> Avenue de Rodez <br> 12450 La Primaube <br> Prêt-à-porter, Chaussures &amp; Maroquinerie <br>
+                        <b>Horaires</b> <br> Lundi : 09 :30 – 12 :15 / 14 :00 – 19 :00 <br> Du mardi au vendredi : 09 :30 – 12 :00 : 15/ 14 :00 – 19 :15 <br> Samedi : 09 :30 – 12 :30 / 14 :00 – 19 :00 <br> Dimanche : 09 :30 – 12 :00 <br>
+                        <b>Contact</b> <br>
+                        <a href="tel:056569541611">05 65 69 54 16 11</a> <br>
+                        <a href="mailto:info@carredelamode.com">info@carredelamode.com</a>
+                    </p>
+                </div>
+
+                <div class="col-4_md-12">
+                    <div style="width: 100%"><iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100&amp;height=400&amp;hl=en&amp;q=11Av.deRodez,Luc-la-Primaube+(YourBusinessName)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="block">
+            <div class="swiper-stores">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/stores/store_01_01.jpg') }}" alt="">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/stores/store_01_02.jpg') }}" alt="">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/stores/store_01_03.jpg') }}" alt="">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/stores/store_01_04.jpg') }}" alt="">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/stores/store_01_05.jpg') }}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Carré de la mode | Chaussures et maroquinerie – St-Affrique</h2>
+
+        <img src="{{ asset('images/stores/store_02.jpg') }}" alt="Chaussures et maroquinerie – St-Affrique">
+
+        <div class="block">
+            <div class="grid-2_sm-1-noGutter">
+                <div class="col-6_sm-12">
+                    <p>
+                        Découvrez notre magasin de chaussures et de maroquinerie à St-Affrique. <br>
+                        <b>Adresse</b> <br> 16 Boulevard Charles de Gaulle <br> 12400 Saint-Affrique <br> Chaussures &amp; Maroquinerie <br>
+                        <b>Horaires</b> <br> Lundi : Fermé <br> Du mardi au vendredi : 09 :15 – 12 :15 / 14 :00 – 19 :00 <br> Samedi : 09 :00 – 12 :30 / 14 :00 – 19 :00 <br> Dimanche : Fermé <br>
+                        <b>Contact</b> <br>
+                        <a href="tel:05 65 99 03 26">05 65 99 03 26</a> <br>
+                        <a href="mailto:info@carredelamode.com">info@carredelamode.com</a> <br>
+                    </p>
+                </div>
+
+                <div class="col-6_md-12">
+                    <div style="width: 100%"><iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100&amp;height=400&amp;hl=en&amp;q=16BdCharlesdeGaulle,Saint-Affrique+(YourBusinessName)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="block">
+            <div class="swiper-stores">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/stores/store_01_01.jpg') }}" alt="">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/stores/store_01_02.jpg') }}" alt="">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/stores/store_01_03.jpg') }}" alt="">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/stores/store_01_04.jpg') }}" alt="">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/stores/store_01_05.jpg') }}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Carré de la mode | Prêt-à-porter et maroquinerie – St-Affrique</h2>
+
+        <img src="{{ asset('images/stores/store_03.jpg') }}" alt="Prêt-à-porter et maroquinerie – St-Affrique">
+
+        <div class="block">
+            <div class="grid-2_sm-1-noGutter">
+                <div class="col-6_sm-12">
+                    <p>
+                        Découvrez notre magasin de prêt-à-porter et de maroquinerie à St-Affrique. <br>
+                        <b>Adresse</b> <br> 6 Boulevard de la République <br> 12400 Saint-Affrique <br> Prêt-à-porter &amp; Maroquinerie <br>
+                        <b>Horaires</b> <br> Lundi : Fermé <br> Du mardi au vendredi : 09 :30 – 12 :00 / 14 :00 – 19 :00 <br> Samedi : 09 :00 – 12 :30 / 14 :00 – 19 :00 <br> Dimanche : Fermé <br>
+                        <b>Contact</b> <br>
+                        <a href="tel:05 65 49 50 68">05 65 49 50 68</a> <br>
+                        <a href="mailto:info@carredelamode.com">info@carredelamode.com</a> <br>
+                    </p>
+                </div>
+
+                <div class="col-6_md-12">
+                    <div style="width: 100%"><iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100&amp;height=400&amp;hl=en&amp;q=6BddelaR%C3%A9publique,Saint-Affrique+(YourBusinessName)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="block">
+            <div class="swiper-stores">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/stores/store_01_01.jpg') }}" alt="">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/stores/store_01_02.jpg') }}" alt="">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/stores/store_01_03.jpg') }}" alt="">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/stores/store_01_04.jpg') }}" alt="">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/stores/store_01_05.jpg') }}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Carré de la mode | Chaussures et maroquinerie – Réquista</h2>
+
+        <img src="{{ asset('images/stores/store_04.jpg') }}" alt="Chaussures et maroquinerie – Réquista">
+
+        <div class="block">
+            <div class="grid-2_sm-1-noGutter">
+                <div class="col-6_sm-12">
+                    <p>
+                        Découvrez notre magasin de prêt-à-porter et de maroquinerie à St-Affrique. <br>
+                        <b>Adresse</b> <br> 6 Boulevard de la République <br> 12400 Saint-Affrique <br> Prêt-à-porter &amp; Maroquinerie <br>
+                        <b>Horaires</b> <br> Lundi : Fermé <br> Du mardi au vendredi : 09 :30 – 12 :00 / 14 :00 – 19 :00 <br> Samedi : 09 :00 – 12 :30 / 14 :00 – 19 :00 <br> Dimanche : Fermé <br>
+                        <b>Contact</b> <br>
+                        <a href="tel:05 65 49 50 68">05 65 49 50 68</a> <br>
+                        <a href="mailto:info@carredelamode.com">info@carredelamode.com</a> <br>
+                    </p>
+                </div>
+
+                <div class="col-6_md-12">
+                    <div style="width: 100%"><iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100&amp;height=400&amp;hl=en&amp;q=6BddelaR%C3%A9publique,Saint-Affrique+(YourBusinessName)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="block">
+            <div class="swiper-stores">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/stores/store_01_01.jpg') }}" alt="">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/stores/store_01_02.jpg') }}" alt="">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/stores/store_01_03.jpg') }}" alt="">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/stores/store_01_04.jpg') }}" alt="">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/stores/store_01_05.jpg') }}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

@@ -1,0 +1,341 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Guide des tailles enfants{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/informations.css') }}">
+{% endblock %}
+
+{% block body %}
+<main id="informations" class="faq">
+    <div class="container">
+        <h1 class="title-primary">Enfants | Guide des tailles et conseils</h1>
+        <p>
+            <font size="+1"> Chez l’enfant, le chaussant doit être adapté en fonction de son l’âge et en fonction de la
+                forme de son pied. Le pied d’un enfant grandit rapidement, il convient donc de s’adapter en lui mettant
+                un modèle de chaussure adapté. Fille ou garçon,
+                à lacets ou à scratch ou encore modèles bas ou montants, découvrez notre large gamme de chaussures pour
+                bébé, enfant, junior ou cadet. Nous proposons des modèles de marques spécialistes du pied enfant afin
+                que vous puissiez choisir une
+                chaussure robuste, confortable et surtout adapter au pied de votre enfant. Actuellement, nous
+                travaillons avec la marque 
+                <a href="{{ path('catalogue', {"q": "ACEBOS"}) }}" target="_blank" rel="noopener noreferrer">ACEBOS</a>, 
+                <a href="{{ path('catalogue', {"q": "BABYBOTTE"}) }}" target="_blank" rel="noopener noreferrer">BABYBOTTE</a>, 
+                <a href="{{ path('catalogue', {"q": "BELLAMY"}) }}" target="_blank" rel="noopener noreferrer">BELLAMY</a>, 
+                <a href="{{ path('catalogue', {"q": "BOPY"}) }}" target="_blank" rel="noopener noreferrer">BOPY</a>,
+                <a href="{{ path('catalogue', {"q": "GEOX"}) }}" target="_blank" rel="noopener noreferrer">GEOX</a>, 
+                <a href="{{ path('catalogue', {"q": "SHOOPOM"}) }}" target="_blank" rel="noopener noreferrer">SHOOPOM</a>.
+            </font>
+        </p>
+        <p>
+            <font size="+1">Découvrez notre guide des tailles ainsi que les conseils de notre spécialiste du pied <a
+                    href="{{ path('informations_weServices') }}" target="_blank" rel="noopener noreferrer"> M. COSTES
+                    Dominique, orthopédiste.</a></font>
+        </p>
+
+        <h2>Guide des tailles</h2>
+
+        <div class="q-block">
+            <h3>Guide des tailles enfant </h3>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                <b>Taille du pied (cm)
+                                </b>
+                            </th>
+                            <th>
+                                <b>Pointure FR
+                                </b>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                10.3
+                            </td>
+                            <td>
+                                17
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                11
+                            </td>
+                            <td>
+                                18
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                11.6
+                            </td>
+                            <td>
+                                19
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                12.3
+                            </td>
+                            <td>
+                                20
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                13
+                            </td>
+                            <td>
+                                21
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                13.6
+                            </td>
+                            <td>
+                                22
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                14.3
+                            </td>
+                            <td>
+                                23
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                15
+                            </td>
+                            <td>
+                                24
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                15.6
+                            </td>
+                            <td>
+                                25
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                16.3
+                            </td>
+                            <td>
+                                26
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                17
+                            </td>
+                            <td>
+                                27
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                17.7
+                            </td>
+                            <td>
+                                28
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                18.4
+                            </td>
+                            <td>
+                                29
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                19
+                            </td>
+                            <td>
+                                30
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                19.6
+                            </td>
+                            <td>
+                                31
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                20.3
+                            </td>
+                            <td>
+                                32
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                21
+                            </td>
+                            <td>
+                                33
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                21.6
+                            </td>
+                            <td>
+                                34
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                22.3
+                            </td>
+                            <td>
+                                35
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <h2>Nos conseils | Comment bien chausser son enfant ?</h2>
+
+        <div class="q-block">
+            <h3>A partir de quel âge peut-on mettre des chaussures à un enfant ? </h3>
+            <div>
+                <p>
+                    L’apprentissage de la marque commence en général vers l’âge de 9 mois. Avant cet âge-là, il n’est
+                    pas nécessaire de lui mettre des chaussures. Le laisser pieds nus lui permettra de se familiariser
+                    avec l’équilibre et de se muscler les
+                    pieds. Il commence à se tenir debout ? Lisez notre conseil <b>« Comment choisir les chaussures «
+                        bébé debout » ? »</b>
+                </p>
+            </div>
+        </div>
+
+        <div class="q-block">
+            <h3>Les chaussures premiers pas, souples ou rigides ? </h3>
+            <div>
+                <p>
+                    Il est indispensable que les chaussures premiers pas soient <b>souples</b>.
+                </p>
+            </div>
+        </div>
+
+        <div class="q-block">
+            <h3>Comment choisir les chaussures « bébé debout » ?</h3>
+            <div>
+                <p>
+                    Il commence à s’accrocher aux meubles et réussi à tenir debout pendant quelques minutes ? Il est
+                    temps de lui acheter ses premières chaussures. Il est important que la chaussure soit <b>souple et
+                        dotée d’une semelle antidérapante.</b> Il est fortement recommandé de choisir une chaussure avec
+                    un excellent support de la cheville pour protéger le talon d’Achille : les chaussures montantes ou
+                    bottillons seront parfaits. Cela évitera à votre enfant de se tordre la cheville.
+                    Privilégiez le cuir souple ainsi qu’une <b>doublure en cuir</b> car cela favorise l’évacuation de la
+                    transpiration. Notre partenaire <b>BELLAMY propose une gamme FLEXIBEL qui accompagne bébé dans
+                        l’apprentissage de la marche</b> et
+                    qui répond à toutes les caractéristiques mentionnées ci-dessus. <a
+                        href="{{ path('catalogue', {"q": "enfant BELLAMY"}) }}" target="_blank" rel="noopener noreferrer">Nos modèles de
+                        chaussures BELLAMY</a>.
+                </p>
+            </div>
+        </div>
+
+        <div class="q-block">
+            <h3>Quand changer de pointure ?</h3>
+            <div>
+                <p>
+                    Jusqu’à 18 mois environ, un enfant change de taille tous les <b>2 à 3 mois</b> en moyenne. La
+                    croissance du pied d’un enfant varie d’un enfant à l’autre. Il n’y a pas de règle précise. C’est
+                    pour cela qu’il est important que vous mesuriez
+                    régulièrement le pied de votre enfant. Vous pouvez le faire à l’aide d’un périmètre que vous pouvez
+                    trouver sur Internet. Cependant le plus simple est de venir en magasin où notre personnel pourra
+                    vous conseiller au mieux.
+                </p>
+            </div>
+        </div>
+
+        <div class="q-block">
+            <h3>Comment savoir si la chaussure de mon enfant est trop petite ou trop grande ? </h3>
+            <div>
+                <p>
+                    Pour savoir si la chaussure de votre enfant est trop petite, glissez un doigt dans la chaussure au
+                    niveau du talon : s’il ne passe pas cela signifie que qu’elle est trop petite. Si au contraire vous
+                    pouvez y passer 2 doigts, c’est que la chaussure est
+                    trop grande. Les signes d’une chaussure trop petite :
+                </p>
+                <ul>
+                    <li>Votre enfant aura tendance à trainer des pieds plus souvent que d’habitude</li>
+                    <li>La chaussure aura tendance à se déformer</li>
+                    <li>Vous avez du mal à lui enfiler la chaussure</li>
+                </ul>
+                <p></p>
+            </div>
+        </div>
+
+        <div class="q-block">
+            <h3>Quelle fermeture choisir ? </h3>
+            <div>
+                <p>
+                    Il existe 3 types de fermetures : à lacets, à scratch ou à zip. Chacun a ses avantages et ses
+                    inconvénients et il convient d’adapter la fermeture en fonction de l’âge et le l’utilisation de la
+                    chaussure.
+                </p>
+
+                <p><b>Les fermetures à lacets</b></p>
+
+                <p>
+                    Le classique et le plus sûr : le lacet. Il permet un meilleur confort et un meilleur maintien.
+                    Cependant, il est source de chute s’il est défait. Il convient donc de bien serrer au niveau du nœud
+                    pour éviter qu’il ne se défasse plusieurs fois dans la
+                    journée. Il permet également à votre enfant de s’entrainer à faire ses lacets.
+                </p>
+
+                <p><b>Les fermetures à scratch</b></p>
+
+                <p>
+                    Pratique et facile à utiliser pour les enfants. Le scratch permet à l’enfant d’être autonome. Il
+                    offre un ajustement du pied aussi bien que le lacet. Le scratch est donc conseillé pour les enfants
+                    qui entre en maternelle par exemple. Ils commencent à
+                    apprendre à se chausser soit même.
+                </p>
+
+                <p><b>Les fermetures à zip</b></p>
+
+                <p>
+                    Souvent combinés avec des lacets, les fermetures à zip simplifient l’enfilage des chaussures grâce à
+                    une ouverture plus large. Le maintien du pied est tout aussi bien que le lacet puisque si la
+                    chaussure est dotée d’un lacet + zip, vous pouvez ajuster
+                    le serrage.
+                </p>
+                <p>
+                    En conclusion, privilégiez les lacets et les zips pour les moins de 3 ans. Pour les plus de 3 ans,
+                    vous pouvez choisir les 3 types de fermetures en choisissant la bonne fermeture en fonction du mode
+                    de vie de votre enfant.
+                </p>
+                <p>
+                    Découvrez toutes nos marques de chaussures pour enfant en cliquant <a
+                        href="{{ path('catalogue', {"q": "enfant"}) }}" target="_blank" rel="noopener noreferrer">ici</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    $('.q-block>h3').click(function () {
+        $(this).next('div').slideToggle('100', 'swing')
+    })
+</script>
+{% endblock %}

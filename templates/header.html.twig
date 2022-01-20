@@ -1,0 +1,362 @@
+<header>
+    <div class="top-header">
+        <div class="container">
+            <div class="grid-3-middle-noGutter-spaceBetween">
+                <a href="#" class="col">
+                    <i class="far fa-tshirt"></i>
+                    <i class="far fa-boot"></i>
+                    <span>Prêt-à-porter et chaussures pour toute la famille</span>
+                </a>
+
+                <a href="#" class="col">
+                    <i class="far fa-truck"></i>
+                    <span>Livraison gratuite à partir de XX €</span>
+                </a>
+
+                <a href="#" class="col">
+                    <i class="far fa-shield-check"></i>
+                    <span>Paiement sécurisé</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="grid-4-middle-noGutters-noBottom-spaceBetween">
+            <div class="col-lg-0_md-1_sm-2 toggle-nav-ctnr">
+                <button type="button" class="toggle-nav" title="Menu"><i class="fas fa-bars"></i></button>
+            </div>
+
+            <div class="col-3_sm-4" data-push-right="off-2_md-0">
+                <a class="logo" href="{{ path('home') }}" title="Le carré de la mode">
+                    <img src="/images/common/carre-de-la-mode-logo.jpg" alt="Le carré de la mode">
+                </a>
+            </div>
+
+            <div class="col-2_md-hidden search-ctnr" data-push-right="off-1_md-0">
+                <div class="search-bar">
+                    <form action="{{ path('catalogue', {'query': 'q'}) }}" method="get">
+                        <div>
+                            <input type="text" title="Recherche" name="q" placeholder="Bottines, sneakers...">
+                            <button type="submit" title="Recherche">
+                                <i class="far fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-4_md-6">
+                <div class="main-menu">
+                    <div class="stores">
+                        <a href="{{ path('informations_weStores') }}" title="Magasin">
+                            <i class="far fa-map-marker-alt"></i>
+                            <p>Magasins</p>
+                        </a>
+                    </div>
+
+                    <div class="favoris">
+                        <a href="{{ path('catalogue', {favorite: true}) }}" title="Favoris">
+                            <i class="far fa-heart"></i>
+                            <p>Favoris</p>
+                        </a>
+                    </div>
+
+                    <div class="account" id="header_connexion">
+                        {% if app.user %}
+                            <a href="{{ path('profile') }}" title="Profil">
+                                <i class="far fa-user"></i>
+                                {{ app.user.firstname }}
+                            </a>
+                            <div class="details">
+                                <p class="name"><span>Bienvenue</span><br>{{ app.user.firstname }} {{ app.user.firstname }}</p>
+                                <a href="{{ path('profile') }}" class="link"><i class="far fa-user"></i><span>Mon compte</span></a>
+                                <a href="{{ path('app_logout') }}" class="link"><i class="fas fa-sign-out-alt"></i><span>Déconnexion</span></a>
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <hr>
+                                    <a href="{{ path('admin') }}" class="link" title="Admin">
+                                        <i class="far fa-user"></i>
+                                        Adminnistation
+                                    </a>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                        {% if not app.user %}
+                            <a href="{{ path('app_login') }}" title="Connexion">
+                                <i class="far fa-user"></i>
+                                <p>Connexion</p>
+                            </a>
+                        {% endif %}
+                    </div>
+
+                    <div class="cart" id="header_panier">
+                        <a href="{{ path('basket') }}">
+                            <i class="far fa-shopping-bag"></i>
+                            {% if app.user and app.user.baskets %}
+                                {% set basket = null %}
+                                {% for bsk in app.user.baskets %}
+                                    {% if bsk.name is same as "Panier" %}
+                                        {% set basket = bsk %}
+                                    {% endif %}
+                                {% endfor %}
+
+                                {% set somme = 0 %}
+                                {% set nbrArticle = 0 %}
+                                {% if basket %}
+                                    {% for order in basket.orders %}
+                                        {% set somme = somme + (order.stockId.price * order.amount) %}
+                                        {% set nbrArticle = nbrArticle + order.amount %}
+                                    {% endfor %}
+                                {% endif %}
+                                <p>Panier ({{nbrArticle}})</p>
+                            {% else %}
+                                <p>Panier</p>                                
+                            {% endif %}
+                        </a>
+
+                        <div class="details">
+                            {% if app.user and app.user.baskets and basket %}
+                                <div class="detail_cart">
+                                    <div class="top_detail_cart">
+                                        {{ nbrArticle }} {{ (nbrArticle < 2) ? "article" : "articles" }} : <b>{{ somme|format_currency('EUR') }}</b>
+                                    </div>
+                                    {% for order in basket.orders %}
+                                    <a href="{{ path('product', {'model': order.productId.model, 'ref': order.productId.ref, 'stock_id': order.stockId.id}) }}">
+                                        <div class="item">
+                                            <img src="{{ asset('uploads/products/' ~ order.productId.images[0].path) }}" alt="">
+                                            <div class="infos">
+                                                <p>{{ order.productId.model }}</p>
+                                                <p>taille : {{ order.stockId.size }} X {{ order.amount }}</p>
+                                                <p>{{ order.stockId.price|format_currency('EUR') }}</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    {% endfor %}
+                                    <div class="link">
+                                        <a href="{{ path('basket') }}" class="btn primary fw">Panier</a>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <p class="empty">Votre panier est vide</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <div class="container">
+        <div class="nav-header below-LG">
+            <button type="button" class="">
+                Férmer
+            </button>
+        </div>
+        <div class="nav-block">
+            <div class="nav-item">
+                <div class="nav-title">
+                    <a href="{{ path('catalogue', {'q': 'Femme'}) }}">
+                        Femme
+                    </a>
+                </div>
+
+                <div class="sub-nav hover">
+                    <div class="inner">
+                        <div class="group">
+                            <p class="title">Chaussures</p>
+                            <ul>
+                                <li><a href="{{ path('catalogue', {'q': 'Boots'}) }}">Boots</a></li>
+                                <li><a href="{{ path('catalogue', {'q': 'Montante'}) }}">Montante</a></li>
+                                <li><a href="{{ path('catalogue', {'q': 'sandales'}) }}">sandales</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="group">
+                            <p class="title">Vêtements</p>
+                            <ul>
+                                <li><a href="{{ path('catalogue', {'q': 'Blouson'}) }}">Blouson</a></li>
+                                <li><a href="{{ path('catalogue', {'q': 'Tee-shirt'}) }}">Tee-shirt</a></li>
+                                <li><a href="{{ path('catalogue', {'q': 'Shirt'}) }}">Shirt</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="group">
+                            <p class="title">Accèsoires</p>
+                            <ul>
+                                <li><a href="{{ path('catalogue', {'q': 'Ceinture'}) }}">Ceinture</a></li>
+                                <li><a href="{{ path('catalogue', {'q': 'Casquette'}) }}">Casquette</a></li>
+                                <li><a href="{{ path('catalogue', {'q': 'Chaussette'}) }}">Chaussette</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-item">
+                <div class="nav-title">
+                    <a href="{{ path('catalogue', {'q': 'Homme'}) }}">
+                        Homme
+                    </a>
+                </div>
+
+                <div class="sub-nav hover">
+                    <div class="inner">
+                        <div class="group">
+                            <p class="title">Chaussures</p>
+                            <ul>
+                                <li><a href="{{ path('catalogue', {'q': 'Boots'}) }}">Boots</a></li>
+                                <li><a href="{{ path('catalogue', {'q': 'Montante'}) }}">Montante</a></li>
+                                <li><a href="{{ path('catalogue', {'q': 'sandales'}) }}">sandales</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="group">
+                            <p class="title">Vêtements</p>
+                            <ul>
+                                <li><a href="{{ path('catalogue', {'q': 'Blouson'}) }}">Blouson</a></li>
+                                <li><a href="{{ path('catalogue', {'q': 'Tee-shirt'}) }}">Tee-shirt</a></li>
+                                <li><a href="{{ path('catalogue', {'q': 'Shirt'}) }}">Shirt</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="group">
+                            <p class="title">Accèsoires</p>
+                            <ul>
+                                <li><a href="{{ path('catalogue', {'q': 'Ceinture'}) }}">Ceinture</a></li>
+                                <li><a href="{{ path('catalogue', {'q': 'Casquette'}) }}">Casquette</a></li>
+                                <li><a href="{{ path('catalogue', {'q': 'Chaussette'}) }}">Chaussette</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-item">
+                <div class="nav-title">
+                    <a href="{{ path('catalogue', {'q': 'Enfant'}) }}">
+                        Enfant
+                    </a>
+                </div>
+
+                <div class="sub-nav hover">
+                    <div class="inner">
+                        <div class="group">
+                            <p class="title">Chaussures</p>
+                            <ul>
+                                <li><a href="{{ path('catalogue', {'q': 'Boots'}) }}">Boots</a></li>
+                                <li><a href="{{ path('catalogue', {'q': 'Montante'}) }}">Montante</a></li>
+                                <li><a href="{{ path('catalogue', {'q': 'sandales'}) }}">sandales</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="group">
+                            <p class="title">Vêtements</p>
+                            <ul>
+                                <li><a href="{{ path('catalogue', {'q': 'Blouson'}) }}">Blouson</a></li>
+                                <li><a href="{{ path('catalogue', {'q': 'Tee-shirt'}) }}">Tee-shirt</a></li>
+                                <li><a href="{{ path('catalogue', {'q': 'Shirt'}) }}">Shirt</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="group">
+                            <p class="title">Accèsoires</p>
+                            <ul>
+                                <li><a href="{{ path('catalogue', {'q': 'Ceinture'}) }}">Ceinture</a></li>
+                                <li><a href="{{ path('catalogue', {'q': 'Casquette'}) }}">Casquette</a></li>
+                                <li><a href="{{ path('catalogue', {'q': 'Chaussette'}) }}">Chaussette</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-item">
+                <div class="nav-title">
+                    <a href="{{ path('informations_weMarkets') }}">
+                        Marques
+                    </a>
+                </div>
+
+                <div class="sub-nav hover">
+                    <div class="inner">
+                        <div class="group">
+                            <p class="title">Chaussures</p>
+                            <ul>
+                                <li><a href="{{ path('catalogue', {'q': 'Boots'}) }}">Boots</a></li>
+                                <li><a href="{{ path('catalogue', {'q': 'Montante'}) }}">Montante</a></li>
+                                <li><a href="{{ path('catalogue', {'q': 'sandales'}) }}">sandales</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="group">
+                            <p class="title">Vêtements</p>
+                            <ul>
+                                <li><a href="{{ path('catalogue', {'q': 'Blouson'}) }}">Blouson</a></li>
+                                <li><a href="{{ path('catalogue', {'q': 'Tee-shirt'}) }}">Tee-shirt</a></li>
+                                <li><a href="{{ path('catalogue', {'q': 'Shirt'}) }}">Shirt</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="group">
+                            <p class="title">Accèsoires</p>
+                            <ul>
+                                <li><a href="{{ path('catalogue', {'q': 'Ceinture'}) }}">Ceinture</a></li>
+                                <li><a href="{{ path('catalogue', {'q': 'Casquette'}) }}">Casquette</a></li>
+                                <li><a href="{{ path('catalogue', {'q': 'Chaussette'}) }}">Chaussette</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-item">
+                <div class="nav-title">
+                    <a href="{{ path('catalogue', {'promo': 1}) }}">
+                        Promotions
+                    </a>
+                </div>
+
+                <div class="sub-nav hover">
+                    <div class="inner">
+                        <div class="group">
+                            <p class="title">Chaussures</p>
+                            <ul>
+                                <li><a href="{{ path('catalogue', {'q': 'Boots'}) }}">Boots</a></li>
+                                <li><a href="{{ path('catalogue', {'q': 'Montante'}) }}">Montante</a></li>
+                                <li><a href="{{ path('catalogue', {'q': 'sandales'}) }}">sandales</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="group">
+                            <p class="title">Vêtements</p>
+                            <ul>
+                                <li><a href="{{ path('catalogue', {'q': 'Blouson'}) }}">Blouson</a></li>
+                                <li><a href="{{ path('catalogue', {'q': 'Tee-shirt'}) }}">Tee-shirt</a></li>
+                                <li><a href="{{ path('catalogue', {'q': 'Shirt'}) }}">Shirt</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="group">
+                            <p class="title">Accèsoires</p>
+                            <ul>
+                                <li><a href="{{ path('catalogue', {'q': 'Ceinture'}) }}">Ceinture</a></li>
+                                <li><a href="{{ path('catalogue', {'q': 'Casquette'}) }}">Casquette</a></li>
+                                <li><a href="{{ path('catalogue', {'q': 'Chaussette'}) }}">Chaussette</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+{% for key, flashArray in app.flashes %}
+    {% for message in flashArray %}
+        <div class="alert">
+            <div class="{{key}}" role="alert">{{ message }}</div>
+        </div>
+    {% endfor %}
+{% endfor %}

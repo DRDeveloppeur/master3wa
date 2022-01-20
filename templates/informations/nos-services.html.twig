@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos services{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/informations.css') }}">
+{% endblock %}
+
+{% block body %}
+<main id="informations" class="services">
+    <h1 class="title-primary">Nos services</h1>
+
+    <div class="container">
+        <div class="grid-5_md-2_sm-1">
+            <div class="col">
+                <img src="{{ asset('images/informations/orthopedie_01.jpg') }}" alt="">
+            </div>
+
+            <div class="col">
+                <img src="{{ asset('images/informations/orthopedie_01.jpg') }}" alt="">
+            </div>
+
+            <div class="col">
+                <img src="{{ asset('images/informations/orthopedie_01.jpg') }}" alt="">
+            </div>
+
+            <div class="col">
+                <img src="{{ asset('images/informations/orthopedie_01.jpg') }}" alt="">
+            </div>
+
+            <div class="col">
+                <img src="{{ asset('images/informations/orthopedie_01.jpg') }}" alt="">
+            </div>
+        </div>
+
+        <div class="block">
+            <h2><u>Orthopédie</u></h2>
+
+            <div style="display: none;">
+                <p>
+                    Vous avez besoin de conseils, semelles ou encore chaussures orthopédiques ? Dominique COSTES, notre professionnel du pied est là pour vous aider, vous accompagner et vous donner la meilleure solution pour vos problèmes de pieds. Consultations tous les
+                    mercredis dans notre magasin à La Primaube et uniquement sur rendez-vous. <br> 
+                    Contact : <a href="mailto:costesorthopedie@gmail.com">costesorthopedie@gmail.com</a> - Tel : <a href="tel:05 63 66 32 19">05 63 66 32 19</a> | <a href="tel:05 65 46 40 21">05 65 46 40 21</a>
+                </p>
+
+                <img width="150" src="{{ asset('images/informations/logo-orthopedie.png') }}" alt="ORTHOPEDIE">
+            </div>
+        </div>
+
+        <div class="block">
+            <h2><u>Service retouche</u></h2>
+
+            <div style="display: none;">
+                <p>
+                    Ce service est payant, à l’exception de l’ourlet piqué machine qui, lui, est, gratuit dès lors que son prix initial est d’au moins 95,00€. Ce service est uniquement disponible en magasin et pour les pantalons.
+                </p>
+            </div>
+        </div>
+
+        <div class="block">
+            <h2><u>La carte de fidélité Carré de la mode</u></h2>
+
+            <div style="display: none;">
+                <p>En magasin &amp; sur notre site e-commerce :</p>
+
+                <div class="grid-center">
+                    <div class="col-4_sm-12">
+                        <img src="{{ asset('images/informations/Infographie-carte-de-fidelite.png') }}" alt="Programme de fidélité">
+                    </div>
+                </div>
+
+                <p>
+                    Si vous souhaitez commander sur notre site Internet Carré de la mode et que vous êtes déjà client en boutique, utilisez la même adresse mail donnée en magasin pour pouvoir vous identifier ou créer un compte. Cela vous permettra d’une part de retrouver
+                    tous vos achats faits en boutique ou sur notre site et d’autre part de bénéficier des avantages de votre carte de fidélité.
+                </p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    $('.block>h2').click(function() {
+        $(this).next('div').slideToggle('100', 'swing')
+    })
+</script>
+{% endblock %}

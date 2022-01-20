@@ -1,0 +1,32 @@
+{% set prices = [] %}
+{% set prx = null %}
+{% for stock in product.stocks %}
+    {% set prices = prices|merge({(stock.size) : stock.price}) %}
+    {% if stock.discount %}
+        {% set discount = "0."~stock.discount %}
+        {% set reduce = stock.price * discount %}
+        {% set prx = stock.price - reduce %}
+    {% endif %}
+{% endfor %}
+
+{% if stk and stk.discount %}
+    <span class="dscnt" id="prxbarre" title="Encien prix">{{ stk.price|format_currency('EUR') }}</span>
+    {% set dsct = "0."~stk.discount %}
+    {% set discount = stk.price * dsct %}
+    {% set price = stk.price - discount %}
+    <span class="regular" id="prxvente" title="Prix">{{ price|format_currency('EUR') }}</span>
+{% else %}
+    {% if min(prices) is not same as(max(prices)) and not stk %}
+        {% if prx %}
+            <span class="regular" id="prxvente" title="Prix">à partir de {{ prx|format_currency('EUR') }}</span>
+        {% else %}
+            <span class="regular" id="prxvente" title="Prix">à partir de {{ min(prices)|format_currency('EUR') }}</span>
+        {% endif %}
+    {% else %}
+        <span class="regular" id="prxvente" title="Prix">{{ min(prices)|format_currency('EUR') }}</span>                                
+    {% endif %}
+{% endif %}
+
+{% if stk and stk.discount %}
+    <p class="percent" id="prpcent">- {{ stk.discount }} %</p>
+{% endif %}

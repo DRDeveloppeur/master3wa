@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Le Carrée de la mode | Panier{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/basket.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/modal.css') }}" />
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('js/basket.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+<main id="basket">
+    {% if basket %}
+        {% include 'basket/_modal-pay-cb.html.twig' with {basket} only %}
+        {% include 'basket/_modal-pay-paypal.html.twig' with {basket} only %}
+    {% endif %}
+
+    <div class="container">
+        <div class="grid-center">
+            <div class="col-7_md-12">
+                {% include 'basket/_steps.html.twig' with {deliveries, basket} only %}
+            </div>
+            <div class="col-5_md-12">
+                {% set orders = null %}
+                {% if basket %}
+                    {% set orders = basket.orders %}
+                {% endif %}
+
+                {% if app.user %}
+                    {% include 'basket/_recap.html.twig' with {orders} only %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

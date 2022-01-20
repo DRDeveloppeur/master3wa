@@ -1,0 +1,271 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script>
+        $(document).ready(() => {
+            var swiper = new Swiper(".swiper-container", {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                //autoplay: {
+                //    delay: 3500,
+                //    disableOnInteraction: false,
+                //}
+            });
+
+            var swiper_selection = new Swiper('.swiper-selection', {
+                slidesPerView: 1,
+                spaceBetween: 10,
+                loop: true,
+                autoplay: {
+                    delay: 4000,
+                },
+                breakpoints: {
+                    480: {
+                        slidesPerView: 1,
+                        spaceBetween: 20
+                    },
+                    700: {
+                        slidesPerView: 2,
+                        spaceBetween: 30
+                    },
+                    1024: {
+                        slidesPerView: 4,
+                        spaceBetween: 60
+                    }
+                }
+            });
+
+            var swiper_selection = new Swiper('.swiper-mark', {
+                slidesPerView: 1,
+                spaceBetween: 10,
+                loop: true,
+                autoplay: {
+                    delay: 4000,
+                },
+                breakpoints: {
+                    480: {
+                        slidesPerView: 1,
+                        spaceBetween: 20
+                    },
+                    700: {
+                        slidesPerView: 3,
+                        spaceBetween: 30
+                    },
+                    1024: {
+                        slidesPerView: 6,
+                        spaceBetween: 60
+                    }
+                }
+            });
+        })
+    </script>
+{% endblock %}
+
+{% block title %}Le Carrée de la mode | Accueil{% endblock %}
+
+{% block body %}
+<main class="home">
+    <!-- CAROUSEL -->
+    <section id="carousel">
+        <div class="container">
+            <div class="swiper-container">
+                <div id="main-carousel" class="swiper-wrapper">
+
+                    <div class="slider swiper-slide">
+                        <picture>
+                            <source media="(max-width: 544px)" srcset="/images/home/carousel/banner-01.jpg">
+                            <source media="(min-width: 545px)" srcset="/images/home/carousel/banner-01.jpg">
+                            <img loading="lazy" src="/images/home/carousel/banner-01.jpg" alt="Slide 01">
+                        </picture>
+
+                        <div class="content">
+                            <div class="txt">
+                                <p>Collection printemps 2021</p>
+                            </div>
+                            <div class="btns">
+                                <a href="#" class="btn primary md">Femme</a>
+                                <a href="#" class="btn primary md">Homme</a>
+                                <a href="#" class="btn primary md">Enfant</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR SELECTION -->
+    <section id="selection">
+        <div class="container">
+            <p class="title-primary">
+                Notre sélection
+            </p>
+
+            <div class="swiper-selection">
+                <div class="swiper-wrapper">
+                    {% for product in products %}
+                        <div class="swiper-slide items">
+                            <div class="item">
+                                <div class="top-item"></div>
+            
+                                <a href="{{ path('product', {model: product.model|lower, ref: product.ref|lower}) }}">
+                                    <img src="{{ asset('uploads/products/' ~ product.images[0].path) }}" alt="{{ product.model }}" alt="{{ product.model }}">
+                
+                                    <p class="label">{{ product.model }}</p>
+                                    <p class="ref">{{ product.ref }}</p>
+                                    <p class="marque">{{ product.markId.name }}</p>
+                                    <p class="price">
+                                        {% set prices = [] %}
+                                        {% set prx = "" %}
+                                        {% for stock in product.stocks %}
+                                            {% set prices = prices|merge([stock.price]) %}
+                                            {% if stock.discount %}
+                                                {% set discount = "0."~stock.discount %}
+                                                {% set reduce = stock.price * discount %}
+                                                {% set prx = stock.price - reduce %}
+                                            {% else %}
+                                                {% set prx = min(prices) %}
+                                            {% endif %}
+                                        {% endfor %}
+
+                                        {% if min(prices) is same as(max(prices)) %}
+                                            <span class="current">{{ prx|format_currency('EUR') }}</span>
+                                        {% else %}
+                                            <span class="current">à partir de {{ prx|format_currency('EUR') }}</span>
+                                        {% endif %}
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR SELECTION -->
+    <section id="marks">
+        <div class="container">
+            <p class="title-primary">
+                Nos marques
+            </p>
+
+            <div class="swiper-mark">
+                <div class="swiper-wrapper">
+                    {% for mark in brands %}
+                        <div class="swiper-slide">
+                            <a href="{{ path('catalogue', {'q': mark.name}) }}">
+                                <img src="{{ asset('uploads/brands/' ~ mark.logo) }}" alt="{{ mark.name }}">
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STORES -->
+    <section id="stores">
+        <div class="container">
+            <h1 class="title-primary">Nos boutiques</h1>
+
+            <div class="block-items">
+                <div class="item">
+                    <div class="top-item">
+                        <p>La primaube</p>
+                    </div>
+
+                    <div class="img-item">
+                        <img src="/images/home/stores/home-store-01.jpg" alt="store">
+                    </div>
+
+                    <div class="content-item">
+                        <a href="tel:0565695416"><i class="far fa-phone-alt"></i> 05 65 69 54 16</a>
+                        <p><i class="far fa-map-marker-alt"></i> 11 Avenue de Rodez <br> 12450 La Primaube</p>
+                        <p><i class="far fa-info-circle"></i> Prêt-à-porter, Chaussures &amp; Maroquinerie</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="top-item">
+                        <p>Requista</p>
+                    </div>
+
+                    <div class="img-item">
+                        <img src="/images/home/stores/home-store-01.jpg" alt="store">
+                    </div>
+
+                    <div class="content-item">
+                        <a href="tel:0565740516"><i class="far fa-phone-alt"></i> 05 65 74 05 16</a>
+                        <p><i class="far fa-map-marker-alt"></i> 8 place Général de Gaulle <br> 12170 Requista</p>
+                        <p><i class="far fa-info-circle"></i> Chaussures &amp; Maroquinerie</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="top-item">
+                        <p>Saint-affrique</p>
+                    </div>
+
+                    <div class="img-item">
+                        <img src="/images/home/stores/home-store-01.jpg" alt="store">
+                    </div>
+
+                    <div class="content-item">
+                        <a href="tel:0565990326"><i class="far fa-phone-alt"></i> 05 65 99 03 26</a>
+                        <p><i class="far fa-map-marker-alt"></i> 16 Boulevard Charles de Gaulle <br> 12400 Saint-Affrique</p>
+                        <p><i class="far fa-info-circle"></i> Chaussures &amp; Maroquinerie</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="top-item">
+                        <p>Saint-affrique</p>
+                    </div>
+
+                    <div class="img-item">
+                        <img src="/images/home/stores/home-store-01.jpg" alt="store">
+                    </div>
+
+                    <div class="content-item">
+                        <a href="tel:0565495068"><i class="far fa-phone-alt"></i> 05 65 49 50 68</a>
+                        <p><i class="far fa-map-marker-alt"></i> 6 Boulevard de la République <br> 12400 Saint-Affrique</p>
+                        <p><i class="far fa-info-circle"></i> Prêt-à-porter &amp; Maroquinerie</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section id="newsletter">
+        <div class="container">
+            <h2 class="title-primary">Notre newsletter</h2>
+
+            <div class="grid-center">
+                <div class="col-8_md-10_sm-12">
+                    <p>Envie de découvrir nos nouveaux modèles hyper tendances, <br> nos promotions, nos actus et suivre l’aventure du Carré de la mode ?</p>
+                </div>
+
+                <div class="col-5_md-8_sm-12">
+                    <div class="field">
+                        <input type="text" id="chnews-2" title="Inscription Ã  la newsletter" placeholder="Votre adresse e-mail">
+                        <button type="button" onclick="RecNews()" class="btn primary">Je m'inscris</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

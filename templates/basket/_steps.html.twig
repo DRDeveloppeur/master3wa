@@ -1,0 +1,13 @@
+<section class="steps">
+   <div class="cart-step-box {{(basket and basket.deliveryId) ? "done" : "active"}}" id="step_1">
+    {% include 'basket/_step-one.html.twig' with {basket} %}
+   </div>
+
+   <div class="cart-step-box {{(basket and basket.deliveryId) ? "active" : "awaiting"}}" id="step_2">
+        {% include 'basket/_step-two.html.twig' with {deliveries, basket} only %}
+    </div>
+    
+    <div class="cart-step-box awaiting" id="step_3">
+        {% include 'basket/_step-three.html.twig' with {basket} only %}
+    </div>
+</section>

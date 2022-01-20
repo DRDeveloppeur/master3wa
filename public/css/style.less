@@ -1,0 +1,327 @@
+@import "main_variables.less";
+@import "header.less";
+@import "button.less";
+@import "modal.less";
+@import "footer.less";
+
+// ------------------ COMMON ------------------
+
+body, html {
+    padding: 0;
+    margin: 0;
+    font-family: @font-main!important;
+    color: @txt;
+}
+p {
+    margin: 0;
+}
+a {
+    text-decoration-skip-ink: auto;
+    color: inherit;
+    text-decoration: none;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+img {display: block;max-width: 100%;}
+.above {
+    &-LG {
+        @media @below-XL {
+            display: none;
+        }
+    }
+    &-MD {
+        @media @below-LG {
+            display: none;
+        }
+    }
+    &-SM {
+        @media @below-MD {
+            display: none;
+        }
+    }
+}
+.below {
+    &-LG {
+        @media @above-XL {
+            display: none;
+        }
+    }
+    &-MD {
+        @media @above-LG {
+            display: none;
+        }
+    }
+    &-SM {
+        @media @above-MD {
+            display: none;
+        }
+    }
+}
+.hover {
+    &:not(:hover) {
+        display: none;
+    }
+}
+input, button, textarea, select {
+    font: inherit;
+}
+.swiper-container {
+    overflow: hidden;
+}
+.center {
+    text-align: center!important;
+}
+
+// ------------------ CONTAINER ------------------
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+  
+@media (min-width: 768px) {
+    .container {
+        max-width: 760px;
+    }
+}
+  
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+  
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1400px;
+    }
+}
+  
+.container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+// ------------------ FIELDS ------------------
+
+.field {   
+    display: flex;    
+    align-items: flex-end;
+    flex-wrap: wrap;
+    
+    & > div {
+        width: 100%;
+
+    }
+    & div + div {
+        display: flex;    
+        align-items: flex-end;
+        flex-wrap: wrap;
+    }
+    &.mt {
+        margin-top: 15px;
+    }
+    &.mb {
+        margin-bottom: 15px;
+    }
+    select {
+        width: 100%;
+        height: @form-height;
+        padding-left: 5px;
+        background: @w;
+        border: @form-border;
+        font-size: @form-fontsize;  
+        color: @txt;
+        border-radius: @form-radius;
+    }   
+    label {
+    	flex: 1 1 100%;
+        display: block;
+        font-size: calc(@form-fontsize - 2px);
+        font-weight: 700;
+        color: @txt;
+        line-height: 12px;
+        margin-bottom: 5px;
+    }
+    input {
+    	flex: 1 1 0;
+        width: 100%;
+        height: @form-height;
+        padding-left: 10px;
+        background: @w;
+        border: @form-border;
+        font-size: @form-fontsize;  
+        color: @txt;
+        border-radius: @form-radius; 
+        transition: all ease-in-out .2s;   
+        min-width: 1%;
+        outline: none;
+    }
+    textarea {
+        width: 100%;
+        height: 200px;      
+        padding: 10px;
+        background: @w;
+        border: @form-border;
+        font-size: @form-fontsize;   
+        color: @txt;
+        border-radius: @form-radius;
+        transition: all ease-in-out .2s;
+        
+    }  
+    &.w-btn {
+        flex-wrap: nowrap;
+        input {
+            flex: 1 1 0;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            border-right: none;
+        }
+        button {
+            flex: 0 0 1!important;
+            width: auto;
+            height: @form-height;
+            border: @form-border;   
+            border-right: none;           
+            transition: all ease-in-out .2s;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            padding: 0 10px;
+            min-width: @form-height;
+            // &:hover {
+            //     color: @color-primary;
+            // }
+            // &:last-child {
+            //     border-radius: 0 6px 6px 0;
+            //     border-right: 1px solid @greylight;
+            // }         
+        }
+    }
+
+    input[type=checkbox], input[type=radio] {
+        flex: 0 0 20px;
+        height: auto;
+        margin: 0;
+        cursor: pointer;
+        align-self: center;
+        & + label {
+            flex: 1 1 0;
+            font-size: @form-fontsize ;
+            margin-bottom: 0;            
+            font-weight: 400;
+            color: @txt;
+            cursor: pointer;
+            padding-left: 5px;
+        }
+    }   
+    
+    input[type=checkbox]:hover + label, input[type=radio]:hover + label {
+        text-decoration: underline;        
+    }
+    
+    &.privacy-field {        
+        flex-wrap: wrap;              
+       
+        input[type=date] {
+            flex: 1 1 0; 
+            border: none;
+            background: none;
+            padding: 0;
+            height: @form-height;
+            font-size: @form-fontsize;
+            margin-top: 5px;                  
+        }
+    }
+
+    #registration_form_birth {
+        display: flex;
+        justify-content: space-between;
+
+        select + select {
+            margin-left: 15px;
+        }
+    }
+    ul {
+        li {
+            color: red!important;
+        }
+    }
+}
+
+.form, form {
+    margin-bottom: 15px;
+
+    .field + .field {
+        margin-top: 15px;
+    }
+}
+
+// ------------------ FLASH ------------------
+
+.alert {
+    position: absolute;
+    cursor: pointer;
+    top: 15%;
+    right: 100%;
+    width: fit-content;
+    margin: auto;
+    margin-top: 15px;
+    transition: all ease-in-out .5s;
+    font-weight: 700;
+    color: @w;
+    z-index: 999;
+    // padding: 30px;
+    // background-color: @txt;
+
+    .danger {
+        background-color: rgba(250, 0, 0, .8);
+        padding: 30px;
+        
+        &::before {
+            font-family: "Font Awesome 5 Pro";
+            font-weight: 900;
+            content: "\f06a";
+            margin-right: 15px;
+        }
+    }
+    .warning {
+        background-color: rgba(250, 87, 51, .8);
+        padding: 30px;
+
+        &::before {
+            font-family: "Font Awesome 5 Pro";
+            font-weight: 900;
+            content: "\f071";
+            margin-right: 15px;
+        }
+    }
+    .info {
+        background-color: rgba(0, 119, 255, 0.8);
+        padding: 30px;
+
+        &::before {
+            font-family: "Font Awesome 5 Pro";
+            font-weight: 900;
+            content: "\f05a";
+            margin-right: 15px;
+        }
+    }
+    .success {
+        background-color: rgba(60, 255, 0, 0.8);
+        padding: 30px;
+
+        &::before {
+            font-family: "Font Awesome 5 Pro";
+            font-weight: 900;
+            content: "\f058";
+            margin-right: 15px;
+        }
+    }
+}

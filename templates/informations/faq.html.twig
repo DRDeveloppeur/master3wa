@@ -1,0 +1,163 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Le Carrée de la mode | FAQ{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/informations.css') }}" />
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    $(document).ready(() => {
+        $('.q-block>h3').click(function() {
+            $(this).next('div').slideToggle('100', 'swing')
+        })
+    })
+</script>
+{% endblock %}
+
+{% block body %}
+<main id="informations" class="faq">
+    <div class="container">
+        <h1 class="title-primary">FAQ</h1>
+
+        <h2>Compte</h2>
+
+        <div class="q-block">
+            <h3>Comment puis-je créer mon compte ?</h3>
+            <div>
+                <p>2 options s’offrent à vous : </p>
+                <p>Vous pouvez vous rendre tout en bas de la page, à la rubrique « Mon compte » et cliquer sur « S’inscrire ».</p>
+                <p>Cliquer sur l’onglet « Connexion » en haut à droite du site, et cliquer sur « Créer un compte ».</p>
+            </div>
+        </div>
+
+        <div class="q-block">
+            <h3>Je suis déjà client en boutique. Puis-je retrouver mon compte client sur le site internet pour passer une commande ?</h3>
+            <div>
+                <p>
+                    Oui. Si vous êtes client en boutique et que vous avez laissé votre adresse email, créez-vous un compte à partir de cette même adresse mail. Vous pourrez retrouver tous vos achats en magasin et commandes passées sur notre site internet.
+                </p>
+            </div>
+        </div>
+
+        <div class="q-block">
+            <h3>J’ai oublié mon mot de passe et/ou mon adresse de connexion</h3>
+            <div>
+                <p>
+                    Si vous avez perdu votre mot de passe, nous vous invitons à le réinitialiser dans la rubrique « Mon compte ».
+                </p>
+                <p>
+                    Si vous avez oublié l’adresse e-mail avec laquelle vous vous êtes inscrit, contactez-nous par mail ou par téléphone. Nous vous enverrons un lien pour accéder à votre compte.
+                </p>
+            </div>
+        </div>
+
+        <h2>Commande</h2>
+
+        <div class="q-block">
+            <h3>Je n’ai pas reçu le mail de confirmation de commande</h3>
+            <div>
+                <p>
+                    A chaque commande, vous recevrez un email de confirmation de commande. Si vous ne l’avez pas reçu, nous vous invitons à regarder vos courriers indésirables ou dans vos SPAMS. 
+                </p>
+                <p>
+                    Si vous ne le retrouvez toujours pas, vérifiez que vous avez bien renseigné votre adresse mail. Si celle-ci est erronée, modifiez-la et contactez-nous pour que nous puissions vous renvoyer la confirmation de commande.
+                </p>
+            </div>
+        </div>
+
+        <div class="q-block">
+            <h3>Quand puis-je retirer ma commande en magasin et quelles sont les conditions de retour ?</h3>
+            <div>
+                <p>
+                    Le délai moyen constaté est de 24 à 48 heures après commande. Vous recevrez un courrier électronique vous annonçant que votre commande est disponible en magasin. 
+                </p>
+                <p>
+                    Les conditions de retour sont identiques à celles d'une commande web. (<a href="/fr/informations/cgv.awp">Voir CGV</a>)
+                </p>
+            </div>
+        </div>
+
+        <h2>Paiement</h2>
+
+        <div class="q-block">
+            <h3>Quels sont les moyens de paiement ?</h3>
+            <div>
+                <p>
+                    Vous pouvez régler vos achats par Carte Bancaire uniquement (Visa, CB et Mastercard).  
+                </p>
+            </div>
+        </div>
+
+        <div class="q-block">
+            <h3>Les paiements sont-ils sécurisés ?</h3>
+            <div>
+                <p>
+                    Le paiement par carte bancaire sur notre site internet est 100% sécurisé. La phase de paiement réalisée entre vous et le système sécurisé est entièrement cryptée. 
+                </p>
+            </div>
+        </div>
+
+        <h2>Livraison</h2>
+
+        <div class="q-block">
+            <h3>Est-il possible de suivre l’évolution de la livraison de ma commande ?</h3>
+            <div>
+                <p>
+                    Oui, vous avez la possibilité de suivre l’évolution de votre commande dans l’onglet « Suivi de commande », votre colis est gencodé. Nous pouvons savoir dans quel dépôt de la poste il se trouve. 
+                </p>
+            </div>
+        </div>
+
+        <div class="q-block">
+            <h3>Quels sont les coûts de transport ?</h3>
+            <div>
+                <p>
+                    Les frais de livraison sont GRATUITS sous certaines conditions :
+                </p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                <b>COLISSIMO avec suivi contre signature</b> <br>
+                                Délai moyen de livraison : 48h.
+                            </th>
+                            <th>
+                                <b>MONDIAL RELAY</b> <br>
+                                Délai moyen de livraison : 3j ouvrés
+                            </th>
+                            <th>
+                                RETRAIT EN MAGASIN
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                De 0 à 59,99€ : 6,90€ TTC /commande. Hors prix soldés, remisés et codes promo. 
+                            </td>
+                            <td>
+                                De 0 à 49,99€ : 4,90 euros TTC / commande. Hors prix soldés, remisés et codes promo.
+                            </td>
+                            <td rowspan="2">
+                                Gratuit
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Gratuit dès 60€
+                            </td>
+                            <td>
+                                Gratuit dès 50€
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</main>
+{% endblock %}

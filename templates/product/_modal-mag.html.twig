@@ -1,0 +1,35 @@
+<div class="modal fade show" id="modal-mag-stock" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">DISPONIBILITÉ EN BOUTIQUE</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="close"></button>
+            </div>
+            <div class="modal-body">
+                <ul class="mag-stock-list">
+                    {% set mags = [] %}
+                    {% set sizes = "" %}
+                    {% for stock in product.stocks %}
+                        {% if stock.storeId.id not in mags %}
+                            {% set mags = mags|merge([stock.storeId.id]) %}
+                            <li>
+                                {{ stock.storeId.name }} : 
+                                {% for stock in product.stocks %}
+                                    {% set mag = mags|last %}
+                                    {% if stock.storeId.id is same as mag %}
+                                        <span>{{ stock.size }}</span>
+                                    {% endif %}
+                                {% endfor %}
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn o-white" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

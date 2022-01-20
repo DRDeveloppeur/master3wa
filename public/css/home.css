@@ -1,0 +1,276 @@
+main.home section {
+  margin: 60px 0;
+}
+main.home section .title-primary {
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: 700;
+  color: #808080;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 60px;
+}
+main.home section#carousel {
+  margin-top: 0;
+}
+main.home section#carousel .slider {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main.home section#carousel .slider .content {
+  position: absolute;
+  text-align: center;
+  flex-direction: column;
+  width: 45%;
+}
+main.home section#carousel .slider .content .txt {
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 60px;
+}
+main.home section#carousel .slider .content .txt p {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  text-transform: uppercase;
+  font-size: 50px;
+  line-height: 50px;
+  color: #1a1a1a;
+  font-weight: 700;
+}
+main.home section#carousel .slider .content .btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media screen and (max-width: 959px) {
+  main.home section#carousel .slider .content {
+    padding: 15px;
+    width: 80%;
+  }
+  main.home section#carousel .slider .content .txt {
+    padding: 15px;
+    margin-bottom: 30px;
+  }
+  main.home section#carousel .slider .content .txt p {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 719px) {
+  main.home section#carousel .slider .content {
+    padding: 10px;
+    width: 100%;
+  }
+  main.home section#carousel .slider .content .txt {
+    margin-bottom: 15px;
+  }
+  main.home section#carousel .slider .content .txt p {
+    font-size: 24px;
+  }
+}
+main.home section#selection .container {
+  overflow: hidden;
+}
+main.home section#selection .items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+main.home section#selection .items .item {
+  flex: 0 0 227px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 15px 60px 15px;
+  align-self: stretch;
+  position: relative;
+  overflow: hidden;
+}
+main.home section#selection .items .item .top-item {
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+}
+main.home section#selection .items .item img {
+  max-width: 227px;
+  width: 100%;
+  margin: auto;
+  transition: all ease-in-out 0.4s;
+}
+main.home section#selection .items .item p {
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  font-size: 14px;
+  margin-bottom: 5px;
+  line-height: 20px;
+  font-weight: 400;
+}
+main.home section#selection .items .item p.label {
+  font-weight: 800;
+  color: #0d0d0d;
+}
+main.home section#selection .items .item p.price {
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+main.home section#selection .items .item p.price .old {
+  font-size: 14px;
+  color: #999999;
+  text-decoration: line-through;
+  line-height: 25px;
+  font-weight: 800;
+}
+main.home section#selection .items .item p.price .old:empty {
+  display: none;
+}
+main.home section#selection .items .item p.price .old:empty {
+  display: none;
+}
+main.home section#selection .items .item p.price .current {
+  font-size: 14px;
+  color: #0d0d0d;
+  font-weight: 800;
+  line-height: 25px;
+}
+main.home section#selection .items .item .sizes {
+  opacity: 0;
+  transition: all ease-in-out 0.2s;
+  bottom: 0;
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+main.home section#selection .items .item .sizes p {
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #808080;
+  margin-bottom: 5px;
+}
+main.home section#selection .items .item .sizes ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: inside none;
+  padding: 0;
+}
+main.home section#selection .items .item .sizes ul li {
+  font-size: 14px;
+  color: #1a1a1a;
+  line-height: 22px;
+}
+main.home section#selection .items .item .sizes ul li:not(:last-child)::after {
+  content: "-";
+  margin: 0 4px;
+}
+main.home section#selection .items .item:hover .sizes {
+  opacity: 1;
+}
+main.home section#marks .container {
+  overflow: hidden;
+}
+main.home section#marks .swiper-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main.home section#stores .block-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+main.home section#stores .block-items .item {
+  max-width: 328px;
+  max-height: 478px;
+  overflow: hidden;
+  margin-bottom: 40px!important;
+}
+main.home section#stores .block-items .item .top-item {
+  background-color: #ff5733;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main.home section#stores .block-items .item .top-item p {
+  text-align: center;
+  width: 100%;
+  font-weight: 700;
+  font-size: 20px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+main.home section#stores .block-items .item .content-item {
+  padding: 30px;
+  background-color: #f2f2f2;
+}
+main.home section#stores .block-items .item .content-item a,
+main.home section#stores .block-items .item .content-item p {
+  display: flex;
+  color: #1a1a1a;
+  font-size: 14px;
+  line-height: 16px;
+  padding: 5px 0;
+  transition: color ease-in-out 0.2s;
+}
+main.home section#stores .block-items .item .content-item a i,
+main.home section#stores .block-items .item .content-item p i {
+  margin-right: 10px;
+}
+main.home section#stores .block-items .item .content-item a:hover {
+  color: #ff5733;
+}
+main.home section#newsletter {
+  background-color: #f2f2f2;
+  margin-bottom: 60px;
+  padding: 30px 0;
+}
+main.home section#newsletter p {
+  padding: 0 30px;
+  font-weight: 300;
+  font-size: 24px;
+  color: #333333;
+  text-align: center;
+}
+main.home section#newsletter .field {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+main.home section#newsletter .field input {
+  flex: 1 1 0;
+  width: 100%;
+  height: 46px;
+  padding-left: 10px;
+  background: #FFFFFF;
+  border: 2px solid #e5e5e5;
+  border-right: none;
+  font-size: 14px;
+  color: #1a1a1a;
+  border-radius: 0;
+  transition: all ease-in-out 0.2s;
+  min-width: 1%;
+  outline: none;
+}
+main.home section#newsletter .field .btn {
+  height: 46px;
+  border: 2px solid #e5e5e5;
+  border-left: none;
+}

@@ -1,0 +1,21 @@
+<div class="modal fade show" id="modal-pay-paypal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Payer via PAYPAL</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="close"></button>
+            </div>
+            <div class="modal-body">
+                Vous êtes sûr de vouloir régler via PAYPAL ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn o-white" data-dismiss="modal">
+                    Close
+                </button>
+                <a href="{{ path('basket_pay', {'basket_id': basket.id}) }}" class="btn primary" style="margin-left: 15px;">
+                    Confirmer
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

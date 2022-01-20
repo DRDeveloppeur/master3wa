@@ -1,0 +1,210 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Le Carrée de la mode | Profile{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/profile.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/modal.css') }}" />
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('js/profile.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+{% include 'profile/_update-profile.html.twig' with {Form_update_profile} only %}
+
+<main id="profile">
+    <div class="container">
+        <section class="top">
+            <div class="grid-middle-noBottom">
+                <div class="col-9_sm-12"><p class="account-user-name">Bienvenue<br><span>{{ app.user.civility }} {{ app.user.firstname }} {{ app.user.lastname }}</span></p></div>   
+
+                <div class="col-3_sm-12">
+                    <a href="{{ path('app_logout') }}" class="btn black md"><i class="fas fa-sign-out"></i><span>Déconnexion</span></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="grid-noGutters-noBottom">
+                <div class="col-3_md-12">              
+                    <div class="account-menu">
+                        <a style="cursor: pointer;" data-to="#first" class="panel-toggle active"><i class="fas fa-user"></i><span><span>Mes coordonnées</span></span></a>
+                        <a style="cursor: pointer;" data-to="#second" class="panel-toggle"><i class="fas fa-at"></i><span>Mon identifiant</span></a>
+                        <a style="cursor: pointer;" data-to="#third" class="panel-toggle"><i class="fas fa-key"></i><span>Mon mot de passe</span></a>
+                        <a style="cursor: pointer;" data-to="#fourth" class="panel-toggle"><i class="fas fa-user-shield"></i><span>Vie privée</span></a>
+                        <a style="cursor: pointer;" data-to="#fifth" class="panel-toggle"><i class="fas fa-truck"></i><span>Suivi de commande</span></a>
+                    </div>
+                </div>
+
+                <div class="col-9_md-12">             
+                    <div class="panel-content active" id="first">
+                        <h3>Mes coordonnées</h3>
+                        
+                        <div class="billing-address">
+                            <p id="login_userinfos">
+                                <b>{{ app.user.civility }} {{ app.user.firstname }} {{ app.user.lastname }}</b><br>
+                                {{ date('now').diff(date(app.user.birth|date("m/d/Y"))).format('%y ans') }}<br><br>
+                                {{ app.user.address }}<br>
+                                {{ app.user.zipcode }} {{ app.user.city }}<br>
+                                {{ app.user.country }}<br><br>
+                                {{ app.user.phone }}<br><br>
+                                <u>{{ app.user.email }}</u>
+                            </p>
+                            <div>
+                                <button type="button" class="btn edit change"  data-toggle="modal" data-target="modal-update-profile">
+                                    <i class="fas fa-edit"></i><span>Modifier</span>
+                                </button>
+                            </div>                                            
+                        </div>
+                    </div>
+    
+                    <div class="panel-content" id="second">
+                        <h3>Mon identifiant</h3>
+    
+                        <div class="grid-center">
+                            {{ form_start(Form_update_login) }}
+                            <div class="col-4_md-6_xs-12" data-push-right="off-1_md-0" data-push-left="off-1_md-0">
+                                <div class="field">
+                                    {{ form_row(Form_update_login.email) }}
+                                </div>
+                            </div>
+    
+                            <div class="grid-center">
+                                <div class="col">
+                                    <button type="submit" class="btn black md w-200">Valider</button>
+                                </div>
+                            </div>
+                            {{ form_end(Form_update_login) }}
+                        </div>
+                    </div>
+    
+                    <div class="panel-content" id="third">
+                        <h3>Mon mot de passe</h3>
+    
+                        <div class="grid-center">
+                            {{ form_start(Form_update_password) }}
+                            <div class="col-4_md-6_xs-12" data-push-right="off-1_md-0" data-push-left="off-1_md-0">
+                                <div class="field">
+                                    {{ form_row(Form_update_password.plainPassword) }}
+                                </div>
+                            </div>
+    
+                            <div class="grid-center">
+                                <div class="col">
+                                    <button type="submit" class="btn black md w-200">Valider</button>
+                                </div>
+                            </div>
+                            {{ form_end(Form_update_password) }}
+                        </div>
+                    </div>
+    
+                    <div class="panel-content" id="fourth">
+                        <h3>Vie privée</h3>
+    
+                        <div class="grid">                        
+                            <div class="col-12">
+                                <h4>Inscription à la newsletter</h4>
+                                <div class="field checkbox news-field">                                
+                                    <input type="checkbox" id="newscheck"><label for="newscheck">Je souhaite être informé des informations et des offres commerciales de Le carré de la mode</label>
+                                </div>                             
+                            </div>
+                           
+                             <div class="col-12">
+                                <h4>Droit à l'oubli</h4>
+                                <div class="field checkbox privacy-field">                                
+                                    <input type="checkbox" id="droitoubli">
+                                    <label for="droitoubli">Je souhaite que mes données personnelles soient effacées de la base de données de Le carré de la mode à la date ci-dessous :</label>
+                                    <div class="w-100"></div>
+                                    <input type="date" id="dateoubli" readonly="">
+                                </div>                             
+                            </div>  
+    
+                            <div class="grid-center">
+                                <div class="col">
+                                    <a class="btn black md w-200" href="javascript:OkMonCompte('PV')">VALIDER</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="panel-content" id="fifth">
+                        <h3>Mes commandes</h3>
+    
+                        <div class="order-list-legend">                            
+                            <p class="date">Date</p>
+                            <p class="number">N° commande</p>
+                            <p class="status">Statut</p>
+                            <p class="tracking">Suivi</p>                                       
+                            <p class="quantity">Qté</p>
+                            <p class="total">Total</p>
+                            <p class="details"></p>                           
+                        </div>
+    
+                        {% for basket in app.user.baskets %}
+                            {% if basket.name == "Facture" %}
+                                <ul class="order-list">
+                                    <li class="order">
+                                        <div class="summary">
+                                            {% set totalAmount = 0 %}
+                                            {% set totalPrice = 0 %}
+                                            {% for order in basket.orders %}
+                                                {% set totalAmount = totalAmount + order.amount %}
+                                                {% set totalPrice = totalPrice + (order.amount *  order.stockId.price) %}
+                                            {% endfor %}
+                                            {% if totalPrice < basket.deliveryId.threshold %}
+                                                {% set totalPrice = totalPrice + basket.deliveryId.priceBefore %}
+                                            {% endif %}
+                                            <p class="date"><span class="lgnd">Date<br></span>{{ basket.createdAt|date("d/m/Y") }}</p>
+                                            <p class="number"><span class="lgnd">N°<br></span>{{ basket.refOrder }}</p>
+                                            <p class="status"><span class="lgnd">Statut<br></span>{{ basket.isPayed ? "Payée" : "Commande en cours" }}</p>
+                                            <a href="" class="tracking" target="_blank"><span class="lgnd">Suivi<br></span></a>
+                                            <p class="quantity"><span class="lgnd">Qté<br></span>{{ totalAmount }} {{ totalAmount < 2 ? "article" : "articles" }}</p>
+                                            <p class="total"><span class="lgnd">Total<br></span><span>{{ totalPrice|format_currency('EUR') }}</span></p>
+                                            <button type="button" class="details">
+                                                <i class="far fa-eye"></i>
+                                                <i class="far fa-eye-slash"></i>
+                                            </button>
+                                        </div>
+                                        
+                                        <div class="items">
+                                            <ul>
+                                                {% for order in basket.orders %}
+                                                    <li>
+                                                        <a href="{{ path('product', {'model': order.productId.model, 'ref': order.productId.ref, 'stock_id': order.stockId.id}) }}">
+                                                            <img src="{{ asset('uploads/products/' ~ order.productId.images[0].path) }}" alt="{{ order.productId.model }}">
+                                                        </a>
+                                                        <div>
+                                                            <p class="name">{{ order.productId.model }}</p>
+                                                            <p class="quantity"><span class="lgnd">Quantité<br></span>{{ order.amount }}</p>
+                                                            <p class="total"><span class="lgnd">Total<br></span>{{ (order.amount * order.stockId.price)|format_currency('EUR') }}</p>
+                                                            <button type="button" class="btn sm aw g-secondary" style="display:none;">
+                                                                <i class="far fa-exchange-alt"></i>
+                                                                <span>Demande de retour</span>
+                                                            </button>
+                                                        </div>
+                                                    </li>
+                                                {% endfor %}
+                                                <li>
+                                                    <a href="">
+                                                        <img src="{{ asset('images/common/' ~ basket.deliveryId.name ~ '.png') }}" alt="{{ basket.deliveryId.name }}" style="width:50%;margin:auto;">
+                                                    </a>
+
+                                                    <div>
+                                                        <p class="name">{{ basket.deliveryId.name }}</p>
+                                                        <p class="total"><span class="lgnd">Total<br></span>{{ totalPrice < basket.deliveryId.threshold ? basket.deliveryId.priceBefore|format_currency('EUR') : basket.deliveryId.priceAfter|format_currency('EUR') }}</p>
+                                                    </div>                                            
+                                                </li>
+                                            </ul>            
+                                        </div>
+                                    </li>
+                                </ul>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+{% endblock %}

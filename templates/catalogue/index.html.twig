@@ -1,0 +1,146 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Le Carrée de la mode | Catalogue{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/catalogue.css') }}" />
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('js/catalogue.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+<main id="catalogue">
+    <div class="top-catalogue">
+        <img src="{{ asset('uploads/top-catalogue-default.jpg') }}" alt="Top catalogue">
+
+        <div class="inner">
+            {% set favorite = false %}
+            {% for key, query in app.request.query %}
+                {% if key is same as "favorite" and query is same as "1" %}
+                    {% set favorite = true %}
+                {% endif %}
+            {% endfor %}
+            <h2>
+                {% if products|length > 0 %}
+                    {% if filters %}
+                        {% for fil in filters %}
+                            {% for key, val in fil %}
+                                {% for v in val %}
+                                    {{ key is same as "categories" ? v.name }}
+                                    {{ key is same as "marques" ? v.name }}
+                                {% endfor %}
+                            {% endfor %}
+                        {% endfor %}
+                    {% else %}
+                        {{ favorite ? "Favoris" : "Touts"}}
+                    {% endif %}
+                {% else %}
+                    Aucun article
+                {% endif %}
+            </h2>
+        </div>
+    </div>
+
+    <div class="filters">
+        {% include 'catalogue/_hystory_filter.html.twig' with {filters, favorite} only %}
+        {% include 'catalogue/_filter.html.twig' with {form:form} only %}
+    </div>
+
+    <div class="content">
+        <div class="top-content">
+            <div class="tri">
+                <div class="field">
+                    {{ knp_pagination_sortable(products, 'Prix', 'p.orders.price') }}
+                    {{ knp_pagination_sortable(products, 'Marque', 'p.marque') }}
+                    {{ knp_pagination_sortable(products, 'Famille', 'p.famille') }}
+                </div>
+            </div>
+        </div>
+        
+        {% set my_favs = "" %}
+        {% set favs_order = [] %}
+        {% if app.user %}
+            {% for basket in app.user.baskets %}
+                {% if basket.name is same as "Favoris" %}
+                    {% set my_favs = basket %}
+                {% endif %}
+            {% endfor %}
+            {% if my_favs %}
+                {% for order in my_favs.orders %}
+                    {% set favs_order = favs_order|merge([order]) %}
+                {% endfor %}
+            {% endif %}
+        {% endif %}
+
+        <div class="items">
+            {% for product in products %}
+                {% set active = false %}
+                {% for fav_order in favs_order %}
+                    {% if fav_order.productId.ref is same as product.ref %}
+                        {% set active = true %}
+                    {% endif %}
+                {% endfor %}
+
+                <div class="item" style="{{ (favorite and not active) ? "display:none" }}">
+                    <div class="top-item">
+                        <div class="tag">
+                            <p>{{ product.tag }}</p>
+                        </div>
+                        
+                        <div class="fav{{ active ? " active" }}">
+                            <a  href="{{ path('favorite', {'product_id': product.id}) }}">
+                                <i class="far fa-heart"></i>
+                            </a>
+                            <a  href="{{ path('favorite', {'product_id': product.id}) }}">
+                                <i class="fas fa-heart"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <a href="{{ path('product', {model: product.model|lower, ref: product.ref|lower}) }}">
+                        <img src="{{ asset('uploads/products/' ~ product.images[0].path) }}" alt="{{ product.model }}">
+    
+                        <p class="label">{{ product.model }}</p>
+                        <p class="ref">{{ product.ref }}</p>
+                        <p class="price">
+                            <span class="old"></span>
+                            {% set prices = [] %}
+                            {% set prx = "" %}
+                            {% for stock in product.stocks %}
+                                {% set prices = prices|merge([stock.price]) %}
+                                {% if stock.discount %}
+                                    {% set discount = "0."~stock.discount %}
+                                    {% set reduce = stock.price * discount %}
+                                    {% set prx = stock.price - reduce %}
+                                {% else %}
+                                    {% set prx = min(prices) %}
+                                {% endif %}
+                            {% endfor %}
+
+                            {% if min(prices) is same as(max(prices)) %}
+                                <span class="current">{{ prx|format_currency('EUR') }}</span>
+                            {% else %}
+                                <span class="current">à partir de {{ prx|format_currency('EUR') }}</span>
+                            {% endif %}
+                        </p>
+    
+                        <div class="sizes">
+                            <p>Disponible en :</p>
+                            <ul>
+                                {% for stock in product.stocks|reduce((unique, item) => item.size in unique ? unique : unique|merge([item]), []) %}
+                                    <li>{{ stock.size }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="navigation">
+            {{ knp_pagination_render(products) }}
+        </div>
+    </div>
+
+</main>
+{% endblock %}

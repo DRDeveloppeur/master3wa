@@ -1,0 +1,41 @@
+{{ form_start(form, {attr: {class: 'fltr'}}) }}
+<div class="filter-block">
+    <button type="button" class="title" data-collapse="collapseMarques">
+        <p>Marques</p>
+        <i class="far fa-chevron-up"></i>
+    </button>           
+
+    <ul class="list" id="collapseMarques">
+        {{ form_row(form.marques) }}
+    </ul>
+
+    <button type="button" class="title" data-collapse="collapseCategories">
+        <p>Categories</p>
+        <i class="far fa-chevron-up"></i>
+    </button>           
+
+    <ul class="list" id="collapseCategories">
+        {{ form_row(form.categories) }}
+    </ul>
+
+    <button type="button" class="title" data-collapse="collapseFamille">
+        <p>Famille</p>
+        <i class="far fa-chevron-up"></i>
+    </button>           
+
+    <ul class="list" id="collapseFamille">
+        {{ form_row(form.subCategories) }}
+    </ul>
+
+    <button type="button" class="title" data-collapse="collapseTaille">
+        <p>Taille</p>
+        <i class="far fa-chevron-up"></i>
+    </button>           
+
+    <ul class="list" id="collapseTaille">
+        {{ form_row(form.sizes) }}
+    </ul>
+</div>
+
+<button type="submit" class="btn primary" style="margin: 5px auto;">Filtrer</button>
+{{ form_end(form) }}

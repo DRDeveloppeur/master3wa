@@ -1,0 +1,334 @@
+main#basket section.recap .box .header {
+  padding: 12px 15px;
+  background-color: #1a1a1a;
+}
+main#basket section.recap .box .header h2,
+main#basket section.recap .box .header h3,
+main#basket section.recap .box .header p {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 0;
+}
+main#basket section.recap .box .content {
+  border: 1px solid #e5e5e5;
+  border-top: none;
+  padding: 15px;
+}
+main#basket section.recap .box .content .items .head {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 6px 0;
+}
+main#basket section.recap .box .content .items .head p {
+  flex: 0 0 80px;
+  flex-basis: 80px;
+  margin-left: 10px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+  color: #999999;
+  text-align: left;
+}
+main#basket section.recap .box .content .items .head p:first-child {
+  flex: 1 1 0;
+  margin: 0;
+}
+main#basket section.recap .box .content .items .item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 15px 0;
+  color: #1a1a1a;
+}
+main#basket section.recap .box .content .items .item img {
+  width: 90px;
+}
+main#basket section.recap .box .content .items .item .infos {
+  flex: 1 1 0;
+}
+main#basket section.recap .box .content .items .item .infos .name {
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+main#basket section.recap .box .content .items .item .infos .settings {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+main#basket section.recap .box .content .items .item .infos .settings .field {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+}
+main#basket section.recap .box .content .items .item .infos .settings .field .label {
+  margin-right: 10px;
+  font-size: 10px;
+  color: #999999;
+  flex: 1 1 100%;
+  display: block;
+  font-weight: 700;
+  line-height: 12px;
+  margin-bottom: 5px;
+}
+main#basket section.recap .box .content .items .item .infos .settings .field a {
+  width: 46px;
+  height: 46px;
+  border: 2px solid #1a1a1a;
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all ease-in-out 0.2s;
+}
+main#basket section.recap .box .content .items .item .infos .settings .field a i {
+  color: #1a1a1a;
+}
+main#basket section.recap .box .content .items .item .infos .settings .field a.delete {
+  border-color: #1a1a1a;
+  background-color: #FFFFFF;
+  margin-left: 15px;
+}
+main#basket section.recap .box .content .items .item .infos .settings .field a.delete i {
+  color: #1a1a1a;
+}
+main#basket section.recap .box .content .items .item .infos .settings .field a.delete:hover {
+  border-color: #ef5350;
+  background-color: #FFFFFF;
+}
+main#basket section.recap .box .content .items .item .infos .settings .field a.delete:hover i {
+  color: #ef5350;
+}
+main#basket section.recap .box .content .items .item .infos .settings .field a:hover {
+  background-color: #1a1a1a;
+}
+main#basket section.recap .box .content .items .item .infos .settings .field a:hover i {
+  color: #FFFFFF;
+}
+main#basket section.recap .box .content .items .item .infos .settings .field .input {
+  width: 46px;
+  height: 46px;
+  border-top: 2px solid #1a1a1a;
+  border-bottom: 2px solid #1a1a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main#basket section.recap .box .content .items .item .infos .settings .price {
+  margin: 0;
+  font-size: 14px;
+  margin-left: 10px;
+  flex: 0 0 80px;
+}
+main#basket section.recap .box .content .items .item .infos .settings .price:last-child {
+  font-weight: 700;
+}
+main#basket section.recap .box .content .items div[class^=total-] {
+  padding: 15px 0;
+  color: #1a1a1a;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  font-size: 14px;
+}
+main#basket section.recap .box .content .items div[class^=total-] img {
+  max-width: 50px;
+  margin-top: 5px;
+  margin-left: 0;
+}
+main#basket section.recap .box .content .items div[class^=total-] .right {
+  text-align: right;
+}
+main#basket section.recap .box .content .items .total-order .left {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+main#basket section.recap .box .content .items .total-order .right {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ff5733;
+  margin-bottom: 0;
+}
+main#basket section.steps .cart-step-box {
+  margin-bottom: 15px;
+}
+main#basket section.steps .cart-step-box .header {
+  background-color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  text-align: center;
+  padding: 10px 15px;
+}
+main#basket section.steps .cart-step-box .header span,
+main#basket section.steps .cart-step-box .header h3 {
+  margin: 0;
+  color: #e5e5e5;
+  font-size: 18px;
+  font-weight: 700;
+  transition: all ease-in-out 0.2s;
+}
+main#basket section.steps .cart-step-box .header h3 {
+  font-size: 16px;
+  transition: all ease-in-out 0.2s;
+  text-transform: uppercase;
+}
+main#basket section.steps .cart-step-box .header i {
+  transition: all ease-in-out 0.2s;
+  color: #b2b2b2;
+}
+main#basket section.steps .cart-step-box .content {
+  padding: 0 15px 15px 15px;
+}
+main#basket section.steps .cart-step-box .content:not(:first-child) {
+  display: none;
+}
+main#basket section.steps .cart-step-box .content .infos p {
+  font-size: 12px;
+  color: #1a1a1a;
+}
+main#basket section.steps .cart-step-box .content .infos p:first-child {
+  font-weight: 700;
+}
+main#basket section.steps .cart-step-box .content .next-step {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+  height: 100%;
+}
+main#basket section.steps .cart-step-box .content .next-step button i {
+  margin-left: 15px;
+}
+main#basket section.steps .cart-step-box .content > div {
+  border: 1px solid #e5e5e5;
+  border-top: none;
+}
+main#basket section.steps .cart-step-box .content > div > div:first-child {
+  border-right: 1px solid #e5e5e5;
+}
+main#basket section.steps .cart-step-box .content h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #999999;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+main#basket section.steps .cart-step-box .content .field {
+  margin-bottom: 15px;
+}
+main#basket section.steps .cart-step-box .content .login {
+  padding: 15px;
+}
+main#basket section.steps .cart-step-box .content .login form {
+  margin: 0;
+}
+main#basket section.steps .cart-step-box .content .sing-in {
+  padding: 15px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+main#basket section.steps .cart-step-box .content .sing-in a {
+  margin: 0 auto;
+}
+main#basket section.steps .cart-step-box .content .profil {
+  padding: 15px;
+}
+main#basket section.steps .cart-step-box .content .delivery {
+  padding: 15px;
+}
+main#basket section.steps .cart-step-box .content .delivery .lists {
+  list-style: inside none;
+  border: 2px solid #e5e5e5;
+  margin-bottom: 15px;
+  padding: 0;
+  overflow: hidden;
+}
+main#basket section.steps .cart-step-box .content .delivery .lists a {
+  border-bottom: 2px solid #e5e5e5;
+  position: relative;
+}
+main#basket section.steps .cart-step-box .content .delivery .lists a label {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: #FFFFFF;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: all ease-in-out 0.2s;
+}
+main#basket section.steps .cart-step-box .content .delivery .lists a label img {
+  width: 70px;
+}
+main#basket section.steps .cart-step-box .content .delivery .lists a label::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  flex-basis: 20px;
+  flex-shrink: 0;
+  background: #FFFFFF;
+  border: 1px solid #999999;
+  margin-right: 15px;
+  border-radius: 10px;
+}
+main#basket section.steps .cart-step-box .content .delivery .lists a label::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 12px;
+  height: 12px;
+  background: #999999;
+  left: 19px;
+  border-radius: 6px;
+  opacity: 0;
+  transition: all ease-in-out 0.2s;
+}
+main#basket section.steps .cart-step-box .content .delivery .lists a label.active {
+  color: #ff5733;
+  background: #f2f2f2;
+}
+main#basket section.steps .cart-step-box .content .delivery .lists a label.active::after {
+  background: #ff5733;
+  opacity: 1;
+}
+main#basket section.steps .cart-step-box .content .delivery .lists a:last-child {
+  border: none;
+}
+main#basket section.steps .cart-step-box .content .delivery .lists a:hover label {
+  background: #f2f2f2;
+}
+main#basket section.steps .cart-step-box .content .payement {
+  padding: 15px;
+}
+main#basket section.steps .cart-step-box.done .header h3,
+main#basket section.steps .cart-step-box.done .header span,
+main#basket section.steps .cart-step-box.done .header i {
+  color: #66bb6a;
+}
+main#basket section.steps .cart-step-box.active .content {
+  display: block;
+}
+main#basket section.steps .cart-step-box.awaiting .header {
+  background-color: #808080;
+}
+main#basket section.steps .cart-step-box.awaiting span,
+main#basket section.steps .cart-step-box.awaiting h3 {
+  color: #cccccc;
+}
+main#basket section.steps .cart-step-box.awaiting i {
+  color: #999999;
+}

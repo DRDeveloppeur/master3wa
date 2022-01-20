@@ -1,0 +1,211 @@
+main#profile section.top {
+  display: block;
+  margin: 15px 0;
+  padding: 15px 0;
+}
+main#profile section.top .account-user-name {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #808080;
+  padding: 10px 0;
+}
+main#profile section.top .account-user-name span {
+  font-size: 18px;
+  color: #ff5733;
+  font-weight: 700;
+}
+main#profile section.top .btn {
+  margin-left: auto;
+}
+main#profile section.content {
+  margin-bottom: 60px;
+}
+main#profile section.content .account-menu .panel-toggle {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: #f2f2f2;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  transition: all ease-in-out 0.2s;
+}
+main#profile section.content .account-menu .panel-toggle i {
+  flex: 0 0 24px;
+  height: 18px;
+  text-align: center;
+  margin-right: 10px;
+  font-size: 16px;
+}
+main#profile section.content .account-menu .panel-toggle:hover:not(.active) {
+  color: #ff5733;
+}
+main#profile section.content .account-menu .panel-toggle.active {
+  color: #FFFFFF;
+  background: #ff5733;
+}
+main#profile section.content .panel-content {
+  display: none;
+  background: #f2f2f2;
+  border-left: 3px solid #ff5733;
+  padding: 15px 30px;
+  min-height: 100%;
+}
+main#profile section.content .panel-content h3 {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  color: #1a1a1a;
+  text-align: center;
+}
+main#profile section.content .panel-content .billing-address {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+main#profile section.content .panel-content .billing-address #login_userinfo {
+  flex: 1 1 0;
+  font-size: 12px;
+  color: #1a1a1a;
+}
+main#profile section.content .panel-content .billing-address > div {
+  flex: 0 0 120px;
+}
+main#profile section.content .panel-content .order-list-legend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 12px;
+  color: #808080;
+  padding-bottom: 7px;
+}
+main#profile section.content .panel-content .order-list-legend p {
+  margin-bottom: 0;
+}
+main#profile section.content .panel-content .order-list {
+  padding: 0;
+}
+main#profile section.content .panel-content .order-list .details i {
+  transition: all ease-in-out 0.2s;
+}
+main#profile section.content .panel-content .order-list .details i:last-child {
+  display: none;
+}
+main#profile section.content .panel-content .order-list .details i:first-child {
+  display: flex;
+}
+main#profile section.content .panel-content .order-list .items {
+  display: none;
+}
+main#profile section.content .panel-content .order-list.active .details i:last-child {
+  display: flex;
+}
+main#profile section.content .panel-content .order-list.active .details i:first-child {
+  display: none;
+}
+main#profile section.content .panel-content ul[class],
+main#profile section.content .panel-content ol[class] {
+  list-style: none;
+}
+main#profile section.content .panel-content ul li {
+  border-bottom: 1px solid #e5e5e5;
+}
+main#profile section.content .panel-content ul li .summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 7px 0;
+}
+main#profile section.content .panel-content ul li .summary .lgnd {
+  display: none;
+}
+main#profile section.content .panel-content ul li .summary .details {
+  flex: 0 0 40px;
+  margin-left: 15px;
+  font-size: 18px;
+  text-align: center;
+  background: none;
+  border: none;
+  color: #666666;
+  cursor: pointer;
+  transition: color ease 0.2s;
+}
+main#profile section.content .panel-content ul li .summary .details svg {
+  stroke-width: 1.5px;
+}
+main#profile section.content .panel-content ul li .summary .details svg:last-child {
+  display: none;
+}
+main#profile section.content .panel-content ul li .items {
+  border: 1px solid #e5e5e5;
+  border-bottom: none;
+  background: #e5e5e5;
+  display: none;
+}
+main#profile section.content .panel-content ul li .items ul {
+  padding: 0;
+}
+main#profile section.content .panel-content ul li .items ul li {
+  display: flex;
+  padding: 7px 15px;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 14px;
+  background: #FFFFFF;
+}
+main#profile section.content .panel-content ul li .items ul li a {
+  flex: 0 1 20%;
+  margin-right: 15px;
+}
+main#profile section.content .panel-content ul li .items ul li > div {
+  flex: 1 1 0;
+}
+main#profile section.content .panel-content ul li .items ul li > div p {
+  font-size: 14px;
+}
+main#profile section.content .panel-content ul li .items ul li > div p span {
+  color: #999999;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+main#profile section.content .panel-content ul li .items ul li > div p.name {
+  font-weight: 700;
+}
+main#profile section.content .panel-content ul li .items ul li > div p + p {
+  margin-top: 5px;
+}
+main#profile section.content .panel-content .date {
+  flex: 1 1 15%;
+}
+main#profile section.content .panel-content .number {
+  flex: 1 1 15%;
+  overflow: hidden;
+  margin-right: 15px;
+}
+main#profile section.content .panel-content .status {
+  flex: 1 1 20%;
+}
+main#profile section.content .panel-content .tracking {
+  flex: 1 1 20%;
+}
+main#profile section.content .panel-content .quantity {
+  flex: 1 1 10%;
+}
+main#profile section.content .panel-content .total {
+  flex: 0 1 20%;
+}
+main#profile section.content .panel-content .details {
+  flex: 0 0 40px;
+  margin-left: 15px;
+}
+main#profile section.content .panel-content.active {
+  display: block;
+}

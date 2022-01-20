@@ -1,0 +1,24 @@
+{% if filters or favorite %}
+    <div class="filtre-active">
+        <p class="title">Liste des filtres</p>
+        {% for value in filters %}
+            {% for key, val in value %}
+                {% if key == "sizes" %}
+                    {% for size in val %}
+                        <span>{{ size.size }}</span>
+                    {% endfor %}
+                {% elseif key == "q" %}
+                    <span>{{ val }}</span>
+                {% elseif key == "promo" %}
+                    <span>Promotion</span>
+                {% else %}
+                    {% for v in val %}
+                        <span>{{ v.name }}</span>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+        {% if favorite %} <span>Favoris</span> {% endif %}
+        <a style="width: 100%;" href="{{ path('catalogue') }}" class=""><span>Supprimer les filtres</span></a>
+    </div>
+{% endif %}
