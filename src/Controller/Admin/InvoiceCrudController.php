@@ -20,8 +20,8 @@ class InvoiceCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-            ->setEntityLabelInSingular('Image')
-            ->setEntityLabelInPlural('Images')
+            ->setEntityLabelInSingular('Facture')
+            ->setEntityLabelInPlural('Factures')
             ->setPaginatorPageSize(10)
             ->setSearchFields(['basket_id', 'name'])
             ->setDefaultSort(['created_at' => 'DESC']);
@@ -39,8 +39,8 @@ class InvoiceCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        yield TextField::new('name', 'Nom');
-        yield AssociationField::new('basket_id', 'Panier')->setColumns(3);
+        yield TextField::new('name', 'Nom')->onlyOnIndex();
+        yield AssociationField::new('basket_id', 'Utilisateur')->setColumns(3)->onlyOnIndex();
         yield DateTimeField::new('created_at', 'Date de création')->onlyOnIndex();
     }
 }

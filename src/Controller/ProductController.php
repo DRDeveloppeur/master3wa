@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProductController extends AbstractController
 {
     /**
-     * @Route("/{model}/{ref}/{stock_id}", name="product")
+     * @Route("/product/{model}/{ref}/{stock_id}", name="product")
      */
     public function index($model, $ref, $stock_id = null, ProductRepository $productRepository, StockRepository $stockRepository): Response
     {

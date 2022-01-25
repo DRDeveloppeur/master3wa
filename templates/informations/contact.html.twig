@@ -8,12 +8,12 @@
         <form action="{{ path('informations_send_email') }}">
             <div class="field">
                 <label for="email">Email*</label>
-                <input type="text" id="email" name="email">
+                <input type="email" id="email" name="email">
             </div>
 
             <div class="field">
                 <label for="objet">Objet du message*</label>
-                <input type="text" id="objet" name="objet">
+                <input type="text" id="objet" name="objet" max="20">
             </div>
 
             <div class="field">

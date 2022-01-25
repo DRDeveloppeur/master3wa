@@ -901,11 +901,13 @@ form .field + .field {
   color: #FFFFFF;
   z-index: 999;
 }
-.alert .danger {
+.alert .danger,
+.alert .error {
   background-color: rgba(250, 0, 0, 0.8);
   padding: 30px;
 }
-.alert .danger::before {
+.alert .danger::before,
+.alert .error::before {
   font-family: "Font Awesome 5 Pro";
   font-weight: 900;
   content: "\f06a";

@@ -117,22 +117,20 @@ class InformationsController extends AbstractController
         $message = $request->query->get('mess');
 
         if ($email && $objet && $message) {
-            // $this->emailVerifier->sendEmail('app_verify_email', [],(new TemplatedEmail())
-            //         ->from(new Address('raul3wa@gmail.com', 'Admin Bot'))
-            //         ->to($email)
-            //         ->subject($objet)
-            //         ->context(['message' => $message])
-            //         ->htmlTemplate('registration/confirmation_email.html.twig')
-            // );
-
+            
             $email = (new TemplatedEmail())
-                ->from(new Address('raul3wa@gmail.com', 'Admin Bot'))
-                ->to($email)
+                ->from(new Address($email, 'Demande client'))
+                ->to('raul3wa@gmail.com')
                 ->subject($objet)
                 ->context(['message' => $message])
                 ->htmlTemplate('informations/contact_email.html.twig');
 
+                
             $mailer->send($email);
+
+            $this->addFlash('success', 'Message envoyé avec succès. Nous nous efforcerons d’y répondre dans les plus bref délais.');
+        } else {
+            $this->addFlash('warning', 'Veuillez remplir tous les champs !');
         }
 
         return $this->redirectToRoute('informations_contact');

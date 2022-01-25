@@ -15,7 +15,6 @@ use App\Entity\User;
 use DateTime;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-use Faker\Factory;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AppFixtures extends Fixture
@@ -40,7 +39,6 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $data = new Data();
-        $faker = Factory::create('fr_FR');
         $brands = $data->brands;
         $categories = $data->categories;
         $subCategories = $data->subCategories;
